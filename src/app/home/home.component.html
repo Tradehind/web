@@ -1,0 +1,130 @@
+<div style="margin-top: 80px">
+  <app-home-banner></app-home-banner>
+  <!-- CATEGORY LIST -->
+  <div class="category-list">
+    <div class="category-container">
+      <div class="row">
+        <div
+          class="col-6 col-xl-2 col-lg-3 col-md-4 category-col"
+          *ngFor="let category of headerCategories"
+        >
+          <div class="d-flex align-items-center">
+            <img src="{{ category.imgPath }}" class="img-fluid category-icon" />
+            <span class="cat-name">
+              {{ category.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="view-all-btn">
+        <a>View all categories</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ************** REQUIREMENT SECTION *********** -->
+  <div class="require-section">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12 req-sec-left">
+        <div class="row req-sec-heading">
+          <h1>Trade Smarter, Your Gateway to Business Success</h1>
+        </div>
+        <div>
+          <button class="register-btn">Join Free</button>
+          <img src="" alt="" />
+        </div>
+        <div class="">
+          <p class="req-sec-p">We connect Buyers & Sellers</p>
+        </div>
+        <div class="req-sec-img">
+          <img src="../../assets/imgs/requirement.png" alt="" />
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+        <div class="req-container d-flex flex-column">
+          <div class="row req-heading">
+            <h2>Post Your Requirement</h2>
+            <p>Get the best Deals and Exclusive Offers with TradeHind</p>
+          </div>
+          <form class="d-flex flex-column form-row">
+            <div class="form-group col-md-12">
+              <label for="inputName">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputText"
+                placeholder="Name"
+              />
+            </div>
+            <div class="form-group col-md-12">
+              <label for="inputMobile">Mobile Number</label>
+              <input
+                type="number"
+                class="form-control"
+                id="inputMobile"
+                placeholder="Mobile Number"
+              />
+            </div>
+            <div class="form-group col-md-12">
+              <label for="inputMobile">Tell us about your requirement</label>
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 100px"
+              ></textarea>
+            </div>
+            <div class="form-group text-center col-md-12">
+              <button class="register-btn">Submit Requirement</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--*****************PRODUCT SECTION********** -->
+  <div class="product-section">
+    <div class="row d-flex justify-content-center">
+      <h1>Product You May Like</h1>
+      <div
+        class="card text-center col-lg-2 col-sm-4 col-xs-6"
+        *ngFor="let product of products"
+        style="width: auto; height: auto"
+      >
+        <img
+          src="{{ product.imgPath }}"
+          class="card-img-top"
+          style="padding: 0px"
+          alt="..."
+        />
+        <div class="card-body">
+          <h2 class="card-title">{{ product.title }}</h2>
+          <a href="#" class="btn btn-danger enquiry-btn">Get Enquiry</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- **************** BLOG SECTION ************** -->
+  <div class="blog-section p-5">
+    <h1>Our Blogs</h1>
+    <div class="row d-flex justify-content-center">
+      <div
+        class="card text-center col-lg-3 col-md-3 col-sm-6 col-xs-12"
+        *ngFor="let blog of blogs"
+        style="width: 18rem"
+      >
+        <img src="{{ blog.imgPath }}" class="card-img-top p-0" alt="..." />
+
+        <div class="card-body">
+          <h5 class="card-title fs-3 2">{{ blog.title }}</h5>
+          <p class="card-text">
+            {{ blog.description }}
+          </p>
+          <button type="button" class="btn btn-danger">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

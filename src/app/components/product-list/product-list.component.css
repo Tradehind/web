@@ -1,0 +1,74 @@
+.container-fluid {
+  margin: 80px 0px;
+  margin-bottom: 180px;
+}
+
+.list-group a {
+  background-color: #f7f8f9;
+  /* border: 0.1px solid rgb(107, 107, 107); */
+}
+
+.list-group a:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.product-container {
+  background-color: rgb(240, 240, 240);
+  height: min-content;
+  /* padding: 15px; */
+  /* border-radius-top: 11px; */
+
+  .enquiry-btn {
+    background-color: #b51718;
+    ;
+    border: none;
+  }
+
+  .enquiry-btn:hover {
+    background-color: black;
+
+  }
+}
+
+.premium-lbl {
+  background-color: white;
+  height: 3rem;
+  margin: 2px -12px;
+  margin-bottom: 20px;
+  border-radius: 1px;
+  padding: 5px;
+}
+
+.product-container-img {
+  color: red;
+  font-size: x-large;
+}
+
+.vertical-line {
+  width: 1px;
+  height: auto;
+  background-color: #b9b9b9;
+}
+
+.img-section {
+  background-color: #f7f8f9;
+
+
+  img {
+    height: 16rem;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.related-category {
+  margin: 0px 20px;
+  margin-bottom: 10px
+}
+
+
+@media screen and (max-width: 480px) {
+  .related-category {
+    display: none;
+  }
+}

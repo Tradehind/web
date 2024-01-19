@@ -1,0 +1,92 @@
+<div
+  class="row"
+  style="background-color: black; align-items: center; min-height: 80px"
+>
+  <div class="col-6">
+    <a href="index.html">
+      <img
+        class="img-fluid"
+        src="assets/imgs/logo-white.png"
+        style="max-height: 80px"
+      />
+    </a>
+  </div>
+  <div class="col-6" style="text-align: end">
+    <a
+      style="color: #ffffff; align-items: end; cursor: pointer"
+      data-bs-toggle="modal"
+      data-bs-target="#loginModal"
+    >
+      <span>Login | Signup</span>
+      <i
+        class="fa fa-user"
+        aria-hidden="true"
+        style="margin-left: 10px; font-size: 20px"
+      ></i>
+    </a>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-fullscreen modal-fullscreen-xl">
+    <div class="modal-content">
+      <div class="modal-body login-container">
+        <div class="card" style="width: 22rem; height: auto">
+          <div class="text-center p-2">
+            <img src="../../../assets/imgs/Login Icon.png" alt="" />
+          </div>
+          <div class="card-body">
+            <div class="text-center">
+              <h5 class="card-title fs-1">Login</h5>
+              <hr />
+            </div>
+            <!-- <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm"> -->
+            <div class="form-group pb-3">
+              <label for="mobileNumber">Mobile Number</label> <br />
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Enter mobile number"
+                name="phone"
+                required
+              />
+              <br />
+              <div class="text-end">
+                <a href="#">Change Mobile Number</a>
+              </div>
+            </div>
+            <div class="form-group pb-3">
+              <label for="otp">OTP</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter the OTP"
+                name="otp"
+                required
+              />
+              <div class="text-end">
+                <a href="#">Resend OTP</a>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <!-- </form> -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

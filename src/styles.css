@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-th-default {
+  width: auto;
+  padding: 12px 16px;
+  background: #9d9d9d;
+  color: #fff;
+}
+
+.btn-rounded {
+  border-radius: 30px;
+}
+
+.black-Theme-background {
+  background: #2b2b2b;
+}
+
+:root {
+  --main-font-color: rgb(126, 27, 27);
+  --heading-font: 18px;
+  --product-title: 14px;
+  --paragraph-font: 12px;
+}
+
+.row {
+  margin: 0;
+}
+
+.modal-backdrop.show {
+  z-index: 0;
+}
