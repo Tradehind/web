@@ -109,6 +109,11 @@
     color: #b51718 !important;
 }
 
+.view-detail {
+    color: #b51718 !important;
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 480px) {
     .related-picture {
         display: none !important;
@@ -138,5 +143,16 @@
 
     .product-price {
         text-align: center;
+    }
+
+    .view-detail {
+        color: #b51718 !important;
+        text-decoration: underline;
+        text-align: center !important;
+    }
+
+    .enquiry-btn-placeholder {
+        text-align: center !important;
+        margin-top: 10px;
     }
 }

@@ -84,42 +84,42 @@ export class HomeComponent {
       imgPath: 'assets/imgs/product-imgs/5 (1).png',
       title: 'Tyre',
     },
-    {
-      imgPath: 'assets/imgs/product-imgs/6 (1).png',
-      title: 'Hydroclone',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/7 (1).png',
-      title: 'Conveyor Chain',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/8 (1).png',
-      title: 'HSI Crusher',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/9 (1).png',
-      title: 'Bearing',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/10 (1).png',
-      title: 'Solar Panel',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/6 (1).png',
-      title: 'Hydroclone',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/7 (1).png',
-      title: 'Conveyor Chain',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/8 (1).png',
-      title: 'HSI Crusher',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/9 (1).png',
-      title: 'Bearing',
-    },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/6 (1).png',
+    //   title: 'Hydroclone',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/7 (1).png',
+    //   title: 'Conveyor Chain',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/8 (1).png',
+    //   title: 'HSI Crusher',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/9 (1).png',
+    //   title: 'Bearing',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/10 (1).png',
+    //   title: 'Solar Panel',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/6 (1).png',
+    //   title: 'Hydroclone',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/7 (1).png',
+    //   title: 'Conveyor Chain',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/8 (1).png',
+    //   title: 'HSI Crusher',
+    // },
+    // {
+    //   imgPath: 'assets/imgs/product-imgs/9 (1).png',
+    //   title: 'Bearing',
+    // },
   ];
 
   headerCategories = [
@@ -152,29 +152,29 @@ export class HomeComponent {
   blogs = [
     {
       imgPath: 'assets/imgs/Blog-imgs/Blog Image1.png',
-      title: 'first blog',
+      title: 'FIRST BLOG',
       description: 'This is first blog',
     },
     {
       imgPath: 'assets/imgs/Blog-imgs/Blog Image2.png',
-      title: 'second blog',
+      title: 'SECOND BLOG',
       description: 'This is second blog',
     },
     {
       imgPath: 'assets/imgs/Blog-imgs/Blog Image3.png',
-      title: 'third blog',
+      title: 'THIRD BLOG',
       description: 'This is third blog',
     },
     {
       imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-      title: 'fourth blog',
+      title: 'FORTH BLOG',
       description: 'This is fourth blog',
     },
-    {
-      imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-      title: 'fifth blog',
-      description: 'This is fifth blog',
-    },
+    // {
+    //   imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
+    //   title: 'fifth blog',
+    //   description: 'This is fifth blog',
+    // },
   ];
 
   constructor() {

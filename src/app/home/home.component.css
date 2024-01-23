@@ -329,6 +329,7 @@ blockquote {
     right: 0px;
     top: 30px; */
   align-items: center;
+
   a {
     font-size: 18px;
     color: #fff;
@@ -445,7 +446,7 @@ blockquote {
   border-color: #30302e;
 }
 
-.show > .btn-secondary.dropdown-toggle:focus {
+.show>.btn-secondary.dropdown-toggle:focus {
   box-shadow: none;
 }
 
@@ -1063,7 +1064,7 @@ a:hover {
   padding-right: 40px;
   padding-bottom: 40px;
   margin: 40px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
 }
 
 .req-sec-left {
@@ -1074,7 +1075,7 @@ a:hover {
 }
 
 .req-sec-heading h1 {
-  font-size: 40px;
+  font-size: 38px;
   margin-top: 50px;
   color: #ca2c2c;
   font-weight: 600;
@@ -1094,6 +1095,8 @@ a:hover {
   font-size: 17px;
   /* width: 250px; */
   border-radius: 10px;
+  margin-bottom: 30px;
+
 }
 
 .register-btn:hover {
@@ -1102,19 +1105,28 @@ a:hover {
 
 .req-sec-p {
   font-size: var(--heading-font);
-  margin: 20px 0px;
+  margin: 0px 0px;
 }
 
 .modal-dialog {
-  height: 60%; /* = 90% of the .modal-backdrop block = %90 of the screen */
+  height: 60%;
+  /* = 90% of the .modal-backdrop block = %90 of the screen */
   width: 60%;
 }
+
 .modal-content {
-  height: 100%; /* = 100% of the .modal-dialog block */
+  height: 100%;
+  /* = 100% of the .modal-dialog block */
 }
 
 .modal-body {
   height: 70%;
+}
+
+.enquiry-btn {
+  font-size: 13px !important;
+  margin-bottom: 0px !important;
+
 }
 
 .enquiry-btn:hover {
@@ -1129,8 +1141,7 @@ a:hover {
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   border-radius: 10px;
   margin-top: 15px;
-  padding: 50px;
-  padding-top: 15px;
+  padding: 50px 50px 0px 50px;
   margin-top: 40px;
   column-gap: 20px;
 }
@@ -1139,13 +1150,13 @@ a:hover {
   text-align: center;
 }
 
-.req-heading h3 {
-  font-size: 60px;
-  font-weight: 600;
+.req-heading h2 {
+  font-size: 30px;
 }
 
 .req-heading p {
-  font-size: 25px;
+  font-size: medium;
+  margin: 0px;
   color: var(--main-font-color);
 }
 
@@ -1158,13 +1169,13 @@ a:hover {
 }
 
 .product-section {
-  margin: 40px 40px;
+  /* margin: 40px 40px; */
 }
 
 .product-section h1 {
   font-size: 41px;
   color: #212121;
-  padding-left: 10.8%;
+  /* padding-left: 10.8%; */
 }
 
 /* .product-container {
@@ -1217,9 +1228,9 @@ a:hover {
 }
 
 .card img {
-  padding: 20px;
-  height: 200px;
-  width: 300px;
+  padding: 0px;
+  height: auto;
+  width: auto;
 }
 
 .card a {
@@ -1227,7 +1238,7 @@ a:hover {
   background-color: #ca2c2c;
   color: #fff;
   font-size: 20px;
-  width: 80%;
+  width: 100%;
 }
 
 .edit-btn {
@@ -1240,9 +1251,10 @@ a:hover {
 
 .blog-section {
   background-color: #fdf9f8;
-  margin: 40px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  /* margin: 40px; */
+  /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
+  /* border-radius: 10px; */
+  margin-top: 10px;
 }
 
 .blog-section h1 {
@@ -1255,9 +1267,62 @@ a:hover {
   .card:hover {
     button {
       background-color: #fff;
-      color: #880000;
+      color: var(--button-color);
     }
   }
+}
+
+.category-img {
+  /* background-image: url("../../assets/imgs/category-images/clothing\ &\ garment.png"); */
+  object-fit: cover;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+}
+
+.category-content {
+  h1 {
+    color: #fff;
+  }
+
+  button {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  button:hover {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    color: #fff;
+    background-color: var(--button-color);
+  }
+}
+
+
+.category-img:hover {
+  filter: brightness(50%);
+}
+
+.clothing-bg {
+  background-image: url('../../assets/imgs/category-images/clothing-bg.png');
+}
+
+.machinery-bg {
+  background-image: url('../../assets/imgs/category-images/machinery-bg.png');
+}
+
+.top-banner {
+  margin-bottom: 50px;
+  object-fit: cover;
+}
+
+.category-box {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 10px;
 }
 
 @media screen and (max-width: 480px) {
@@ -1273,6 +1338,7 @@ a:hover {
     width: 200px;
     margin: auto;
   }
+
   .sidenav {
     padding-top: 15px;
   }
@@ -1383,4 +1449,16 @@ a:hover {
   .cat-name {
     font-size: smaller;
   }
+}
+
+.mb-5 {
+  margin-bottom: 5px !important;
+}
+
+.section-margin {
+  margin-bottom: 50px !important;
+}
+
+.mb-10 {
+  margin-bottom: 20px;
 }

@@ -33,6 +33,7 @@
 .footer-right {
   background-color: #ea6060;
 }
+
 .outer {
   display: table;
   /* position: absolute; */
@@ -136,6 +137,23 @@ h3 {
 .footer-sec-col {
   align-items: center;
 }
+
+.copyright-footer {
+  background-color: #000;
+  padding: 10px 20px;
+}
+
+.copyright-text {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.crd-txt {
+  margin: 0px !important;
+}
+
+
 
 @media screen and (max-width: 480px) {
   .footer-content {
