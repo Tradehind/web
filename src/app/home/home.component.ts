@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
+import { ApiService } from '../services/api.service';
 declare var $: any;
 
 @Component({
@@ -177,10 +178,16 @@ export class HomeComponent {
     // },
   ];
 
-  constructor() {
+  constructor(public apiService: ApiService) {
     console.log('in con');
     this.changeGreeting();
+
+    setTimeout(() => {
+      this.getBlogsData();
+    }, 3000);
   }
+
+  ngOnInIt() {}
 
   // openProductDesc() {
   //   $('#openProductDesc').modal('show');
@@ -207,5 +214,16 @@ export class HomeComponent {
       }
       env.greetingText = env.greetingsArr[greetCount];
     }, 5000);
+  }
+
+  getBlogsData() {
+    console.log('in con dsffd');
+    this.apiService.getMethod('web-blogs').subscribe({
+      next: (v) => {
+        console.log('in con dsffd');
+      },
+      error: (e) => {},
+      complete: () => console.info('complete'),
+    });
   }
 }

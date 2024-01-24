@@ -4,7 +4,7 @@
 }
 
 .list-group a {
-  background-color: #f7f8f9;
+  background-color: #f7f7f7;
   /* border: 0.1px solid rgb(107, 107, 107); */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .product-container {
-  background-color: rgb(240, 240, 240);
+  background-color: #f7f7f7;
   height: min-content;
   /* padding: 15px; */
   /* border-radius-top: 11px; */
@@ -33,7 +33,7 @@
 .premium-lbl {
   background-color: white;
   height: 3rem;
-  margin: 2px -12px;
+  /* margin: 2px -12px; */
   margin-bottom: 20px;
   border-radius: 1px;
   padding: 5px;
