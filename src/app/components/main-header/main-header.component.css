@@ -23,6 +23,11 @@ input::placeholder {
   font: 1.25rem/3;
 }
 
+.link {
+  font-size: 14px;
+  text-decoration: none;
+}
+
 @media screen and (max-width: 480px) {
   .card {
     width: 20rem !important;

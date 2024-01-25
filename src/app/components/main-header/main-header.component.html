@@ -48,21 +48,30 @@
               <hr />
             </div>
             <!-- <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm"> -->
-            <div class="form-group pb-3">
+            <div class="form-group pb-3" *ngIf="!isOtpSent">
               <label for="mobileNumber">Mobile Number</label> <br />
               <input
                 type="tel"
                 class="form-control"
                 placeholder="Enter mobile number"
                 name="phone"
+                [(ngModel)]="mobileNumber"
+                maxlength="10"
                 required
               />
               <br />
               <div class="text-end">
-                <a href="#">Change Mobile Number</a>
+                <a href="#" class="link">Change Mobile Number</a>
               </div>
+              <br />
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  click=()
+                  [disabled]= "mobileNumber.length != 10" >Send OTP</button></div>
             </div>
-            <div class="form-group pb-3">
+            <div class="form-group pb-3" *ngIf="isOtpSent">
               <label for="otp">OTP</label>
               <input
                 type="text"
@@ -74,10 +83,13 @@
               <div class="text-end">
                 <a href="#">Resend OTP</a>
               </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
             </div>
-            <div class="text-center">
+            <!-- <div class="text-center">
               <button type="submit" class="btn btn-primary">Login</button>
-            </div>
+            </div> -->
             <!-- </form> -->
           </div>
         </div>

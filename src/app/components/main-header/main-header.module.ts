@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// import { ApiService } from '../../services/api.services';
+
 import { HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../../services/api.service';
 
 @NgModule({
   declarations: [],
@@ -10,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    // ApiService
+    ApiService
   ]
 })
 export class MainHeaderModule { }

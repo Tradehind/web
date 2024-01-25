@@ -7,10 +7,9 @@ import { Router } from '@angular/router';
 declare var $: any;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
   apiUrl: string = environment.apiUrl;
   fileUploadUrl: string = environment.fileUploadUrl;
   token: any = localStorage.getItem('token');
@@ -19,9 +18,9 @@ export class ApiService {
   constructor(private http: HttpClient, public router: Router) {
     this.apiHeaders = {
       headers: new HttpHeaders({
-        'Authorization': this.token
-      })
-    }
+        // Authorization: this.token,
+      }),
+    };
   }
 
   login(formData: any): Observable<any> {
@@ -65,15 +64,18 @@ export class ApiService {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      hour12: true
+      hour12: true,
     };
 
     return originalDate.toLocaleString('en-US', options);
   }
 
-  showHideModal(visibility: string, msg: string, type: string, timeout: number) {
-
-
+  showHideModal(
+    visibility: string,
+    msg: string,
+    type: string,
+    timeout: number
+  ) {
     let alertId = '';
     if (type == 'success') {
       alertId = '#success-alert';
@@ -83,7 +85,7 @@ export class ApiService {
       alertId = '#error-alert';
     }
 
-    $(alertId + " #spanalert").text(msg);
+    $(alertId + ' #spanalert').text(msg);
 
     if (visibility == 'visible') {
       $(alertId).show();
@@ -94,9 +96,6 @@ export class ApiService {
     } else {
       $(alertId).hide();
     }
-
-
-
   }
 
   async showFileSelected(files: any): Promise<string | undefined> {
@@ -116,6 +115,4 @@ export class ApiService {
       }
     });
   }
-
-
 }

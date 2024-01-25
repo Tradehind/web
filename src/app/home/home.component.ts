@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
 import { ApiService } from '../services/api.service';
+
 declare var $: any;
 
 @Component({
@@ -182,9 +183,7 @@ export class HomeComponent {
     console.log('in con');
     this.changeGreeting();
 
-    setTimeout(() => {
-      this.getBlogsData();
-    }, 3000);
+    this.getBlogsData();
   }
 
   ngOnInIt() {}
@@ -220,9 +219,11 @@ export class HomeComponent {
     console.log('in con dsffd');
     this.apiService.getMethod('web-blogs').subscribe({
       next: (v) => {
-        console.log('in con dsffd');
+        console.log('in con dsffasdasd');
       },
-      error: (e) => {},
+      error: (e) => {
+        console.error(e, 'error');
+      },
       complete: () => console.info('complete'),
     });
   }
