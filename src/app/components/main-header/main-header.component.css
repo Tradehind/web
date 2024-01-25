@@ -33,3 +33,49 @@ input::placeholder {
     width: 20rem !important;
   }
 }
+
+
+.input-form-button {
+  background-color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  position: absolute;
+  right: 39px;
+  top: 0px;
+  position: relative;
+}
+
+.input-form-button:hover {
+  background-color: rgb(148, 8, 8);
+  color: white;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.input-form input {
+  height: 55px;
+  width: 100%;
+  border: none;
+  border-radius: 25px;
+  padding-left: 30px;
+  margin-left: 50px;
+  font-size: 15px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  cursor: pointer;
+}

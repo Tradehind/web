@@ -12,7 +12,7 @@ declare var $: any;
 export class ApiService {
   apiUrl: string = environment.apiUrl;
   fileUploadUrl: string = environment.fileUploadUrl;
-  token: any = localStorage.getItem('token');
+  token: any = localStorage.getItem('webToken');
   apiHeaders: any;
 
   constructor(private http: HttpClient, public router: Router) {
@@ -21,6 +21,13 @@ export class ApiService {
         // Authorization: this.token,
       }),
     };
+    if(this.token){
+      this.apiHeaders = {
+        headers: new HttpHeaders({
+          Authorization: this.token,
+        }),  
+      };
+    }
   }
 
   login(formData: any): Observable<any> {

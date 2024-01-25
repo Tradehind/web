@@ -4,7 +4,7 @@
     border-radius: 0px 0px 16px 16px;
     margin-top: 80px;
     margin-bottom: 80px;
-    padding: 0;
+    padding: 0px;
     position: relative;
 }
 
@@ -112,6 +112,16 @@
 .view-detail {
     color: #b51718 !important;
     text-decoration: underline;
+}
+
+.similar-product-heading {
+    margin-left: 145px;
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.similar-products-sec {
+    padding: 50px 0px;
 }
 
 @media screen and (max-width: 480px) {

@@ -1255,13 +1255,10 @@ a:hover {
   /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
   /* border-radius: 10px; */
   margin-top: 10px;
+  padding: 10px;
 }
 
-.blog-section h1 {
-  font-size: 50px;
-  color: #212121;
-  margin-left: 3vw;
-}
+
 
 .blog-section {
   .card:hover {
@@ -1328,6 +1325,19 @@ a:hover {
 .req-sec-img {
   height: auto;
   width: 300px;
+}
+
+.blog-heading {
+  margin-left: 137px;
+  font-size: 28px;
+  margin-bottom: 18px;
+}
+
+.sec-heading {
+  text-align: left;
+  margin-left: 22px;
+  font-size: 28px;
+  color: #000;
 }
 
 @media screen and (max-width: 480px) {
@@ -1416,13 +1426,6 @@ a:hover {
     background-color: #fff;
     box-shadow: none;
 
-    h1 {
-      /* background-color: #fdf9f8; */
-      text-align: center;
-      /* border-radius: 5px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); */
-      font-size: 50px;
-    }
   }
 
   .product-section {
