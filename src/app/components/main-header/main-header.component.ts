@@ -8,7 +8,7 @@ declare var $: any;
 @Component({
   selector: 'app-main-header',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, HttpClientModule, HttpClient],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './main-header.component.html',
   styleUrl: './main-header.component.css',
   // providers: [ApiService],
