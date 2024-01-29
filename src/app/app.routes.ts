@@ -18,6 +18,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'product-list/:keyword',
+    loadChildren: () =>
+      import('./components/product-list/product-list.module').then(
+        (m) => m.ProductListModule
+      ),
+  },
+  {
     path: 'product-detail',
     loadChildren: () =>
       import('./components/product-detail/product-detail.module').then(

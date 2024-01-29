@@ -22,8 +22,8 @@
         >
       </div>
     </div>
-    <div class="col-lg-7 container" style="margin: 0px;">
-      <div class="col-md-12 shadow-sm product-container">
+    <div  class="col-lg-7 container" style="margin: 0px;">
+      <div *ngFor="let product of products" class="col-md-12 shadow-sm product-container">
         <div class="premium-lbl rounded-top shadow-sm">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -58,7 +58,7 @@
         </div>
           <div class="d-flex pb-3" style="column-gap: 2rem; padding: 20px">
             <div class="col-lg-8">
-              <h3>Jaw Crusher (single toggle)</h3>
+              <h3>{{product.name}}</h3>
               <p>
                 PREMIUM SELLER <br />
                 INR. 10,00,000/- Piece <br />
@@ -79,7 +79,7 @@
             <div class="vertical-line"></div>
             <div class="col-md-3 text-center">
               <div class="img-section img-thumbnail">
-                <img src="assets/imgs/product-imgs/product_image1.png" alt="" />
+                <img src="{{fileUrl}}{{product.primary_image}}" alt="" />
                 <span style="color: red; text-decoration: underline"
                   >Roljack Asia Limited</span
                 >
@@ -87,7 +87,7 @@
             </div>
         </div>
       </div>
-      <div class="col-md-12 shadow-sm product-container mb-5">
+      <!-- <div class="col-md-12 shadow-sm product-container mb-5">
         <div class="d-flex pb-3" style="column-gap: 2rem; padding: 20px">
           <div class="col-lg-8">
             <h3>Jaw Crusher (single toggle)</h3>
@@ -126,8 +126,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
+
+
       <div class="col-lg-3 related-picture shadow-sm">
         <div class="row text-center">
           <h3>Related products</h3>
