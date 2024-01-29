@@ -55,16 +55,24 @@
     font-size: larger;
 }
 
+.view-number {
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
 .enquiry-btn:hover {
     background-color: #212121;
 }
 
 .related-picture {
     background-color: #fff;
-    border-radius: 15px;
-    padding: 10px;
-    position: absolute;
-    margin: -155px 74%;
+    margin: 0px;
+    padding: 20px;
+    /* border-radius: 15px; */
+    /* padding: 10px; */
+    /* position: absolute; */
+    /* margin: -155px 74%; */
+    /* margin-top: 0px !important; */
 }
 
 .related-picture img {
