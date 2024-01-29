@@ -34,3 +34,7 @@
 .modal-backdrop.show {
   z-index: 0;
 }
+
+.text-bold {
+  font-weight: bold;
+}

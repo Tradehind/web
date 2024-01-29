@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
 import { ApiService } from '../services/api.service';
+import { environment } from '../../environment/environment';
 
 declare var $: any;
 
@@ -13,17 +14,19 @@ declare var $: any;
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  greetingText = 'Welcome';
-  greetingsArr = [
-    'Welcome',
-    'पधारो सा',
-    'સ્વાગત છે',
-    'வரவேற்பு',
-    'ಸ್ವಾಗತ',
-    'സ്വാഗതം',
-    'ସ୍ୱାଗତ',
-    'ਸੁਆਗਤ ਹੈ',
-  ];
+  // greetingText = 'Welcome';
+  // greetingsArr = [
+  //   'Welcome',
+  //   'पधारो सा',
+  //   'સ્વાગત છે',
+  //   'வரவேற்பு',
+  //   'ಸ್ವಾಗತ',
+  //   'സ്വാഗതം',
+  //   'ସ୍ୱାଗତ',
+  //   'ਸੁਆਗਤ ਹੈ',
+  // ];
+  blogs: any = [];
+  fileUrl: string = environment.fileUploadUrl;
 
   products = [
     {
@@ -151,37 +154,37 @@ export class HomeComponent {
     },
   ];
 
-  blogs = [
-    {
-      imgPath: 'assets/imgs/Blog-imgs/Blog Image1.png',
-      title: 'FIRST BLOG',
-      description: 'This is first blog',
-    },
-    {
-      imgPath: 'assets/imgs/Blog-imgs/Blog Image2.png',
-      title: 'SECOND BLOG',
-      description: 'This is second blog',
-    },
-    {
-      imgPath: 'assets/imgs/Blog-imgs/Blog Image3.png',
-      title: 'THIRD BLOG',
-      description: 'This is third blog',
-    },
-    {
-      imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-      title: 'FORTH BLOG',
-      description: 'This is fourth blog',
-    },
-    // {
-    //   imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-    //   title: 'fifth blog',
-    //   description: 'This is fifth blog',
-    // },
-  ];
+  // blogs = [
+  //   {
+  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image1.png',
+  //     title: 'FIRST BLOG',
+  //     description: 'This is first blog',
+  //   },
+  //   {
+  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image2.png',
+  //     title: 'SECOND BLOG',
+  //     description: 'This is second blog',
+  //   },
+  //   {
+  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image3.png',
+  //     title: 'THIRD BLOG',
+  //     description: 'This is third blog',
+  //   },
+  //   {
+  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
+  //     title: 'FORTH BLOG',
+  //     description: 'This is fourth blog',
+  //   },
+  //   // {
+  //   //   imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
+  //   //   title: 'fifth blog',
+  //   //   description: 'This is fifth blog',
+  //   // },
+  // ];
 
   constructor(public apiService: ApiService) {
     console.log('in con');
-    this.changeGreeting();
+    // this.changeGreeting();
 
     this.getBlogsData();
   }
@@ -201,24 +204,25 @@ export class HomeComponent {
   //   $('#addCategoryModal').modal('show');
   // }
 
-  changeGreeting() {
-    let env = this;
-    var greetCount = 0;
+  // changeGreeting() {
+  //   let env = this;
+  //   var greetCount = 0;
 
-    setInterval(function () {
-      if (greetCount == 6) {
-        greetCount = 0;
-      } else {
-        greetCount++;
-      }
-      env.greetingText = env.greetingsArr[greetCount];
-    }, 5000);
-  }
+  //   setInterval(function () {
+  //     if (greetCount == 6) {
+  //       greetCount = 0;
+  //     } else {
+  //       greetCount++;
+  //     }
+  //     env.greetingText = env.greetingsArr[greetCount];
+  //   }, 5000);
+  // }
 
   getBlogsData() {
     console.log('in con dsffd');
     this.apiService.getMethod('web-blogs').subscribe({
       next: (v) => {
+        this.blogs = v.data;
         console.log('in con dsffasdasd');
       },
       error: (e) => {
