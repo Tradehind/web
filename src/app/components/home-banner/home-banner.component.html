@@ -30,15 +30,18 @@
     src="../../../assets/imgs/header-bg.png"
     alt=""
   />
-  <div class="d-flex center-search-box rounded-4" id="inpt-box" style="">
+  <div class="d-flex center-search-box rounded-4" id="inpt-box" >
     <input
       type=""
       class="form-control border-0 search-input"
-      placeholder="Enter product/Service name...."
-    />
+      placeholder="Search for any product or service"
+      [(ngModel)]="keyword"
+    >
     <button
       type="button"
       class="btn btn-danger rounded-3 d-flex align-items-center search-btn"
+      (click)="searchByKey()"
+      [disabled]="keyword.length<=2"
     >
       <span>Search</span>
       <i class="fa fa-search ms-2" aria-hidden="true"></i>
