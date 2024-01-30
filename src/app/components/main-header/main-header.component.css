@@ -79,3 +79,10 @@ input::placeholder {
 .logo {
   cursor: pointer;
 }
+
+.loggedin{
+  color: #fff;
+    font-size: 30px;
+    margin-right: 20px;
+    cursor: pointer;
+}
