@@ -9,19 +9,14 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './home-banner.component.html',
-  styleUrl: './home-banner.component.css'
+  styleUrl: './home-banner.component.css',
 })
 export class HomeBannerComponent {
-
   keyword: string = '';
 
-  constructor(public apiService:ApiService, public router:Router) {
-
-  }
+  constructor(public apiService: ApiService, public router: Router) {}
 
   searchByKey() {
-    this.router.navigate(['/product-list/'+this.keyword])
-    
+    this.router.navigate(['/product-list/' + this.keyword]);
   }
-
 }

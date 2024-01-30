@@ -7,14 +7,24 @@
       <img
         class="img-fluid"
         src="assets/imgs/logo-white.png"
-        style="max-height: 80px; padding: 10px;"
+        style="max-height: 80px; padding: 10px"
       />
     </a>
   </div>
-  <div class="col-4" >
-    <div class="input-form" *ngIf = "currentPage != '/home'">
-      <input type="text" placeholder="Search product/Service" />
-      <button type="button" class="btn btn-danger input-form-button">
+  <div class="col-4">
+    <div class="input-form" *ngIf="currentPage != '/home'">
+      <input
+        type="text"
+        placeholder="Search product/Service"
+        [(ngModel)]="keyword"
+        (keyup.enter)="onEnterClick()"
+      />
+      <button
+        type="button"
+        class="btn btn-danger input-form-button"
+        (click)="searchByKey()"
+        [disabled]="keyword.length <= 2"
+      >
         <!-- <img src="../../assets/imgs/search.png" height="20px" /> -->
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
@@ -78,14 +88,17 @@
                 <button
                   type="submit"
                   class="btn btn-primary"
-                  (click) = sendOtp()
-                  [disabled]= "mobileNumber.length != 10" >Send OTP</button></div>
+                  (click)="sendOtp()"
+                  [disabled]="mobileNumber.length != 10"
+                >
+                  Send OTP
+                </button>
+              </div>
             </div>
             <div class="form-group pb-3" *ngIf="isOtpSent">
               <label for="otp">OTP</label>
               <input
-              [(ngModel)]="enteredOtp"
-
+                [(ngModel)]="enteredOtp"
                 type="text"
                 class="form-control"
                 placeholder="Enter the OTP"
@@ -96,7 +109,13 @@
                 <a href="#">Resend OTP</a>
               </div>
               <div class="text-center">
-                <button type="submit" class="btn btn-primary" (click)="verifyOtp()">Login</button>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  (click)="verifyOtp()"
+                >
+                  Login
+                </button>
               </div>
             </div>
             <!-- <div class="text-center">
