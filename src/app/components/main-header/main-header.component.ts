@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 declare var $: any;
 @Component({
@@ -14,66 +15,78 @@ declare var $: any;
   // providers: [ApiService],
 })
 export class MainHeaderComponent {
+  keyword: string = '';
   public isOtpSent: boolean = false;
-  public mobileNumber: any = "";
-  public currentOtp: any ;
+  public mobileNumber: any = '';
+  public currentOtp: any;
   public enteredOtp: any;
   public currentPage: any = '';
-  constructor(public apiService: ApiService, private location: Location){
-    this.location.onUrlChange(x => this.urlChange(x));
+  constructor(
+    public apiService: ApiService,
+    private location: Location,
+    private router: Router
+  ) {
+    this.location.onUrlChange((x) => this.urlChange(x));
   }
 
-  sendOtp(){
+  sendOtp() {
     let data = {
-      phone: this.mobileNumber
-    }
-    this.apiService.getMethod('share-user-otp?phone='+this.mobileNumber).subscribe({
-      next: (v) => {
-        console.log(v)
-        if(v?.otp)
-        {
-          this.currentOtp = v.otp;
-          this.isOtpSent = true;
-        }
-      },
-      error: (e) => {
-        console.error(e)
-            },
-      complete: () => console.info('complete')
-    });
-  }
-
-  verifyOtp(){
-    if(this.enteredOtp == this.currentOtp){
-      // alert("otp matched")
-      let data = {
-        phone: this.mobileNumber
-      }
-      this.apiService.postMethod(data,'user-login').subscribe({
+      phone: this.mobileNumber,
+    };
+    this.apiService
+      .getMethod('share-user-otp?phone=' + this.mobileNumber)
+      .subscribe({
         next: (v) => {
           console.log(v);
-          alert("user loggedin successful")
-          $('#loginModal').modal('hide');
-
-          if(v?.token){
-            localStorage.setItem('webToken',v.token)
+          if (v?.otp) {
+            this.currentOtp = v.otp;
+            this.isOtpSent = true;
           }
         },
         error: (e) => {
-          console.error(e)
-              },
-        complete: () => console.info('complete')
+          console.error(e);
+        },
+        complete: () => console.info('complete'),
       });
-    }
-    else{
-      alert("otp does not matched")
+  }
+
+  verifyOtp() {
+    if (this.enteredOtp == this.currentOtp) {
+      // alert("otp matched")
+      let data = {
+        phone: this.mobileNumber,
+      };
+      this.apiService.postMethod(data, 'user-login').subscribe({
+        next: (v) => {
+          console.log(v);
+          alert('user loggedin successful');
+          $('#loginModal').modal('hide');
+
+          if (v?.token) {
+            localStorage.setItem('webToken', v.token);
+          }
+        },
+        error: (e) => {
+          console.error(e);
+        },
+        complete: () => console.info('complete'),
+      });
+    } else {
+      alert('otp does not matched');
     }
   }
-  urlChange(path:any){
+
+  urlChange(path: any) {
     console.log(path, 'path');
     this.currentPage = path;
- 
+  }
+
+  searchByKey() {
+    this.router.navigate(['/product-list/' + this.keyword]);
+  }
+
+  onEnterClick() {
+    // Programmatically trigger the button click event
+    this.searchByKey();
   }
 }
-
-

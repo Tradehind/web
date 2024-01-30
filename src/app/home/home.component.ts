@@ -26,6 +26,8 @@ export class HomeComponent {
   //   'ਸੁਆਗਤ ਹੈ',
   // ];
   blogs: any = [];
+  categories: any = [];
+
   fileUrl: string = environment.fileUploadUrl;
 
   products = [
@@ -187,6 +189,7 @@ export class HomeComponent {
     // this.changeGreeting();
 
     this.getBlogsData();
+    this.getCategories();
   }
 
   ngOnInIt() {}
@@ -223,6 +226,21 @@ export class HomeComponent {
     this.apiService.getMethod('web-blogs').subscribe({
       next: (v) => {
         this.blogs = v.data;
+
+        console.log('in con dsffasdasd');
+      },
+      error: (e) => {
+        console.error(e, 'error');
+      },
+      complete: () => console.info('complete'),
+    });
+  }
+
+  getCategories() {
+    console.log('in con get categories');
+    this.apiService.getMethod('home-categories').subscribe({
+      next: (v) => {
+        this.categories = v.data;
         console.log('in con dsffasdasd');
       },
       error: (e) => {

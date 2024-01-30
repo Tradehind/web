@@ -6,13 +6,15 @@
           Related Categories
         </h4>
         <a
-          href="{{ item.link }}"
+          href="#"
           class="list-group-item list-group-item-action"
-          *ngFor="let item of listItems"
-          >{{ item.name }}</a
+          *ngFor="let category of relatedCategory"
+          >{{ category.name }}</a
         >
       </div>
-      <div class="list-group related-category">
+
+      <!-- Related Tags -->
+      <!-- <div class="list-group related-category">
         <h4 class="list-group-item list-group-item-action">Related Tags</h4>
         <a
           href="{{ item.link }}"
@@ -20,9 +22,22 @@
           *ngFor="let item of listItems"
           >{{ item.name }}</a
         >
-      </div>
+      </div> -->
     </div>
     <div class="col-lg-7 container" style="margin: 0px">
+      <div class="card text-center" *ngIf="products.length == 0">
+        <div class="card-body">
+          <img
+            src="../../../assets/imgs/no_record_found.png"
+            alt="..."
+            style="height: 200px; width: 300px"
+          />
+          <br />
+          <h1>No Record Found</h1>
+          <br />
+          <p>Please Search Again..</p>
+        </div>
+      </div>
       <div
         *ngFor="let product of products"
         class="col-md-12 shadow-sm product-container"
@@ -135,111 +150,26 @@
       <div class="row text-center">
         <h3>Related products</h3>
         <hr />
-        <div class="card" style="width: 12rem; padding: 0px; margin: 10px">
+        <div
+          class="card"
+          style="width: 12rem; padding: 0px; margin: 10px"
+          *ngFor="let product of relatedProducts"
+        >
           <!-- <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" alt="..." > -->
           <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
+            src="{{ fileUrl }}{{ product.primary_image }}"
             class="img-thumbnail"
+            style="height: 200px; width: 200px"
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">Product</h5>
+            <h5 class="card-title">{{ product.name }}</h5>
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
             <a
               href="#"
               class="btn btn-danger"
               style="padding: 5px 20px; font-size: 12px"
-              >Go somewhere</a
-            >
-          </div>
-        </div>
-        <div class="card" style="width: 12rem; padding: 0px; margin: 10px">
-          <!-- <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" alt="..." > -->
-          <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
-            class="img-thumbnail"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a
-              href="#"
-              class="btn btn-danger"
-              style="padding: 5px 20px; font-size: 12px"
-              >Go somewhere</a
-            >
-          </div>
-        </div>
-        <div class="card" style="width: 12rem; padding: 0px; margin: 10px">
-          <!-- <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" alt="..." > -->
-          <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
-            class="img-thumbnail"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a
-              href="#"
-              class="btn btn-danger"
-              style="padding: 5px 20px; font-size: 12px"
-              >Go somewhere</a
-            >
-          </div>
-        </div>
-        <div class="card" style="width: 12rem; padding: 0px; margin: 10px">
-          <!-- <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" alt="..." > -->
-          <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
-            class="img-thumbnail"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a
-              href="#"
-              class="btn btn-danger"
-              style="padding: 5px 20px; font-size: 12px"
-              >Go somewhere</a
-            >
-          </div>
-        </div>
-        <div class="card" style="width: 12rem; padding: 0px; margin: 10px">
-          <!-- <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" alt="..." > -->
-          <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
-            class="img-thumbnail"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a
-              href="#"
-              class="btn btn-danger"
-              style="padding: 5px 20px; font-size: 12px"
-              >Go somewhere</a
-            >
-          </div>
-        </div>
-        <div class="card" style="width: 12rem; padding: 0px; margin: 10px">
-          <!-- <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" alt="..." > -->
-          <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
-            class="img-thumbnail"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">Product</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a
-              href="#"
-              class="btn btn-danger"
-              style="padding: 5px 20px; font-size: 12px"
-              >Go somewhere</a
+              >Get Enquiry</a
             >
           </div>
         </div>
