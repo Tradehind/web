@@ -27,6 +27,7 @@ export class HomeComponent {
   // ];
   blogs: any = [];
   categories: any = [];
+  categoryMenu: any;
 
   fileUrl: string = environment.fileUploadUrl;
 
@@ -222,11 +223,27 @@ export class HomeComponent {
   // }
 
   getBlogsData() {
-    console.log('in con dsffd');
+    // console.log('in con dsffd');
     this.apiService.getMethod('web-blogs').subscribe({
       next: (v) => {
         this.blogs = v.data;
 
+        // console.log('in con dsffasdasd');
+      },
+      error: (e) => {
+        console.error(e, 'error');
+      },
+      complete: () => {
+        // console.info('complete');
+      },
+    });
+  }
+
+  getCategories() {
+    console.log('in con get categories');
+    this.apiService.getMethod('home-categories').subscribe({
+      next: (resp) => {
+        this.categories = resp;
         console.log('in con dsffasdasd');
       },
       error: (e) => {
@@ -236,17 +253,8 @@ export class HomeComponent {
     });
   }
 
-  getCategories() {
-    console.log('in con get categories');
-    this.apiService.getMethod('home-categories').subscribe({
-      next: (v) => {
-        this.categories = v.data;
-        console.log('in con dsffasdasd');
-      },
-      error: (e) => {
-        console.error(e, 'error');
-      },
-      complete: () => console.info('complete'),
-    });
+  setCategoryMenu(categoryData: any) {
+    console.log(categoryData);
+    this.categoryMenu = categoryData;
   }
 }

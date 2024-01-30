@@ -1344,6 +1344,14 @@ a:hover {
   color: #000;
 }
 
+.subcategory-dropdown {
+  width: 87%;
+  min-height: 200px;
+  background: #f1f1f1;
+  position: absolute;
+  margin-top: 367px;
+}
+
 @media screen and (max-width: 480px) {
   .req-sec-heading h1 {
     font-size: 16px;
