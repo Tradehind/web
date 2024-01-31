@@ -28,6 +28,7 @@ export class HomeComponent {
   blogs: any = [];
   categories: any = [];
   categoryMenu: any;
+  hideMenu: boolean = false;
 
   fileUrl: string = environment.fileUploadUrl;
 
@@ -256,5 +257,6 @@ export class HomeComponent {
   setCategoryMenu(categoryData: any) {
     console.log(categoryData);
     this.categoryMenu = categoryData;
+    this.hideMenu = false;
   }
 }

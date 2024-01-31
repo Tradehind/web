@@ -31,4 +31,11 @@ export const routes: Routes = [
         (m) => m.ProductDetailModule
       ),
   },
+  {
+    path: 'category-list',
+    loadChildren: () =>
+      import('./components/category-list/category-list.module').then(
+        (m) => m.CategoryListModule
+      ),
+  },
 ];

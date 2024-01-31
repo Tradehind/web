@@ -1,0 +1,79 @@
+.clothing-bg {
+    background-image: url('../../../assets/imgs/category-images/clothing-bg.png');
+}
+
+.category-box {
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+}
+
+.category-img {
+    /* background-image: url("../../assets/imgs/category-images/clothing\ &\ garment.png"); */
+    object-fit: cover;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.category-content {
+    h1 {
+        color: #fff;
+    }
+
+    button {
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    button:hover {
+        border: none;
+        padding: 10px;
+        width: 100%;
+        border-radius: 10px;
+        color: #fff;
+        background-color: var(--button-color);
+    }
+}
+
+
+.category-img:hover {
+    filter: brightness(50%);
+}
+
+.section-margin {
+    margin-bottom: 50px !important;
+}
+
+ul,
+li,
+ol {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+p {
+    margin: 20px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 24px;
+}
+
+a {
+    color: #222222;
+    text-decoration: none;
+    outline: none !important;
+}
+
+a,
+.btn {
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}

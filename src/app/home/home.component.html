@@ -2,12 +2,12 @@
   <app-home-banner></app-home-banner>
   <!-- CATEGORY LIST -->
   <div class="category-list section-margin">
-    <div class="category-container">
+    <div class="category-container" (mouseleave)="hideMenu = true">
       <div class="row">
         <div
-          class="col-6 col-xl-2 col-lg-3 col-md-4 category-col"
+          class="col-6 col-xl-2 col-lg-3 col-md-4 category-col category-item"
           *ngFor="let category of categories"
-          (click)="setCategoryMenu(category)"
+          (mouseenter)="setCategoryMenu(category)"
         >
           <div class="d-flex align-items-center">
             <img
@@ -23,13 +23,19 @@
       <div class="view-all-btn">
         <a>View all categories</a>
       </div>
-      <div class="subcategory-dropdown" *ngIf="categoryMenu">
+      <div
+        class="subcategory-dropdown"
+        *ngIf="categoryMenu && hideMenu == false"
+      >
         <div class="row">
           <div class="col-lg-2" *ngFor="let menu of categoryMenu.subcategories">
-            <h1>{{ menu.name }}</h1>
+            <h1 class="menu-name">{{ menu.name }}</h1>
             <div class="sub-subcategory-list">
               <ul>
-                <li *ngFor="let submenu of menu.Subsubcategories">
+                <li
+                  *ngFor="let submenu of menu.Subsubcategories"
+                  class="submenu-name"
+                >
                   {{ submenu.name }}
                 </li>
               </ul>
