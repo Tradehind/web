@@ -1,9 +1,20 @@
-.pharma-bg {
-    background-image: url('../../../assets/imgs/category-images/pharma-bg.png');
+.dynamic-bg {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    /* filter: brightness(50%); */
+    position: relative;
 }
 
-.clothing-bg {
-    background-image: url('../../../assets/imgs/category-images/clothing-bg.png');
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 50%;
+    z-index: -1 !important;
 }
 
 .category-box {
@@ -73,4 +84,28 @@ a {
 
 a:hover {
     color: #f84215;
+}
+
+.category-img {
+    padding: 0px;
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+.subcategory {
+    font-size: 12px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.subcategory-heading {
+    font-weight: 600;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.container-section {
+    min-height: 374px;
+
 }

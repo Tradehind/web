@@ -31,8 +31,8 @@
     </div>
   </div>
   <div class="col-4" style="text-align: end">
-
-    <a *ngIf="!userData"
+    <a
+      *ngIf="!userData"
       style="color: #ffffff; align-items: end; cursor: pointer"
       data-bs-toggle="modal"
       data-bs-target="#loginModal"
@@ -45,13 +45,9 @@
       ></i>
     </a>
 
-    <a *ngIf="userData" class="loggedin"> 
+    <a *ngIf="userData" class="loggedin">
       <i class="fa fa-user-circle" aria-hidden="true"></i>
-
-
-
-    </a> 
-
+    </a>
   </div>
 </div>
 

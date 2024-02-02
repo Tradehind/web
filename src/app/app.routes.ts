@@ -25,6 +25,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'product-bycategory/:keyword',
+    loadChildren: () =>
+      import('./components/product-list/product-list.module').then(
+        (m) => m.ProductListModule
+      ),
+  },
+  {
     path: 'product-detail',
     loadChildren: () =>
       import('./components/product-detail/product-detail.module').then(
@@ -36,6 +43,13 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./components/category-list/category-list.module').then(
         (m) => m.CategoryListModule
+      ),
+  },
+  {
+    path: 'subcategory',
+    loadChildren: () =>
+      import('./components/subcategory/subcategory.module').then(
+        (m) => m.SubcategoryModule
       ),
   },
 ];
