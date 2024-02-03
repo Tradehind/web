@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
 import { ApiService } from '../services/api.service';
 import { environment } from '../../environment/environment';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
@@ -186,7 +187,7 @@ export class HomeComponent {
   //   // },
   // ];
 
-  constructor(public apiService: ApiService) {
+  constructor(public apiService: ApiService, private router: Router) {
     console.log('in con');
     // this.changeGreeting();
 
@@ -258,5 +259,9 @@ export class HomeComponent {
     console.log(categoryData);
     this.categoryMenu = categoryData;
     this.hideMenu = false;
+  }
+
+  viewAllCategories() {
+    this.router.navigate(['/category-list']);
   }
 }

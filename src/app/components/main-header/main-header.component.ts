@@ -108,9 +108,8 @@ export class MainHeaderComponent {
 
   onEnterClick() {
     // Programmatically trigger the button click event
-    if(this.keyword.length >=2 ){
+    if (this.keyword.length >= 2) {
       this.searchByKey();
     }
-
   }
 }
