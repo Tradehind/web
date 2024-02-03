@@ -30,7 +30,7 @@ export class HomeComponent {
   categories: any = [];
   categoryMenu: any;
   hideMenu: boolean = false;
-
+  homeProducts:any = [];
   fileUrl: string = environment.fileUploadUrl;
 
   products = [
@@ -166,6 +166,7 @@ export class HomeComponent {
 
     this.getBlogsData();
     this.getCategories();
+    this.getHomeProducts();
   }
 
   ngOnInIt() {}
@@ -252,6 +253,22 @@ export class HomeComponent {
       complete: () => console.info('complete')
     });
 
+  }
+
+  getHomeProducts(){
+    this.apiService.postMethod({}, 'home-products').subscribe({
+      next: (v) => {
+        console.log(v);
+        if(v.data){
+          this.homeProducts = v.data;
+        }
+      },
+      error: (e) => {
+
+      },
+      complete: () => console.info('complete')
+    });
+    
   }
 
   onKeyPress(event: any) {
