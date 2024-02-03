@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-lg-2 a align-items-start">
       <div class="list-group related-category">
-        <h4 class="list-group-item list-group-item-action">
+        <h5 class="list-group-item list-group-item-action">
           Related Categories
-        </h4>
+        </h5>
         <a
           href="#"
           class="list-group-item list-group-item-action"
@@ -77,14 +77,15 @@
         <div class="d-flex pb-3" style="column-gap: 2rem; padding: 20px">
           <div class="col-lg-8">
             <h3 style="text-transform: capitalize">{{ product.name }}</h3>
-            <p>
-              PREMIUM SELLER <br />
+            <p [innerHTML]="product.specification">
+            
+              <!-- PREMIUM SELLER <br />
               INR. 10,00,000/- Piece <br />
               Brand: Roljack Asia Limited <br />
               Automation Grade: Automatic <br />
               Material: Special Alloy Steel <br />
               Power: 50 HP - 200 HP <br />
-              Motor Type; AC Motor
+              Motor Type; AC Motor -->
             </p>
             <p>
               <a href="#">Read more...</a>
@@ -99,7 +100,7 @@
             <div class="img-section img-thumbnail">
               <img src="{{ fileUrl }}{{ product.primary_image }}" alt="" />
               <span style="color: red; text-decoration: underline"
-                >Roljack Asia Limited</span
+                >{{product.seller.company_name}}</span
               >
             </div>
           </div>
@@ -148,7 +149,7 @@
     </div>
     <div class="col-lg-3 related-picture shadow-sm">
       <div class="row text-center">
-        <h3>Related products</h3>
+        <h3>Related Products</h3>
         <hr />
         <div
           class="card"
