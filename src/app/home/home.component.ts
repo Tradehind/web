@@ -3,18 +3,20 @@ import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
 import { ApiService } from '../services/api.service';
 import { environment } from '../../environment/environment';
-<<<<<<< HEAD
-import { Router } from '@angular/router';
-=======
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
->>>>>>> 1a0f68045818a2878596d6f70a4b2aae10bd21b0
+import { Router } from '@angular/router';
 
 declare var $: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HomeBannerComponent, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    HomeBannerComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -34,7 +36,7 @@ export class HomeComponent {
   categories: any = [];
   categoryMenu: any;
   hideMenu: boolean = false;
-  homeProducts:any = [];
+  homeProducts: any = [];
   fileUrl: string = environment.fileUploadUrl;
 
   products = [
@@ -163,7 +165,6 @@ export class HomeComponent {
     },
   ];
 
-
   constructor(public apiService: ApiService, private router: Router) {
     console.log('in con');
     // this.changeGreeting();
@@ -239,18 +240,19 @@ export class HomeComponent {
     this.hideMenu = false;
   }
 
-<<<<<<< HEAD
-  viewAllCategories() {
-    this.router.navigate(['/category-list']);
-=======
-  sendEnquiry(formData:any){
+  sendEnquiry(formData: any) {
     console.log(formData, 'form data');
 
     this.apiService.postMethod(formData, 'leads').subscribe({
       next: (v) => {
         console.log(v);
-        $('#enquiry').trigger("reset");
-        this.apiService.showHideModal('visible', 'Enquiry has been sent successfully, we will contact you soon', 'success', 6000);
+        $('#enquiry').trigger('reset');
+        this.apiService.showHideModal(
+          'visible',
+          'Enquiry has been sent successfully, we will contact you soon',
+          'success',
+          6000
+        );
       },
       error: (e) => {
         console.error(e);
@@ -258,25 +260,21 @@ export class HomeComponent {
           // this.showError = e.error.message;
         }
       },
-      complete: () => console.info('complete')
+      complete: () => console.info('complete'),
     });
-
   }
 
-  getHomeProducts(){
+  getHomeProducts() {
     this.apiService.postMethod({}, 'home-products').subscribe({
       next: (v) => {
         console.log(v);
-        if(v.data){
+        if (v.data) {
           this.homeProducts = v.data;
         }
       },
-      error: (e) => {
-
-      },
-      complete: () => console.info('complete')
+      error: (e) => {},
+      complete: () => console.info('complete'),
     });
-    
   }
 
   onKeyPress(event: any) {
@@ -287,6 +285,5 @@ export class HomeComponent {
     if (!isNumber) {
       event.preventDefault();
     }
->>>>>>> 1a0f68045818a2878596d6f70a4b2aae10bd21b0
   }
 }
