@@ -135,20 +135,21 @@
       <div class="container py-5 text-center">
         <h2 class="sec-heading">Product You May Like</h2>
         <div class="row">
-          <div
+          <div style="padding:0"
             class="card text-black text-center col-lg-2"
-            *ngFor="let product of products"
+            *ngFor="let product of homeProducts"
           >
             <img
-              src="{{ product.imgPath }}"
+              src="{{fileUrl}}{{ product.primary_image }}"
               class="card-img-top"
-              alt="Apple Computer"
-              style="align-self: center; padding: 0px"
+              alt="{{ product.name }}"
+              style="align-self: center; padding: 0px; height: 200px; width: 100%;"
+              onerror="this.src='assets/imgs/Banner.jpg';"
             />
             <div class="card-body">
               <div class="text-center">
-                <h5 class="card-title">{{ product.title }}</h5>
-                <a href="#" class="btn btn-danger enquiry-btn">Get Enquiry</a>
+                <h5 class="card-title">{{ product.name }}</h5>
+                <a href="#" class="btn btn-danger enquiry-btn">Send Enquiry</a>
               </div>
             </div>
           </div>
