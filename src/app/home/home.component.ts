@@ -3,14 +3,18 @@ import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
 import { ApiService } from '../services/api.service';
 import { environment } from '../../environment/environment';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
+=======
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+>>>>>>> 1a0f68045818a2878596d6f70a4b2aae10bd21b0
 
 declare var $: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HomeBannerComponent],
+  imports: [CommonModule, HomeBannerComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -30,7 +34,7 @@ export class HomeComponent {
   categories: any = [];
   categoryMenu: any;
   hideMenu: boolean = false;
-
+  homeProducts:any = [];
   fileUrl: string = environment.fileUploadUrl;
 
   products = [
@@ -159,33 +163,6 @@ export class HomeComponent {
     },
   ];
 
-  // blogs = [
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image1.png',
-  //     title: 'FIRST BLOG',
-  //     description: 'This is first blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image2.png',
-  //     title: 'SECOND BLOG',
-  //     description: 'This is second blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image3.png',
-  //     title: 'THIRD BLOG',
-  //     description: 'This is third blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-  //     title: 'FORTH BLOG',
-  //     description: 'This is fourth blog',
-  //   },
-  //   // {
-  //   //   imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-  //   //   title: 'fifth blog',
-  //   //   description: 'This is fifth blog',
-  //   // },
-  // ];
 
   constructor(public apiService: ApiService, private router: Router) {
     console.log('in con');
@@ -193,6 +170,7 @@ export class HomeComponent {
 
     this.getBlogsData();
     this.getCategories();
+    this.getHomeProducts();
   }
 
   ngOnInIt() {}
@@ -261,7 +239,54 @@ export class HomeComponent {
     this.hideMenu = false;
   }
 
+<<<<<<< HEAD
   viewAllCategories() {
     this.router.navigate(['/category-list']);
+=======
+  sendEnquiry(formData:any){
+    console.log(formData, 'form data');
+
+    this.apiService.postMethod(formData, 'leads').subscribe({
+      next: (v) => {
+        console.log(v);
+        $('#enquiry').trigger("reset");
+        this.apiService.showHideModal('visible', 'Enquiry has been sent successfully, we will contact you soon', 'success', 6000);
+      },
+      error: (e) => {
+        console.error(e);
+        if (e?.error) {
+          // this.showError = e.error.message;
+        }
+      },
+      complete: () => console.info('complete')
+    });
+
+  }
+
+  getHomeProducts(){
+    this.apiService.postMethod({}, 'home-products').subscribe({
+      next: (v) => {
+        console.log(v);
+        if(v.data){
+          this.homeProducts = v.data;
+        }
+      },
+      error: (e) => {
+
+      },
+      complete: () => console.info('complete')
+    });
+    
+  }
+
+  onKeyPress(event: any) {
+    // Check if the pressed key is a number
+    const isNumber = /[0-9]/.test(event.key);
+
+    // If it's not a number, prevent the default behavior
+    if (!isNumber) {
+      event.preventDefault();
+    }
+>>>>>>> 1a0f68045818a2878596d6f70a4b2aae10bd21b0
   }
 }
