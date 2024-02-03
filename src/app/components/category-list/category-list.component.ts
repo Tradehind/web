@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { environment } from '../../../environment/environment';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -21,6 +21,7 @@ export class CategoryListComponent {
   constructor(public apiservice: ApiService, private router: Router) {
     this.getCategories();
     // this.searchByKey();
+    console.log(router.url);
   }
 
   getCategories() {

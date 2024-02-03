@@ -1,7 +1,8 @@
 <div class="container header-margin">
-  <div class="heading">
+  <!-- <div class="heading">
     <h1>Product And Service Directory</h1>
-  </div>
+  </div> -->
+  <br />
   <section
     class="categories mt-2 section-margin"
     *ngFor="let category of categories"
@@ -31,11 +32,9 @@
                       </a>
                     </ul>
                     <ul *ngFor="let submenu of menu.Subsubcategories">
-                      <a
-                        [(ngModel)]="keyword"
-                        (click)="searchByKey(submenu.id)"
-                        >{{ submenu.name }}</a
-                      >
+                      <a (click)="searchByKey(submenu.id)">{{
+                        submenu.name
+                      }}</a>
                     </ul>
                   </li>
                 </div>
@@ -43,12 +42,12 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-3 position-relative p-0">
-          <div
-            class="position-absolute top-50 start-50 translate-middle text-center category-content"
-          >
-            <h1 class="fs-3">{{ category.name }}</h1>
-            <button>View All</button>
+        <div class="col-lg-3 p-0">
+          <div class="category-content">
+            <div class="category-item">
+              <h1 class="fs-3 mb-3">{{ category.name }}</h1>
+              <button>View All</button>
+            </div>
           </div>
         </div>
       </div>

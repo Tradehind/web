@@ -31,26 +31,34 @@
 }
 
 .category-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+
     h1 {
         color: #fff;
+
     }
 
     button {
         border: none;
         padding: 10px;
-        width: 100%;
+        width: 150px;
         border-radius: 10px;
+
     }
 
     button:hover {
         border: none;
-        padding: 10px;
-        width: 100%;
         border-radius: 10px;
         color: #fff;
         background-color: var(--button-color);
     }
 }
+
 
 
 .category-img:hover {
@@ -108,4 +116,8 @@ a:hover {
 .container-section {
     min-height: 374px;
 
+}
+
+.mb-3 {
+    margin-bottom: 30px;
 }

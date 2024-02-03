@@ -25,7 +25,7 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'product-bycategory/:keyword',
+    path: 'product-bycategory/:id',
     loadChildren: () =>
       import('./components/product-list/product-list.module').then(
         (m) => m.ProductListModule
