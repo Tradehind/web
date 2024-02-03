@@ -82,7 +82,7 @@
             </div>
             <br />
             <br />
-            <form class="d-flex flex-column form-row">
+            <form class="d-flex flex-column form-row" (ngSubmit)="sendEnquiry(sendEnquiryForm.value)" #sendEnquiryForm="ngForm" id="enquiry">
               <div class="form-group col-md-12">
                 <label for="inputName" class="mb-5">Name</label>
                 <input
@@ -90,15 +90,21 @@
                   class="form-control"
                   id="inputText"
                   placeholder="Please enter your full name"
+                  name="name" ngModel required
                 />
               </div>
               <div class="form-group col-md-12">
                 <label for="inputMobile" class="mb-5">Mobile Number</label>
                 <input
-                  type="number"
+                  type="tel"
                   class="form-control"
                   id="inputMobile"
                   placeholder="Mobile Number"
+                  name="phone"
+                  maxlength="10"
+                  ngModel
+                  (keypress)="onKeyPress($event)"
+                  required
                 />
               </div>
               <div class="form-group col-md-12">
@@ -110,10 +116,13 @@
                   placeholder="Leave a comment here"
                   id="floatingTextarea2"
                   style="height: 100px"
+                  name="requirement_text"
+                  ngModel
+                  required
                 ></textarea>
               </div>
               <div class="form-group text-center col-md-12">
-                <button class="register-btn">Submit</button>
+                <button class="register-btn" type="submit" [disabled]="!sendEnquiryForm.valid">Submit</button>
               </div>
             </form>
           </div>

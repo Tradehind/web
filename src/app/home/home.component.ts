@@ -3,13 +3,14 @@ import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
 import { ApiService } from '../services/api.service';
 import { environment } from '../../environment/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 declare var $: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HomeBannerComponent],
+  imports: [CommonModule, HomeBannerComponent, FormsModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -158,33 +159,6 @@ export class HomeComponent {
     },
   ];
 
-  // blogs = [
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image1.png',
-  //     title: 'FIRST BLOG',
-  //     description: 'This is first blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image2.png',
-  //     title: 'SECOND BLOG',
-  //     description: 'This is second blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image3.png',
-  //     title: 'THIRD BLOG',
-  //     description: 'This is third blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-  //     title: 'FORTH BLOG',
-  //     description: 'This is fourth blog',
-  //   },
-  //   // {
-  //   //   imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-  //   //   title: 'fifth blog',
-  //   //   description: 'This is fifth blog',
-  //   // },
-  // ];
 
   constructor(public apiService: ApiService) {
     console.log('in con');
@@ -258,5 +232,35 @@ export class HomeComponent {
     console.log(categoryData);
     this.categoryMenu = categoryData;
     this.hideMenu = false;
+  }
+
+  sendEnquiry(formData:any){
+    console.log(formData, 'form data');
+
+    this.apiService.postMethod(formData, 'leads').subscribe({
+      next: (v) => {
+        console.log(v);
+        $('#enquiry').trigger("reset");
+        this.apiService.showHideModal('visible', 'Enquiry has been sent successfully, we will contact you soon', 'success', 6000);
+      },
+      error: (e) => {
+        console.error(e);
+        if (e?.error) {
+          // this.showError = e.error.message;
+        }
+      },
+      complete: () => console.info('complete')
+    });
+
+  }
+
+  onKeyPress(event: any) {
+    // Check if the pressed key is a number
+    const isNumber = /[0-9]/.test(event.key);
+
+    // If it's not a number, prevent the default behavior
+    if (!isNumber) {
+      event.preventDefault();
+    }
   }
 }
