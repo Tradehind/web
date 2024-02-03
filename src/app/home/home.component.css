@@ -42,6 +42,7 @@ a {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 h2,
@@ -1429,14 +1430,16 @@ a:hover {
     height: 70px;
   }
 
-  .view-all-btn {
+  /* .view-all-btn {
     padding: 10px 0;
+    border: 1px solid black;
   }
 
   .view-all-btn a {
     font-size: 14px;
     font-weight: 600;
-  }
+    cursor: pointer;
+  } */
 
   .require-section {
     margin: 0 20px;

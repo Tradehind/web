@@ -4,13 +4,19 @@ import { HomeBannerComponent } from '../components/home-banner/home-banner.compo
 import { ApiService } from '../services/api.service';
 import { environment } from '../../environment/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HomeBannerComponent, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    HomeBannerComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -31,11 +37,8 @@ export class HomeComponent {
   categoryMenu: any;
   hideMenu: boolean = false;
 
+  homeProducts: any = [];
   fileUrl: string = environment.fileUploadUrl;
-
-  homeProducts:any = [
-    
-  ];
 
   headerCategories = [
     {
@@ -64,8 +67,7 @@ export class HomeComponent {
     },
   ];
 
-
-  constructor(public apiService: ApiService) {
+  constructor(public apiService: ApiService, private router: Router) {
     console.log('in con');
     // this.changeGreeting();
 
@@ -140,14 +142,19 @@ export class HomeComponent {
     this.hideMenu = false;
   }
 
-  sendEnquiry(formData:any){
+  sendEnquiry(formData: any) {
     console.log(formData, 'form data');
 
     this.apiService.postMethod(formData, 'leads').subscribe({
       next: (v) => {
         console.log(v);
-        $('#enquiry').trigger("reset");
-        this.apiService.showHideModal('visible', 'Enquiry has been sent successfully, we will contact you soon', 'success', 6000);
+        $('#enquiry').trigger('reset');
+        this.apiService.showHideModal(
+          'visible',
+          'Enquiry has been sent successfully, we will contact you soon',
+          'success',
+          6000
+        );
       },
       error: (e) => {
         console.error(e);
@@ -155,25 +162,21 @@ export class HomeComponent {
           // this.showError = e.error.message;
         }
       },
-      complete: () => console.info('complete')
+      complete: () => console.info('complete'),
     });
-
   }
 
-  getHomeProducts(){
+  getHomeProducts() {
     this.apiService.postMethod({}, 'home-products').subscribe({
       next: (v) => {
         console.log(v);
-        if(v.data){
+        if (v.data) {
           this.homeProducts = v.data;
         }
       },
-      error: (e) => {
-
-      },
-      complete: () => console.info('complete')
+      error: (e) => {},
+      complete: () => console.info('complete'),
     });
-    
   }
 
   onKeyPress(event: any) {
@@ -185,4 +188,6 @@ export class HomeComponent {
       event.preventDefault();
     }
   }
+
+  viewAllCategories(){}
 }
