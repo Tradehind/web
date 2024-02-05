@@ -246,6 +246,7 @@ export class HomeComponent {
     this.apiService.postMethod(formData, 'leads').subscribe({
       next: (v) => {
         console.log(v);
+
         $('#enquiry').trigger('reset');
         this.apiService.showHideModal(
           'visible',

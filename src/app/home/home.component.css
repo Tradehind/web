@@ -1345,6 +1345,14 @@ a:hover {
   color: #000;
 }
 
+.sec-heading-blog {
+  text-align: left;
+  margin-left: 64px;
+  font-size: 34px;
+  color: #000;
+  padding: 11px;
+}
+
 .subcategory-dropdown {
   width: 87%;
   min-height: 200px;
@@ -1379,8 +1387,8 @@ a:hover {
   cursor: pointer;
 }
 
-.register-btn:disabled{
- 
+.register-btn:disabled {
+
   background-color: #e7abab;
 }
 
