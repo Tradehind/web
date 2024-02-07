@@ -24,6 +24,11 @@
 
 .search-btn {
   font-size: 15px;
+  border-radius: 13px;
+}
+
+.form-control:focus {
+  box-shadow: none;
 }
 
 @media screen and (max-width: 480px) {

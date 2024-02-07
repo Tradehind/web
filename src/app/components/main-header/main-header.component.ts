@@ -13,7 +13,9 @@ declare var $: any;
   styleUrl: './main-header.component.css',
   // providers: [ApiService],
 })
+
 export class MainHeaderComponent {
+
   keyword: string = '';
   public isOtpSent: boolean = false;
   public mobileNumber: any = '';
@@ -110,6 +112,23 @@ export class MainHeaderComponent {
     // Programmatically trigger the button click event
     if (this.keyword.length >= 2) {
       this.searchByKey();
+    }
+  }
+
+  userProfileLink() {
+    this.router.navigate(['/user-profile'])
+  }
+
+  userLogOut() {
+    let data = localStorage.removeItem('userData');
+
+    if(data == null){
+      this.router.navigate(['/home'])
+
+      localStorage.setItem('userData', JSON.stringify(data));
+      this.userData = data;
+
+      this.apiService.showHideModal('visible', 'User Logged Out!', 'success', 4000);
     }
   }
 }
