@@ -25,6 +25,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'product-bycategory/:id',
+    loadChildren: () =>
+      import('./components/product-list/product-list.module').then(
+        (m) => m.ProductListModule
+      ),
+  },
+  {
     path: 'product-detail',
     loadChildren: () =>
       import('./components/product-detail/product-detail.module').then(
@@ -32,7 +39,22 @@ export const routes: Routes = [
       ),
   },
   {
+<<<<<<< HEAD
     path: 'user-profile',
     loadChildren: () => import('./components/user-profile/user-profile.module').then((m) => m.UserProfileModule)
+=======
+    path: 'category-list',
+    loadChildren: () =>
+      import('./components/category-list/category-list.module').then(
+        (m) => m.CategoryListModule
+      ),
+  },
+  {
+    path: 'subcategory',
+    loadChildren: () =>
+      import('./components/subcategory/subcategory.module').then(
+        (m) => m.SubcategoryModule
+      ),
+>>>>>>> 2229cab7e79fdfebee048f186330ed5ec58ce13f
   },
 ];

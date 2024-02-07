@@ -3,13 +3,20 @@ import { Component } from '@angular/core';
 import { HomeBannerComponent } from '../components/home-banner/home-banner.component';
 import { ApiService } from '../services/api.service';
 import { environment } from '../../environment/environment';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 declare var $: any;
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HomeBannerComponent],
+  imports: [
+    CommonModule,
+    HomeBannerComponent,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
@@ -28,107 +35,10 @@ export class HomeComponent {
   blogs: any = [];
   categories: any = [];
   categoryMenu: any;
+  hideMenu: boolean = false;
 
+  homeProducts: any = [];
   fileUrl: string = environment.fileUploadUrl;
-
-  products = [
-    {
-      imgPath: 'assets/imgs/product-imgs/8 (1).png',
-      title: 'HSI Crusher',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/2 (1).png',
-      title: 'Plywood',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/3 (1).png',
-      title: 'Industrial Rack',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/4 (1).png',
-      title: 'Motor',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/5 (1).png',
-      title: 'Tyre',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/6 (1).png',
-      title: 'Hydroclone',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/7 (1).png',
-      title: 'Conveyor Chain',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/8 (1).png',
-      title: 'HSI Crusher',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/9 (1).png',
-      title: 'Bearing',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/10 (1).png',
-      title: 'Solar Panel',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/1 (1).png',
-      title: 'Roofing Sheet',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/2 (1).png',
-      title: 'Plywood',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/3 (1).png',
-      title: 'Industrial Rack',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/4 (1).png',
-      title: 'Motor',
-    },
-    {
-      imgPath: 'assets/imgs/product-imgs/5 (1).png',
-      title: 'Tyre',
-    },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/6 (1).png',
-    //   title: 'Hydroclone',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/7 (1).png',
-    //   title: 'Conveyor Chain',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/8 (1).png',
-    //   title: 'HSI Crusher',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/9 (1).png',
-    //   title: 'Bearing',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/10 (1).png',
-    //   title: 'Solar Panel',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/6 (1).png',
-    //   title: 'Hydroclone',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/7 (1).png',
-    //   title: 'Conveyor Chain',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/8 (1).png',
-    //   title: 'HSI Crusher',
-    // },
-    // {
-    //   imgPath: 'assets/imgs/product-imgs/9 (1).png',
-    //   title: 'Bearing',
-    // },
-  ];
 
   headerCategories = [
     {
@@ -157,40 +67,13 @@ export class HomeComponent {
     },
   ];
 
-  // blogs = [
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image1.png',
-  //     title: 'FIRST BLOG',
-  //     description: 'This is first blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image2.png',
-  //     title: 'SECOND BLOG',
-  //     description: 'This is second blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image3.png',
-  //     title: 'THIRD BLOG',
-  //     description: 'This is third blog',
-  //   },
-  //   {
-  //     imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-  //     title: 'FORTH BLOG',
-  //     description: 'This is fourth blog',
-  //   },
-  //   // {
-  //   //   imgPath: 'assets/imgs/Blog-imgs/Blog Image4.png',
-  //   //   title: 'fifth blog',
-  //   //   description: 'This is fifth blog',
-  //   // },
-  // ];
-
-  constructor(public apiService: ApiService) {
+  constructor(public apiService: ApiService, private router: Router) {
     console.log('in con');
     // this.changeGreeting();
 
     this.getBlogsData();
     this.getCategories();
+    this.getHomeProducts();
   }
 
   ngOnInIt() {}
@@ -256,5 +139,55 @@ export class HomeComponent {
   setCategoryMenu(categoryData: any) {
     console.log(categoryData);
     this.categoryMenu = categoryData;
+    this.hideMenu = false;
   }
+
+  sendEnquiry(formData: any) {
+    console.log(formData, 'form data');
+
+    this.apiService.postMethod(formData, 'leads').subscribe({
+      next: (v) => {
+        console.log(v);
+        $('#enquiry').trigger('reset');
+        this.apiService.showHideModal(
+          'visible',
+          'Enquiry has been sent successfully, we will contact you soon',
+          'success',
+          6000
+        );
+      },
+      error: (e) => {
+        console.error(e);
+        if (e?.error) {
+          // this.showError = e.error.message;
+        }
+      },
+      complete: () => console.info('complete'),
+    });
+  }
+
+  getHomeProducts() {
+    this.apiService.postMethod({}, 'home-products').subscribe({
+      next: (v) => {
+        console.log(v);
+        if (v.data) {
+          this.homeProducts = v.data;
+        }
+      },
+      error: (e) => {},
+      complete: () => console.info('complete'),
+    });
+  }
+
+  onKeyPress(event: any) {
+    // Check if the pressed key is a number
+    const isNumber = /[0-9]/.test(event.key);
+
+    // If it's not a number, prevent the default behavior
+    if (!isNumber) {
+      event.preventDefault();
+    }
+  }
+
+  viewAllCategories(){}
 }

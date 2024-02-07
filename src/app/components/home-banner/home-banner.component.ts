@@ -16,6 +16,12 @@ export class HomeBannerComponent {
 
   constructor(public apiService: ApiService, public router: Router) {}
 
+  onEnterClick() {
+    if (this.keyword.length >= 2) {
+      this.searchByKey();
+    }
+  }
+
   searchByKey() {
     this.router.navigate(['/product-list/' + this.keyword]);
   }

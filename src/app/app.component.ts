@@ -6,6 +6,8 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 
+declare var $: any;
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -22,4 +24,19 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent {
   title = 'TradeHind';
+
+  constructor(private router:Router) {
+
+    let env = this;
+
+    setInterval(() => {
+
+      if (!localStorage.getItem('webToken')) {
+        $('#loginPopupModal').modal('show');
+      }
+
+
+    }, 10000);
+
+  }
 }

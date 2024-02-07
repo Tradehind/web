@@ -2,12 +2,12 @@
   <app-home-banner></app-home-banner>
   <!-- CATEGORY LIST -->
   <div class="category-list section-margin">
-    <div class="category-container">
+    <div class="category-container" (mouseleave)="hideMenu = true">
       <div class="row">
         <div
-          class="col-6 col-xl-2 col-lg-3 col-md-4 category-col"
+          class="col-6 col-xl-2 col-lg-3 col-md-4 category-col category-item"
           *ngFor="let category of categories"
-          (click)="setCategoryMenu(category)"
+          (mouseenter)="setCategoryMenu(category)"
         >
           <div class="d-flex align-items-center">
             <img
@@ -20,16 +20,22 @@
           </div>
         </div>
       </div>
-      <div class="view-all-btn">
-        <a>View all categories</a>
+      <div (click)="viewAllCategories()">
+        <a class="view-all-btn">View all categories</a>
       </div>
-      <div class="subcategory-dropdown" *ngIf="categoryMenu">
+      <div
+        class="subcategory-dropdown"
+        *ngIf="categoryMenu && hideMenu == false"
+      >
         <div class="row">
           <div class="col-lg-2" *ngFor="let menu of categoryMenu.subcategories">
-            <h1>{{ menu.name }}</h1>
+            <h1 class="menu-name">{{ menu.name }}</h1>
             <div class="sub-subcategory-list">
               <ul>
-                <li *ngFor="let submenu of menu.Subsubcategories">
+                <li
+                  *ngFor="let submenu of menu.Subsubcategories"
+                  class="submenu-name"
+                >
                   {{ submenu.name }}
                 </li>
               </ul>
@@ -76,7 +82,7 @@
             </div>
             <br />
             <br />
-            <form class="d-flex flex-column form-row">
+            <form class="d-flex flex-column form-row" (ngSubmit)="sendEnquiry(sendEnquiryForm.value)" #sendEnquiryForm="ngForm" id="enquiry">
               <div class="form-group col-md-12">
                 <label for="inputName" class="mb-5">Name</label>
                 <input
@@ -84,15 +90,21 @@
                   class="form-control"
                   id="inputText"
                   placeholder="Please enter your full name"
+                  name="name" ngModel required
                 />
               </div>
               <div class="form-group col-md-12">
                 <label for="inputMobile" class="mb-5">Mobile Number</label>
                 <input
-                  type="number"
+                  type="tel"
                   class="form-control"
                   id="inputMobile"
                   placeholder="Mobile Number"
+                  name="phone"
+                  maxlength="10"
+                  ngModel
+                  (keypress)="onKeyPress($event)"
+                  required
                 />
               </div>
               <div class="form-group col-md-12">
@@ -104,10 +116,13 @@
                   placeholder="Leave a comment here"
                   id="floatingTextarea2"
                   style="height: 100px"
+                  name="requirement_text"
+                  ngModel
+                  required
                 ></textarea>
               </div>
               <div class="form-group text-center col-md-12">
-                <button class="register-btn">Submit</button>
+                <button class="register-btn" type="submit" [disabled]="!sendEnquiryForm.valid">Submit</button>
               </div>
             </form>
           </div>
@@ -120,20 +135,21 @@
       <div class="container py-5 text-center">
         <h2 class="sec-heading">Product You May Like</h2>
         <div class="row">
-          <div
+          <div style="padding:0"
             class="card text-black text-center col-lg-2"
-            *ngFor="let product of products"
+            *ngFor="let product of homeProducts"
           >
             <img
-              src="{{ product.imgPath }}"
+              src="{{fileUrl}}{{ product.primary_image }}"
               class="card-img-top"
-              alt="Apple Computer"
-              style="align-self: center; padding: 0px"
+              alt="{{ product.name }}"
+              style="align-self: center; padding: 0px; height: 200px; width: 100%;"
+              onerror="this.src='assets/imgs/Banner.jpg';"
             />
             <div class="card-body">
               <div class="text-center">
-                <h5 class="card-title">{{ product.title }}</h5>
-                <a href="#" class="btn btn-danger enquiry-btn">Get Enquiry</a>
+                <h5 class="card-title">{{ product.name }}</h5>
+                <a href="#" class="btn btn-danger enquiry-btn">Send Enquiry</a>
               </div>
             </div>
           </div>

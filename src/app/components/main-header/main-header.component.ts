@@ -2,7 +2,6 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 declare var $: any;
@@ -33,7 +32,7 @@ export class MainHeaderComponent {
     this.location.onUrlChange((x) => this.urlChange(x));
     let data = localStorage.getItem('userData');
 
-    if(data){
+    if (data) {
       this.userData = JSON.parse(data);
     }
   }
@@ -69,13 +68,18 @@ export class MainHeaderComponent {
         next: (v) => {
           console.log(v);
 
-          this.apiService.showHideModal('visible', 'Logged in successfully!', 'success', 4000);
+          this.apiService.showHideModal(
+            'visible',
+            'Logged in successfully!',
+            'success',
+            4000
+          );
           $('#loginModal').modal('hide');
 
           if (v?.token) {
             localStorage.setItem('webToken', v.token);
           }
-          if(v?.data){
+          if (v?.data) {
             localStorage.setItem('userData', JSON.stringify(v.data));
             this.userData = v.data;
           }
@@ -86,7 +90,12 @@ export class MainHeaderComponent {
         complete: () => console.info('complete'),
       });
     } else {
-      this.apiService.showHideModal('warning', 'OTP does not matched!', 'success', 4000);
+      this.apiService.showHideModal(
+        'warning',
+        'OTP does not matched!',
+        'success',
+        4000
+      );
     }
   }
 
@@ -101,7 +110,9 @@ export class MainHeaderComponent {
 
   onEnterClick() {
     // Programmatically trigger the button click event
-    this.searchByKey();
+    if (this.keyword.length >= 2) {
+      this.searchByKey();
+    }
   }
 
   userProfileLink() {
