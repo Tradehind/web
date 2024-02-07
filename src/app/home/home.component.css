@@ -1280,21 +1280,28 @@ a:hover {
 }
 
 .category-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
   h1 {
     color: #fff;
+
   }
 
   button {
     border: none;
     padding: 10px;
-    width: 100%;
+    width: 150px;
     border-radius: 10px;
+
   }
 
   button:hover {
     border: none;
-    padding: 10px;
-    width: 100%;
     border-radius: 10px;
     color: #fff;
     background-color: var(--button-color);
@@ -1540,4 +1547,64 @@ a:hover {
 
 .mb-10 {
   margin-bottom: 20px;
+}
+
+.dynamic-bg {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  /* filter: brightness(50%); */
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 80%;
+  z-index: -1 !important;
+}
+
+.category-img {
+  padding: 0px;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.subcategory {
+  font-size: 12px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.subcategory-heading {
+  font-weight: 600;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.container-section {
+  min-height: 374px;
+}
+
+.category-box {
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 10px;
+}
+
+.category-img {
+  padding: 0px;
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+
+.category-img:hover {
+  filter: brightness(50%);
 }

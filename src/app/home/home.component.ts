@@ -40,33 +40,6 @@ export class HomeComponent {
   homeProducts: any = [];
   fileUrl: string = environment.fileUploadUrl;
 
-  headerCategories = [
-    {
-      imgPath: 'assets/icons/home.png',
-      name: 'Home Supplies',
-    },
-    {
-      imgPath: 'assets/icons/industrial.png',
-      name: 'Industrial Machinery',
-    },
-    {
-      imgPath: 'assets/icons/electronics.png',
-      name: 'Electronics and Electronic',
-    },
-    {
-      imgPath: 'assets/icons/hospital.png',
-      name: 'Hospital & Medical Supplies',
-    },
-    {
-      imgPath: 'assets/icons/construction.png',
-      name: 'Construction & Real State',
-    },
-    {
-      imgPath: 'assets/icons/machinery.png',
-      name: 'Machinery',
-    },
-  ];
-
   constructor(public apiService: ApiService, private router: Router) {
     console.log('in con');
     // this.changeGreeting();
@@ -77,33 +50,6 @@ export class HomeComponent {
   }
 
   ngOnInIt() {}
-
-  // openProductDesc() {
-  //   $('#openProductDesc').modal('show');
-  // }
-
-  // openAddProduct() {
-  //   console.log('add product section open');
-  //   $('#addProductModal').modal('show');
-  //   console.log($('#addProductModal'), 'modal');
-  // }
-  // openAddCategory() {
-  //   $('#addCategoryModal').modal('show');
-  // }
-
-  // changeGreeting() {
-  //   let env = this;
-  //   var greetCount = 0;
-
-  //   setInterval(function () {
-  //     if (greetCount == 6) {
-  //       greetCount = 0;
-  //     } else {
-  //       greetCount++;
-  //     }
-  //     env.greetingText = env.greetingsArr[greetCount];
-  //   }, 5000);
-  // }
 
   getBlogsData() {
     // console.log('in con dsffd');
@@ -134,6 +80,14 @@ export class HomeComponent {
       },
       complete: () => console.info('complete'),
     });
+  }
+
+  subCategory() {
+    this.router.navigate(['/subcategory']);
+  }
+
+  searchByKey(value: number) {
+    this.router.navigate(['/product-bycategory/' + value]);
   }
 
   setCategoryMenu(categoryData: any) {
@@ -189,6 +143,4 @@ export class HomeComponent {
       event.preventDefault();
     }
   }
-
-  viewAllCategories(){}
 }
