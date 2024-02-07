@@ -74,9 +74,12 @@ export class HomeComponent {
     this.getBlogsData();
     this.getCategories();
     this.getHomeProducts();
+
   }
 
-  ngOnInIt() {}
+  ngOnInIt() {
+    
+  }
 
   // openProductDesc() {
   //   $('#openProductDesc').modal('show');
