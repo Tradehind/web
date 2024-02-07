@@ -1,3 +1,44 @@
+.main-div {
+  background-color: black;
+  align-items: center;
+  min-height: 80px
+}
+
+.logo-img {
+  max-height: 80px;
+  padding: 10px
+}
+
+.right-col {
+  text-align: end
+}
+
+.auth-a {
+  color: #ffffff;
+  align-items: end;
+  cursor: pointer
+}
+
+.auth-a i {
+  margin-left: 10px;
+  font-size: 20px
+}
+
+.user-dropdown-div {
+  align-items: center;
+}
+
+.user-name {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.user-dropdown-col {
+  max-width: 95px;
+}
+
+/* --------------------------- */
+
 .modal-full {
   width: 100%;
   height: 100%;
@@ -18,6 +59,11 @@
   transform: translate(-50%, -50%);
 }
 
+.login-container .card {
+  width: 22rem;
+  height: auto
+}
+
 input,
 input::placeholder {
   font: 1.25rem/3;
@@ -28,22 +74,16 @@ input::placeholder {
   text-decoration: none;
 }
 
-@media screen and (max-width: 480px) {
-  .card {
-    width: 20rem !important;
-  }
-}
-
-
 .input-form-button {
   background-color: black;
   border: none;
   padding: 10px;
   border-radius: 50%;
   position: absolute;
-  right: 39px;
+  right: 50px;
   top: 0px;
   position: relative;
+  width: 50px;
 }
 
 .input-form-button:hover {
@@ -80,9 +120,19 @@ input::placeholder {
   cursor: pointer;
 }
 
-.loggedin{
+.loggedin {
   color: #fff;
-    font-size: 30px;
-    margin-right: 20px;
-    cursor: pointer;
+  font-size: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.user-dropdown li a {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    width: 20rem !important;
+  }
 }

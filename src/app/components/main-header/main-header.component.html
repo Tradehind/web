@@ -1,72 +1,59 @@
-<div
-  class="row"
-  style="background-color: black; align-items: center; min-height: 80px"
->
+<div class="row main-div">
   <div class="col-4">
     <a href="index.html">
-      <img
-        class="img-fluid"
-        src="assets/imgs/logo-white.png"
-        style="max-height: 80px; padding: 10px"
-      />
+      <img class="img-fluid logo-img" src="assets/imgs/logo-white.png" />
     </a>
   </div>
   <div class="col-4">
     <div class="input-form" *ngIf="currentPage != '/home'">
-      <input
-        type="text"
-        placeholder="Search product/Service"
-        [(ngModel)]="keyword"
-        (keyup.enter)="onEnterClick()"
-      />
-      <button
-        type="button"
-        class="btn btn-danger input-form-button"
-        (click)="searchByKey()"
-        [disabled]="keyword.length <= 2"
-      >
+      <input type="text" placeholder="Search product/Service" [(ngModel)]="keyword" (keyup.enter)="onEnterClick()" />
+      <button type="button" class="btn btn-danger input-form-button" (click)="searchByKey()"
+        [disabled]="keyword.length <= 2">
         <!-- <img src="../../assets/imgs/search.png" height="20px" /> -->
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </div>
   </div>
-  <div class="col-4" style="text-align: end">
+  <div class="col-4 right-col">
 
-    <a *ngIf="!userData"
-      style="color: #ffffff; align-items: end; cursor: pointer"
-      data-bs-toggle="modal"
-      data-bs-target="#loginModal"
-    >
+    <a *ngIf="!userData" class="auth-a" data-bs-toggle="modal"
+      data-bs-target="#loginModal">
       <span>Login | Signup</span>
-      <i
-        class="fa fa-user"
-        aria-hidden="true"
-        style="margin-left: 10px; font-size: 20px"
-      ></i>
+      <i class="fa fa-user" aria-hidden="true"></i>
     </a>
 
-    <a *ngIf="userData" class="loggedin"> 
-      <i class="fa fa-user-circle" aria-hidden="true"></i>
-
-
-
-    </a> 
+    <div *ngIf="userData">
+      <div class="row user-dropdown-div">
+        <div class="col">
+          <span class="user-name">Hi, {{userData.first_name}}</span>
+        </div>
+        <div class="col user-dropdown-col">
+          <div class="dropdown">
+            <a class="loggedin" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-user-circle" aria-hidden="true"></i>
+            </a>
+            <ul class="dropdown-menu user-dropdown">
+              <li><a class="dropdown-item" (click)="userProfileLink()">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" (click)="userLogOut()">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
 
 <!-- Modal -->
-<div
-  class="modal fade"
-  id="loginModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen modal-fullscreen-xl">
     <div class="modal-content">
       <div class="modal-body login-container">
-        <div class="card" style="width: 22rem; height: auto">
+        <div class="card">
           <div class="text-center p-2">
             <img src="../../../assets/imgs/Login Icon.png" alt="" />
           </div>
@@ -79,50 +66,29 @@
               #loginForm="ngForm"> -->
             <div class="form-group pb-3" *ngIf="!isOtpSent">
               <label for="mobileNumber">Mobile Number</label> <br />
-              <input
-                type="tel"
-                class="form-control"
-                placeholder="Enter mobile number"
-                name="phone"
-                [(ngModel)]="mobileNumber"
-                maxlength="10"
-                required
-              />
+              <input type="tel" class="form-control" placeholder="Enter mobile number" name="phone"
+                [(ngModel)]="mobileNumber" maxlength="10" required />
               <br />
               <div class="text-end">
                 <a href="#" class="link">Change Mobile Number</a>
               </div>
               <br />
               <div class="text-center">
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  (click)="sendOtp()"
-                  [disabled]="mobileNumber.length != 10"
-                >
+                <button type="submit" class="btn btn-primary" (click)="sendOtp()"
+                  [disabled]="mobileNumber.length != 10">
                   Send OTP
                 </button>
               </div>
             </div>
             <div class="form-group pb-3" *ngIf="isOtpSent">
               <label for="otp">OTP</label>
-              <input
-                [(ngModel)]="enteredOtp"
-                type="text"
-                class="form-control"
-                placeholder="Enter the OTP"
-                name="otp"
-                required
-              />
+              <input [(ngModel)]="enteredOtp" type="text" class="form-control" placeholder="Enter the OTP" name="otp"
+                required />
               <div class="text-end">
                 <a href="#">Resend OTP</a>
               </div>
               <div class="text-center">
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  (click)="verifyOtp()"
-                >
+                <button type="submit" class="btn btn-primary" (click)="verifyOtp()">
                   Login
                 </button>
               </div>

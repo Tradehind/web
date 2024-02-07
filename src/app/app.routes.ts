@@ -7,7 +7,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'home',
+    path: 'home', 
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
@@ -30,5 +30,9 @@ export const routes: Routes = [
       import('./components/product-detail/product-detail.module').then(
         (m) => m.ProductDetailModule
       ),
+  },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./components/user-profile/user-profile.module').then((m) => m.UserProfileModule)
   },
 ];

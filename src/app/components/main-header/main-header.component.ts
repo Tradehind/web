@@ -14,8 +14,8 @@ declare var $: any;
   styleUrl: './main-header.component.css',
   // providers: [ApiService],
 })
-export class MainHeaderComponent {
 
+export class MainHeaderComponent {
 
   keyword: string = '';
   public isOtpSent: boolean = false;
@@ -23,8 +23,7 @@ export class MainHeaderComponent {
   public currentOtp: any;
   public enteredOtp: any;
   public currentPage: any = '';
-  public userData:any;
-
+  public userData: any;
 
   constructor(
     public apiService: ApiService,
@@ -103,5 +102,22 @@ export class MainHeaderComponent {
   onEnterClick() {
     // Programmatically trigger the button click event
     this.searchByKey();
+  }
+
+  userProfileLink() {
+    this.router.navigate(['/user-profile'])
+  }
+
+  userLogOut() {
+    let data = localStorage.removeItem('userData');
+
+    if(data == null){
+      this.router.navigate(['/home'])
+
+      localStorage.setItem('userData', JSON.stringify(data));
+      this.userData = data;
+
+      this.apiService.showHideModal('visible', 'User Logged Out!', 'success', 4000);
+    }
   }
 }

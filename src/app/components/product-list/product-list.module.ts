@@ -6,4 +6,5 @@ import { ProductListRoutingModule } from './product-list-routing.module';
   declarations: [],
   imports: [CommonModule, ProductListRoutingModule],
 })
+
 export class ProductListModule {}
