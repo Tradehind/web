@@ -34,6 +34,7 @@ export class HomeComponent {
   // ];
   blogs: any = [];
   categories: any = [];
+  footerCategories: any = [];
   categoryMenu: any;
   hideMenu: boolean = false;
 
@@ -72,7 +73,8 @@ export class HomeComponent {
     console.log('in con get categories');
     this.apiService.getMethod('home-categories').subscribe({
       next: (resp) => {
-        this.categories = resp;
+        this.categories = resp
+        this.footerCategories = resp.slice(0,3);
         console.log('in con dsffasdasd');
       },
       error: (e) => {
@@ -91,7 +93,7 @@ export class HomeComponent {
   }
 
   setCategoryMenu(categoryData: any) {
-    console.log(categoryData);
+    // console.log(categoryData);
     this.categoryMenu = categoryData;
     this.hideMenu = false;
   }
@@ -143,4 +145,10 @@ export class HomeComponent {
       event.preventDefault();
     }
   }
+
+  viewAllCategories() {
+    this.router.navigate(['/category-list']);
+  }
 }
+
+

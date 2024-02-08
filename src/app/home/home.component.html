@@ -1,7 +1,7 @@
 <app-home-banner></app-home-banner>
-<div style="margin-top: 80px">
+<div>
   <!-- CATEGORY LIST -->
-  <div class="category-list custom-container container section-margin">
+  <div class="category-list custom-container container mt-1">
     <div class="category-container" (mouseleave)="hideMenu = true">
       <div class="row">
         <div
@@ -21,7 +21,9 @@
         </div>
       </div>
       <div>
-        <a class="view-all-btn">View all categories</a>
+        <a class="view-all-btn" (click)="viewAllCategories()"
+          >View all categories</a
+        >
       </div>
       <div
         class="subcategory-dropdown"
@@ -46,7 +48,8 @@
     </div>
   </div>
 
-  <div class="custom-container container">
+  
+  <div class="custom-container container mt-2">
     <!-- ************** REQUIREMENT SECTION *********** -->
     <div
       class="require-section section-margin"
@@ -174,7 +177,7 @@
     <!-- *********** CATEGORY LIST SECTION CLOTHING ******************** -->
     <section
       class="section-margin dynamic-bg z-0"
-      *ngFor="let category of categories"
+      *ngFor="let category of footerCategories"
       [style.background]="'url(' + fileUrl + category.image + ')'"
     >
       <div class="overlay"></div>
@@ -255,3 +258,6 @@
     </section>
   </div>
 </div>
+
+
+

@@ -23,10 +23,11 @@ export class UserProfileComponent {
 
     if(data){
       this.userData = JSON.parse(data);
-      console.log("DATA : ", data)
+      console.log("DATA : ", data);
+      this.getUserData();
     }
 
-    this.getUserData()
+   
   }
 
   getUserData() {
@@ -37,6 +38,7 @@ export class UserProfileComponent {
 
         if (response) {
           this.copyDate = this.userData = response;
+          localStorage.setItem('userData', JSON.stringify(response));
         }
       },
       error: (e) => {
@@ -58,7 +60,7 @@ export class UserProfileComponent {
       next: (v) => {
         console.log(v);
         this.getUserData();
-        this.apiService.showHideModal('visible', 'Category has been updated successfully', 'success', 4000);
+        this.apiService.showHideModal('visible', 'Profile has been updated successfully', 'success', 4000);
       },
       error: (e) => {
         console.error(e);

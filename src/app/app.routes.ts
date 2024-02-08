@@ -39,6 +39,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'user-profile',
+    loadChildren: () =>
+      import('./components/user-profile/user-profile.module').then(
+        (m) => m.UserProfileModule
+      ),
+  },
+  {
     path: 'category-list',
     loadChildren: () =>
       import('./components/category-list/category-list.module').then(

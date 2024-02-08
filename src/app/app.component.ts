@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { EnquiryFormComponent } from './components/enquiry-form/enquiry-form.component';
 
 declare var $: any;
 
@@ -17,6 +18,7 @@ declare var $: any;
     FooterComponent,
     MainHeaderComponent,
     HttpClientModule,
+    EnquiryFormComponent
   ],
   providers: [ApiService],
   templateUrl: './app.component.html',
@@ -36,7 +38,7 @@ export class AppComponent {
       }
 
 
-    }, 10000);
+    }, 100000);
 
   }
 }
