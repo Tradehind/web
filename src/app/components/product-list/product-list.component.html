@@ -1,180 +1,156 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-2 a align-items-start">
-      <div class="list-group related-category">
-        <h5 class="list-group-item list-group-item-action">
-          Related Categories
-        </h5>
-        <a
-          href="#"
-          class="list-group-item list-group-item-action"
-          *ngFor="let category of relatedCategory"
-          >{{ category.name }}</a
-        >
+
+    <div class="col-2">
+      <div class="mb-4">
+        <ul class="list-group related-category-ul">
+          <li class="list-group-item list-group-title">
+            <h5 class="list-title">Related Categories</h5>
+          </li>
+          <li class="list-group-item list-group-list" *ngFor="let category of relatedCategory">
+            <a href="#">
+              {{category.name }}
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <!-- Related Tags -->
-      <!-- <div class="list-group related-category">
-        <h4 class="list-group-item list-group-item-action">Related Tags</h4>
-        <a
-          href="{{ item.link }}"
-          class="list-group-item list-group-item-action"
-          *ngFor="let item of listItems"
-          >{{ item.name }}</a
-        >
-      </div> -->
-    </div>
-    <div class="col-lg-7 container" style="margin: 0px">
-      <div class="card text-center" *ngIf="products.length == 0">
-        <div class="card-body">
-          <img
-            src="../../../assets/imgs/no_record_found.png"
-            alt="..."
-            style="height: 200px; width: 300px"
-          />
-          <br />
-          <h1>No Record Found</h1>
-          <br />
-          <p>Please Search Again..</p>
-        </div>
-      </div>
-      <div
-        *ngFor="let product of products"
-        class="col-md-12 shadow-sm product-container"
-      >
-        <div class="premium-lbl rounded-top shadow-sm">
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-              <img src="assets/icons/Premium Seller Icon.png" alt="" />
-              <img src="../../../assets/icons/Trusted Seller icon.png" alt="" />
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-end p-1">
+      <div class="related-product-container">
+        <div class="">
+          <h5 class="list-title">Related Products</h5>
+          <div class="">
+            <div class="card related-product-card" *ngFor="let product of relatedProducts">
               <div class="row">
-                <div
-                  class="col-lg-11 col-md-11 col-sm-11 col-xs-11"
-                  style="cursor: pointer"
-                >
-                  <i
-                    class="fa fa-file-pdf-o product-container-img"
-                    aria-hidden="true"
-                  ></i>
-                  <br />
+                <div class="col-5 p-0">
+                  <img src="{{ fileUrl }}{{ product.primary_image }}" class="img-fluid" alt="">
                 </div>
-                <div
-                  class="col-lg-1 col-md-1 col-sm-1 col-xs-1"
-                  style="cursor: pointer"
-                >
-                  <i
-                    class="fa fa-youtube-play product-container-img"
-                    aria-hidden="true"
-                  ></i>
-                  <br />
+                <div class="col-7">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      {{ product.name }}</h5>
+                    <p class="card-text card-text-price">
+                      INR.10,00,000/-
+                    </p>
+                    <p class="card-text card-text-brand">
+                      Roljack Asia Limited
+                    </p>
+                    <a href="#" class="btn btn-danger">Get Enquiry</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="d-flex pb-3" style="column-gap: 2rem; padding: 20px">
-          <div class="col-lg-8">
-            <h3 style="text-transform: capitalize">{{ product.name }}</h3>
-            <p [innerHTML]="product.specification">
-            
-              <!-- PREMIUM SELLER <br />
-              INR. 10,00,000/- Piece <br />
-              Brand: Roljack Asia Limited <br />
-              Automation Grade: Automatic <br />
-              Material: Special Alloy Steel <br />
-              Power: 50 HP - 200 HP <br />
-              Motor Type; AC Motor -->
-            </p>
-            <p>
-              <a href="#">Read more...</a>
-            </p>
-            <div class="d-flex gap-3">
-              <a href="#" class="btn btn-primary enquiry-btn">Send Inquiry</a>
-              <a href="#" class="btn btn-primary enquiry-btn">View Number</a>
+      </div>
+    </div>
+
+    <div class="col-8">
+      <div>
+        <div class="card mb-3 product-card" *ngFor="let product of products; let i=index">
+
+          <div class="card-header">
+            <div class="row">
+              <div class="col">
+                <div class="d-flex">
+                  <div class="">
+                    <img src="assets/icons/Premium Seller Icon.png" class="img-fluid" alt="...">
+                  </div>
+                  <div class="">
+                    <img src="../../../assets/icons/Trusted Seller icon.png" class="img-fluid" alt="...">
+                  </div>
+                </div>
+              </div>
+              <div class="col card-header-icon">
+                <div class="d-flex">
+                  <a href="" class="">
+                    <i class="fa fa-file-pdf-o"></i>
+                  </a>
+                  <a href="" class="">
+                    <i class="fa fa-youtube-play"></i>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="vertical-line"></div>
-          <div class="col-md-3 text-center">
-            <div class="img-section img-thumbnail">
-              <img src="{{ fileUrl }}{{ product.primary_image }}" alt="" />
-              <span style="color: red; text-decoration: underline"
-                >{{product.seller.company_name}}</span
-              >
+
+          <div class="row g-0 product-card-body">
+            <div class="col-8 product-card-body-div">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-8">
+                    <p class="desc">
+                      <small>
+                        Hot Sale High Productivity And High Capacity Jaw Crusher
+                      </small>
+                    </p>
+                    <h3 class="card-title">{{ product.name }}</h3>
+                    <p class="card-text inner-text" [innerHTML]="product.specification"></p>
+                    <p class="card-text">
+                      <small class="text-body-secondary">
+                        <a href="">Read more...</a>
+                      </small>
+                    </p>
+                  </div>
+                  <div class="col-4 product-card-btn">
+                    <div class="mb-2">
+                      <a href="#" class="btn">
+                        Send
+                        Inquiry
+                      </a>
+                    </div>
+                    <div class="">
+                      <a href="#" class="btn">
+                        View
+                        Number
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-4 product-card-img">
+              <!-- <img src="{{ fileUrl }}{{ product.primary_image }}" class="img-fluid" alt="..."> -->
+
+              <!-- product image carousel -->
+              <div id="carouselExampleAutoplaying{{i}}" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527123585.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527518806.png" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527692036.avif" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleAutoplaying' + i" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleAutoplaying'+i" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <!--  -->
+
+              <span class="product-brand-name">
+                {{product.seller.company_name}}
+              </span>
             </div>
           </div>
         </div>
       </div>
-      <!-- <div class="col-md-12 shadow-sm product-container mb-5">
-        <div class="d-flex pb-3" style="column-gap: 2rem; padding: 20px">
-          <div class="col-lg-8">
-            <h3>Jaw Crusher (single toggle)</h3>
-            <p>
-              PREMIUM SELLER <br />
-              INR. 10,00,000/- Piece <br />
-              Brand: Roljack Asia Limited <br />
-              Automation Grade: Automatic <br />
-              Material: Special Alloy Steel <br />
-              Power: 50 HP - 200 HP <br />
-              Motor Type; AC Motor
-            </p>
-            <p>
-              <a href="#">Read more...</a>
-            </p>
-            <div class="d-flex gap-3 align-items-center">
-              <a href="#" class="btn btn-primary enquiry-btn">Send Inquiry</a>
-              <a href="#" class="btn btn-primary enquiry-btn">View Number</a>
-              <i
-                class="fa fa-file-pdf-o product-container-img"
-                aria-hidden="true"
-              ></i>
-              <i
-                class="fa fa-youtube-play product-container-img"
-                aria-hidden="true"
-              ></i>
-            </div>
-          </div>
-          <div class="vertical-line"></div>
-          <div class="col-md-3 text-center">
-            <div class="img-section img-thumbnail">
-              <img src="assets/imgs/product-imgs/product_image2.png" alt="" />
-              <span style="color: red; text-decoration: underline"
-                >R.Techno Ltd.</span
-              >
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
-    <div class="col-lg-3 related-picture shadow-sm">
-      <div class="row text-center">
-        <h3>Related Products</h3>
-        <hr />
-        <div
-          class="card"
-          style="width: 12rem; padding: 0px; margin: 10px"
-          *ngFor="let product of relatedProducts"
-        >
-          <!-- <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" alt="..." > -->
-          <img
-            src="{{ fileUrl }}{{ product.primary_image }}"
-            class="img-thumbnail"
-            style="height: 200px; width: 200px"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-            <a
-              href="#"
-              class="btn btn-danger"
-              style="padding: 5px 20px; font-size: 12px"
-              >Get Enquiry</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
+
+    <div class="col-2"></div>
+
   </div>
 </div>

@@ -40,10 +40,7 @@ export const routes: Routes = [
   },
   {
     path: 'user-profile',
-    loadChildren: () =>
-      import('./components/user-profile/user-profile.module').then(
-        (m) => m.UserProfileModule
-      ),
+    loadChildren: () => import('./components/user-profile/user-profile.module').then((m) => m.UserProfileModule)
   },
   {
     path: 'category-list',
