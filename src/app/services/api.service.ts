@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment/environment';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 declare var $: any;
 
@@ -21,11 +22,11 @@ export class ApiService {
         // Authorization: this.token,
       }),
     };
-    if(this.token){
+    if (this.token) {
       this.apiHeaders = {
         headers: new HttpHeaders({
           Authorization: this.token,
-        }),  
+        }),
       };
     }
   }
@@ -122,4 +123,12 @@ export class ApiService {
       }
     });
   }
+
+
+  async showAlert(message:string) {
+    Swal.fire(message);
+  }
+
+
+
 }
