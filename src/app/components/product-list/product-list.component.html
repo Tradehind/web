@@ -46,7 +46,7 @@
 
     <div class="col-8">
       <div>
-        <div class="card mb-3 product-card" *ngFor="let product of products">
+        <div class="card mb-3 product-card" *ngFor="let product of products; let i=index">
 
           <div class="card-header">
             <div class="row">
@@ -113,7 +113,7 @@
               <!-- <img src="{{ fileUrl }}{{ product.primary_image }}" class="img-fluid" alt="..."> -->
 
               <!-- product image carousel -->
-              <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+              <div id="carouselExampleAutoplaying{{i}}" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -130,11 +130,11 @@
                     <img src="http://192.168.0.154:3000/uploads/product/file-1706527692036.avif" class="d-block w-100" alt="...">
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleAutoplaying' + i" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleAutoplaying'+i" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>

@@ -41,10 +41,7 @@ export const routes: Routes = [
   {
     path: 'user-profile',
     loadChildren: () => import('./components/user-profile/user-profile.module').then((m) => m.UserProfileModule)
-<<<<<<< HEAD
 
-=======
->>>>>>> 4bc4c4fa6365688afea5667c978671f190fb47e0
   },
   {
     path: 'category-list',
@@ -59,8 +56,6 @@ export const routes: Routes = [
       import('./components/subcategory/subcategory.module').then(
         (m) => m.SubcategoryModule
       ),
-<<<<<<< HEAD
-=======
   },
   {
     path: 'allCategories',
@@ -68,6 +63,5 @@ export const routes: Routes = [
       import('././components/all-categories/all-categories.module').then(
         (m) => m.AllCategoriesModule
       ),
->>>>>>> 4bc4c4fa6365688afea5667c978671f190fb47e0
   },
 ];
