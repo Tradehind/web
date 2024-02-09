@@ -117,4 +117,8 @@ export class ProductListComponent {
       complete: () => console.info('complete'),
     });
   }
+
+  openEnquiryModal() {
+    this.apiService.openEnquiryForm();
+  }
 }

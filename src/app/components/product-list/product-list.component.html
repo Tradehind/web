@@ -34,7 +34,7 @@
                     <p class="card-text card-text-brand">
                       Roljack Asia Limited
                     </p>
-                    <a href="#" class="btn btn-danger">Get Enquiry</a>
+                    <a class="btn btn-danger" (click)="openEnquiryModal()">Get Enquiry</a>
                   </div>
                 </div>
               </div>
@@ -93,7 +93,7 @@
                   </div>
                   <div class="col-4 product-card-btn">
                     <div class="mb-2">
-                      <a href="#" class="btn">
+                      <a (click)="openEnquiryModal()" class=" btn">
                         Send
                         Inquiry
                       </a>
@@ -115,26 +115,34 @@
               <!-- product image carousel -->
               <div id="carouselExampleAutoplaying{{i}}" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527123585.png" class="d-block w-100" alt="...">
+                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527123585.png" class="d-block w-100"
+                      alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527518806.png" class="d-block w-100" alt="...">
+                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527518806.png" class="d-block w-100"
+                      alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527692036.avif" class="d-block w-100" alt="...">
+                    <img src="http://192.168.0.154:3000/uploads/product/file-1706527692036.avif" class="d-block w-100"
+                      alt="...">
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleAutoplaying' + i" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button"
+                  [attr.data-bs-target]="'#carouselExampleAutoplaying' + i" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleAutoplaying'+i" data-bs-slide="next">
+                <button class="carousel-control-next" type="button"
+                  [attr.data-bs-target]="'#carouselExampleAutoplaying'+i" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>

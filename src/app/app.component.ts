@@ -27,7 +27,7 @@ declare var $: any;
 export class AppComponent {
   title = 'TradeHind';
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
 
     let env = this;
 
@@ -41,4 +41,13 @@ export class AppComponent {
     }, 100000);
 
   }
+
+  openEnquiryForm() {
+    $('#enquiryModal').modal('show');
+  }
+
 }
+
+$(window).on('load', function () {
+  $('#enquiryModal').modal('show');
+});

@@ -50,7 +50,7 @@ export class HomeComponent {
     this.getHomeProducts();
   }
 
-  ngOnInIt() {}
+  ngOnInIt() { }
 
   getBlogsData() {
     // console.log('in con dsffd');
@@ -74,7 +74,7 @@ export class HomeComponent {
     this.apiService.getMethod('home-categories').subscribe({
       next: (resp) => {
         this.categories = resp
-        this.footerCategories = resp.slice(0,3);
+        this.footerCategories = resp.slice(0, 3);
         console.log('in con dsffasdasd');
       },
       error: (e) => {
@@ -131,7 +131,7 @@ export class HomeComponent {
           this.homeProducts = v.data;
         }
       },
-      error: (e) => {},
+      error: (e) => { },
       complete: () => console.info('complete'),
     });
   }
