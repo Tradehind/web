@@ -34,7 +34,7 @@
                     <p class="card-text card-text-brand">
                       Roljack Asia Limited
                     </p>
-                    <a class="btn btn-danger" (click)="openEnquiryModal()">Get Enquiry</a>
+                    <a class="btn btn-danger" (click)="openEnquiryModal(product)">Get Enquiry</a>
                   </div>
                 </div>
               </div>
@@ -93,7 +93,7 @@
                   </div>
                   <div class="col-4 product-card-btn">
                     <div class="mb-2">
-                      <a  class="btn">
+                      <a  class="btn" (click)="openEnquiryModal(product)">
                         Send
                         Inquiry
                       </a>

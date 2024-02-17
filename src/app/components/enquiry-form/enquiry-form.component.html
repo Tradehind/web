@@ -41,7 +41,7 @@
         </div>
 
         <!--  -->
-        <div class="col">
+        <div class="col" *ngIf="repEnquiryProductData">
             <div class="row">
 
                 <div class="col-lg-6 product-img-section">
@@ -49,7 +49,7 @@
                     <img src="../../../assets/imgs/product-imgs/product_image1.png" alt="">
                 </div>
                 <div class="col-lg-6">
-                    <h3 class="card-title">Jaw Crusher</h3>
+                    <h3 *ngIf="repEnquiryProductData.name" class="card-title">Jaw Crusher ---  {{repEnquiryProductData.name}}</h3>
                     <br>
                     <p class="card-text inner-text">
                         INR. 10,00,000/- Piece <br>

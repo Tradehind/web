@@ -24,10 +24,21 @@ export class EnquiryFormComponent {
 
   selectedStateCities: any = [];
   fileUrl: string = environment.fileUploadUrl;
+  repEnquiryProductData:any = {};
 
 
   constructor(private router: Router, public apiService: ApiService) {
-    this.getCityStates()
+    this.getCityStates();
+    // this.repEnquiryProductData = this.apiService.enquiryProductData;
+    // console.log(this.repEnquiryProductData, 'repEnquiryProductData');
+
+
+    this.apiService.enquiryProductData$.subscribe((data) => {
+      console.log('enquiryProductData$:----- ' + JSON.stringify(data));
+      this.repEnquiryProductData = data;
+  
+      //do whatever else you want to do when the interestingString changes
+    });
   }
 
   sendEnquiry(formData: any) {

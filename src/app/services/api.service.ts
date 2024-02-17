@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from '../../environment/environment';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -15,6 +15,14 @@ export class ApiService {
   fileUploadUrl: string = environment.fileUploadUrl;
   token: any = localStorage.getItem('webToken');
   apiHeaders: any;
+
+  public enquiryProductData: any = {};
+  public updateString$ = Observable.create((observer: any) => {
+    observer.next(this.enquiryProductData);
+  });
+
+  public enquiryProductData$ = new Subject<any>();
+
 
   constructor(private http: HttpClient, public router: Router) {
     this.apiHeaders = {
@@ -130,7 +138,17 @@ export class ApiService {
   }
 
 
-  openEnquiryForm() {
+  openEnquiryForm(product: any) {
+    console.log(product, 'product');
+    if (product) {
+      this.enquiryProductData = product;
+    }
+
+    this.enquiryProductData = product;
+    //console.log( this.enquiryProductData, ' this.enquiryProductData');
+
+    // this.updateString$.subscribe(this.enquiryProductData$);
+    this.enquiryProductData$.next(this.enquiryProductData);
     $('#enquiryModal').modal('show');
   }
 
