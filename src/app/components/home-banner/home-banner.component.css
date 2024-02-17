@@ -1,12 +1,24 @@
 .banner-container {
   position: relative;
   margin-top: 55px;
-  background-image: url("../../../assets/imgs/header-bg.png");
-  height: 55vh;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent), url("../../../assets/imgs/header-bg.jpg") ;
+  height: 480px;
   width: 100%;
-  background-size: cover !important;
+  /* background-size: contain !important;
   background-position: center !important;
-  background-repeat: no-repeat !important;
+  background-repeat: repeat !important; */
+  -webkit-animation: slide 30s linear infinite;
+  animation:  slide 30s linear infinite;
+
+
+  /* background: gray url(https://image.ibb.co/ky3Y0S/teee.png) repeat 0 0; */
+
+  margin: 0;
+  text-align: center;
+  /* height: 550px;
+  padding-top: 120px; */
+  box-sizing: border-box;
+  -webkit-animation: slide 30s linear infinite;
 }
 
 .banner-img {
@@ -14,15 +26,17 @@
 }
 
 .center-search-box {
-  position: absolute;
-  top: 97%;
-  left: 50%;
-  transform: translate(-93%, -200%);
+  /* position: absolute; */
+  /* top: 97%; */
+  /* left: 50%; */
+  /* transform: translate(-93%, -200%); */
   padding: 0px;
-  /* box-shadow: 0px 0px 15px #555; */
-  width: 50%;
+  width: 40%;
   border-radius: 50px !important;
   border: 2px solid red !important;
+  position: relative;
+  margin: 0 auto;
+  /* text-align: center; */
 }
 
 .search-input {
@@ -73,15 +87,28 @@
 
 
 .head-content {
-  padding: 90px 70px;
+  padding: 271px 0px 0px 70px;
+  text-align: center;
 
   h1 {
-    font-size: 70px;
-    width: 60%;
+    font-size: 50px;
+    /* width: 60%; */
     font-weight: 600;
+    color: #fff;
   }
 
   p {
     font-size: x-large;
+    color: #fff;
   }
+}
+
+@-webkit-keyframes slide {
+  from { background-position-x: 0; }
+  to { background-position-x: -512px; }
+}
+
+@keyframes slide {
+  from { background-position-x: 0; }
+  to { background-position-x: -512px; }
 }

@@ -158,3 +158,16 @@
 .carousel-indicators {
   margin-bottom: 2rem;
 }
+
+
+@media all and (min-width:100px) and (max-width: 988px) {
+  .reverse-order {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .product-card-btn{
+    text-align: left !important;
+    margin-top: 20px;
+  }
+}
