@@ -117,4 +117,11 @@ export class ProductListComponent {
       complete: () => console.info('complete'),
     });
   }
+
+  showContactDetail(product:any, index:number){
+    console.log('test');
+    this.products[index].showContact=true;
+
+  }
+
 }

@@ -6,7 +6,7 @@
   </div>
   <div class="col-4">
     <div class="input-form" *ngIf="currentPage != '/home'">
-      <input type="text" placeholder="Search product/Service" [(ngModel)]="keyword" (keyup.enter)="onEnterClick()" />
+      <input type="text" placeholder="Search for any product.." [(ngModel)]="keyword" (keyup.enter)="onEnterClick()" />
       <button type="button" class="btn btn-danger input-form-button" (click)="searchByKey()"
         [disabled]="keyword.length <= 2">
         <!-- <img src="../../assets/imgs/search.png" height="20px" /> -->

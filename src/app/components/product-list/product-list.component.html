@@ -93,15 +93,18 @@
                   </div>
                   <div class="col-4 product-card-btn">
                     <div class="mb-2">
-                      <a href="#" class="btn">
+                      <a  class="btn">
                         Send
                         Inquiry
                       </a>
                     </div>
                     <div class="">
-                      <a href="#" class="btn">
+                      <a *ngIf="!product.showContact"  class="btn" (click)="showContactDetail(product, i)">
                         View
                         Number
+                      </a>
+                      <a *ngIf="product.showContact"  class="btn">
+                        {{product.seller.phone1}}
                       </a>
                     </div>
                   </div>
