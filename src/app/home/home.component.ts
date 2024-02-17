@@ -149,6 +149,12 @@ export class HomeComponent {
   viewAllCategories() {
     this.router.navigate(['/category-list']);
   }
+
+
+  openEnquiryForm() {
+    $('#enquiryModal').modal('show');
+  }
 }
+
 
 

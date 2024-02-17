@@ -42,12 +42,15 @@ export class AppComponent {
 
   }
 
+
   openEnquiryForm() {
     $('#enquiryModal').modal('show');
   }
-
 }
 
-$(window).on('load', function () {
-  $('#enquiryModal').modal('show');
-});
+
+
+//open modal by default function
+// $(window).on('load', function () {
+//   $('#enquiryModal').modal('show');
+// });
