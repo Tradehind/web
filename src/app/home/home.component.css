@@ -1323,7 +1323,11 @@ a:hover {
 
 .top-banner {
   margin-bottom: 50px;
-  object-fit: cover;
+  height: 500px;
+  background-image: url("../../assets/imgs/top-banner.jpg");
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
 
 .category-box {
@@ -1333,8 +1337,8 @@ a:hover {
 }
 
 .req-sec-img {
+  width: 30rem;
   height: auto;
-  width: 300px;
 }
 
 .blog-heading {
@@ -1353,9 +1357,10 @@ a:hover {
 .sec-heading-blog {
   text-align: left;
   margin-left: 64px;
-  font-size: 34px;
+  font-size: 28px;
   color: #000;
-  padding: 11px;
+  padding-top: 20px;
+  margin: 0px 233px;
 }
 
 .subcategory-dropdown {
@@ -1544,6 +1549,10 @@ a:hover {
 
 .mb-10 {
   margin-bottom: 20px;
+}
+
+.mt-50 {
+  margin-top: 50px;
 }
 
 .dynamic-bg {

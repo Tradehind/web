@@ -125,10 +125,14 @@ export class ApiService {
   }
 
 
-  async showAlert(message:string) {
+  async showAlert(message: string) {
     Swal.fire(message);
   }
 
+
+  openEnquiryForm() {
+    $('#enquiryModal').modal('show');
+  }
 
 
 }
