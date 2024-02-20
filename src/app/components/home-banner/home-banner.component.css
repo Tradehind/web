@@ -45,6 +45,13 @@
   border-radius: 30px;
   border: none;
   padding-left: 25px;
+  color: #fff;
+
+  
+}
+
+.search-input::placeholder {
+  color: #fff;
 }
 
 .search-btn {

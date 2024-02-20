@@ -54,6 +54,10 @@
   margin: 40px 120px;
 }
 
+.header-margin-top{
+  height: 55px;
+}
+
 @media screen and (min-width: 1000px) {
   .custom-container {
     max-width: 85%;
