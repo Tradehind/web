@@ -17,7 +17,7 @@
           <div class="row mb-3">
             <div class="col-lg-4" *ngFor="let menu of category.subcategories">
               <div class="row category-box">
-                <div class="col-lg-4 p-0">
+                <div class="col-lg-4 p-0" (click)="redirectSubCategory(menu.id)">
                   <img
                     src="{{ fileUrl }}{{ menu.icon }}"
                     class="category-img"
@@ -27,8 +27,8 @@
                 <div class="col-lg-8">
                   <li class="subcategory">
                     <ul class="mb-1">
-                      <a class="subcategory-heading" (click)="subCategory()"
-                        >{{ menu.name }}
+                      <a class="subcategory-heading">
+                        {{ menu.name }}
                       </a>
                     </ul>
                     <ul *ngFor="let submenu of menu.Subsubcategories">

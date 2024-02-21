@@ -16,6 +16,7 @@ export class CategoryListComponent {
   categories: any = [];
   keyword: string = '';
   categoryMenu: any;
+  // categoryId: any;
   fileUrl: string = environment.fileUploadUrl;
 
   constructor(public apiservice: ApiService, private router: Router) {
@@ -37,9 +38,10 @@ export class CategoryListComponent {
       complete: () => console.info('complete'),
     });
   }
-
-  subCategory() {
-    this.router.navigate(['/subcategory']);
+  
+  redirectSubCategory(categoryId: number) {
+    console.log("Clicked Redirect Button")
+    this.router.navigate(['/subcategory/' + categoryId]);
   }
 
   searchByKey(value: number) {
