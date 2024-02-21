@@ -20,10 +20,11 @@
       <div class="subcategory-dropdown" *ngIf="categoryMenu && hideMenu == false">
         <div class="row">
           <div class="col-lg-2" *ngFor="let menu of categoryMenu.subcategories">
-            <h1 class="menu-name">{{ menu.name }}</h1>
+            <h1 class="menu-name" (click)="categoryList()">{{ menu.name }}</h1>
             <div class="sub-subcategory-list">
               <ul>
-                <li *ngFor="let submenu of menu.Subsubcategories" class="submenu-name">
+                <li *ngFor="let submenu of menu.Subsubcategories" class="submenu-name"
+                  (click)="subSubCategory(submenu.id)">
                   {{ submenu.name }}
                 </li>
               </ul>
@@ -48,7 +49,7 @@
             <h1>Trade Smarter, Your Gateway to Business Success</h1>
           </div>
           <div>
-            <button class="register-btn" (click)="openEnquiryForm()">Join Free</button>
+            <button class="register-btn" (click)="openEnquiryFormWithoutProduct()">Join Free</button>
             <img src="" alt="" />
           </div>
 
@@ -109,7 +110,7 @@
             <div class="card-body">
               <div class="text-center">
                 <h5 class="card-title">{{ product.name }}</h5>
-                <a href="#" class="btn btn-danger enquiry-btn">Send Enquiry</a>
+                <a class="btn btn-danger enquiry-btn" (click)="openEnquiryModal(product)">Send Enquiry</a>
               </div>
             </div>
           </div>

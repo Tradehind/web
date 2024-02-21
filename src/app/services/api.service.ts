@@ -122,6 +122,7 @@ export class ApiService {
       if (file) {
         // Read the selected file as a data URL
         const reader = new FileReader();
+
         reader.onload = (e: any) => {
           image = e.target.result;
           resolve(image);
@@ -143,14 +144,20 @@ export class ApiService {
     if (product) {
       this.enquiryProductData = product;
     }
-
+    else {
+      product = null;
+    }
     this.enquiryProductData = product;
-    //console.log( this.enquiryProductData, ' this.enquiryProductData');
-
-    // this.updateString$.subscribe(this.enquiryProductData$);
     this.enquiryProductData$.next(this.enquiryProductData);
     $('#enquiryModal').modal('show');
   }
+
+
+  openEnquiryFormWithoutProduct() {
+    this.enquiryProductData$.next(null);
+    $('#enquiryForm').modal('show');
+  }
+
 
 
 }

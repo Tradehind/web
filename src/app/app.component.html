@@ -5,7 +5,7 @@
 
 <div class="header-margin-top"> </div>
 
-<router-outlet ></router-outlet>
+<router-outlet></router-outlet>
 
 <div class="alert alert-success alert-box" id="success-alert">
   <button type="button" class="close" data-dismiss="alert">x</button>
@@ -34,6 +34,16 @@
 
 <div class="modal fade  modal-xl" id="enquiryModal" tabindex="-1" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-body login-container">
+        <app-enquiry-form></app-enquiry-form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade  modal" id="enquiryForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content">
       <div class="modal-body login-container">

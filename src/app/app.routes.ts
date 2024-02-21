@@ -28,6 +28,7 @@ export const routes: Routes = [
     path: 'product-bycategory/:id',
     loadChildren: () =>
       import('./components/product-list/product-list.module').then(
+
         (m) => m.ProductListModule
       ),
   },
@@ -56,11 +57,5 @@ export const routes: Routes = [
         (m) => m.SubcategoryModule
       ),
   },
-  {
-    path: 'allCategories',
-    loadChildren: () =>
-      import('././components/all-categories/all-categories.module').then(
-        (m) => m.AllCategoriesModule
-      ),
-  },
+
 ];

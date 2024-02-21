@@ -21,13 +21,14 @@ export class EnquiryFormComponent {
   keyword: string = '';
   stateList: any;
   cityList: any;
-
   selectedStateCities: any = [];
   fileUrl: string = environment.fileUploadUrl;
-  repEnquiryProductData:any = {};
+  repEnquiryProductData: any;
 
 
   constructor(private router: Router, public apiService: ApiService) {
+    console.log("response logged")
+    this.repEnquiryProductData = null;
     this.getCityStates();
     // this.repEnquiryProductData = this.apiService.enquiryProductData;
     // console.log(this.repEnquiryProductData, 'repEnquiryProductData');
@@ -36,7 +37,7 @@ export class EnquiryFormComponent {
     this.apiService.enquiryProductData$.subscribe((data) => {
       console.log('enquiryProductData$:----- ' + JSON.stringify(data));
       this.repEnquiryProductData = data;
-  
+
       //do whatever else you want to do when the interestingString changes
     });
   }
@@ -144,4 +145,6 @@ export class EnquiryFormComponent {
     this.selectedStateCities = this.cityList[value.value]
     // console.log("Selected State Cities : ", this.selectedStateCities);
   }
+
+
 }

@@ -118,13 +118,13 @@ export class ProductListComponent {
     });
   }
 
-  showContactDetail(product:any, index:number){
+  showContactDetail(product: any, index: number) {
     console.log('test');
-    this.products[index].showContact=true;
+    this.products[index].showContact = true;
 
   }
 
-  openEnquiryModal(product:any) {
+  openEnquiryModal(product: any) {
     this.apiService.openEnquiryForm(product);
   }
 }

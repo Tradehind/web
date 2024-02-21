@@ -150,10 +150,24 @@ export class HomeComponent {
     this.router.navigate(['/category-list']);
   }
 
-
-  openEnquiryForm() {
-    $('#enquiryModal').modal('show');
+  openEnquiryFormWithoutProduct() {
+    // $('#enquiryForm').modal('show')
+    this.apiService.openEnquiryFormWithoutProduct();
   }
+
+  categoryList() {
+    this.router.navigate(["/category-list"])
+  }
+
+  subSubCategory(id: any) {
+    this.router.navigate(["/product-bycategory/" + id])
+  }
+
+  openEnquiryModal(product: any) {
+    this.apiService.openEnquiryForm(product);
+  }
+
+
 }
 
 

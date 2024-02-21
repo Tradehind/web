@@ -43,29 +43,18 @@
         <!--  -->
         <div class="col" *ngIf="repEnquiryProductData">
             <div class="row">
-
                 <div class="col-lg-6 product-img-section">
 
-                    <img src="../../../assets/imgs/product-imgs/product_image1.png" alt="">
+                    <img src="{{fileUrl}}{{repEnquiryProductData.primary_image}}" alt="">
                 </div>
                 <div class="col-lg-6">
-                    <h3 *ngIf="repEnquiryProductData.name" class="card-title">Jaw Crusher ---  {{repEnquiryProductData.name}}</h3>
+                    <h3 *ngIf="repEnquiryProductData.name" class="card-title">{{repEnquiryProductData.name}}</h3>
                     <br>
-                    <p class="card-text inner-text">
-                        INR. 10,00,000/- Piece <br>
-                        Brand: Roljack Asia Limited <br>
-                        Automation Grade: Automatic<br>
-                        Material: Special Alloy Steel<br>
-                        Power: 50 HP - 200 HP<br>
-                        Motor Type; AC Motor<br>
+                    <p class="card-text inner-text specification" [innerHtml]="repEnquiryProductData.specification">
                     </p>
                 </div>
             </div>
-
         </div>
-
-
-
     </form>
 </section>
 
