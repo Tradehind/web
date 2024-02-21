@@ -1,0 +1,61 @@
+<!--  -->
+
+<section class="container p-4">
+    <form class="row" (ngSubmit)="sendEnquiry(sendEnquiryForm.value)" #sendEnquiryForm="ngForm" id="enquiry">
+        <!--  -->
+        <div class="col" style="padding: 0px;">
+            <div class="col-md-12 mb-3">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="inputText" placeholder="Please enter your full name"
+                    name="name" ngModal required>
+            </div>
+            <div class="col-12 mb-3">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="test@gmail.com" name="email"
+                    ngModal required>
+            </div>
+            <div class="row mb-3">
+
+                <div class="col-md-6" style="padding-left: 0px;">
+                    <label for="inputState" class="form-label">State</label>
+                    <select (change)="handleStateChange($event.target)" class="form-control" name="state" ngModel>
+                        <option selected disabled value="">Please select state</option>
+                        <option *ngFor="let state of stateList" value={{state.key}}>{{state.name}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">City</label>
+                    <select class="form-control" name="city" ngModel>
+                        <option selected disabled value="">Please select city</option>
+                        <option *ngFor="let city of selectedStateCities" value={{city}}>{{city}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="inputZip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip" name="zipCode" ngModal required>
+            </div>
+            <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-danger" [disabled]="!sendEnquiryForm.valid">Submit</button>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="col" *ngIf="repEnquiryProductData">
+            <div class="row">
+                <div class="col-lg-6 product-img-section">
+
+                    <img src="{{fileUrl}}{{repEnquiryProductData.primary_image}}" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <h3 *ngIf="repEnquiryProductData.name" class="card-title">{{repEnquiryProductData.name}}</h3>
+                    <br>
+                    <p class="card-text inner-text specification" [innerHtml]="repEnquiryProductData.specification">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<!--  -->

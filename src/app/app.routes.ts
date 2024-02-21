@@ -7,7 +7,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'home', 
+    path: 'home',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
@@ -28,6 +28,7 @@ export const routes: Routes = [
     path: 'product-bycategory/:id',
     loadChildren: () =>
       import('./components/product-list/product-list.module').then(
+
         (m) => m.ProductListModule
       ),
   },
@@ -55,6 +56,7 @@ export const routes: Routes = [
       import('./components/subcategory/subcategory.module').then(
         (m) => m.SubcategoryModule
       ),
+<<<<<<< HEAD
   },
   {
     path: 'allCategories',
@@ -62,5 +64,8 @@ export const routes: Routes = [
       import('././components/all-categories/all-categories.module').then(
         (m) => m.AllCategoriesModule
       ),
+=======
+>>>>>>> 6dbbdba8b25e6f43a5c6817b9bf6db76e982bfbf
   },
+
 ];

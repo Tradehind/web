@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from '../../environment/environment';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -15,6 +15,14 @@ export class ApiService {
   fileUploadUrl: string = environment.fileUploadUrl;
   token: any = localStorage.getItem('webToken');
   apiHeaders: any;
+
+  public enquiryProductData: any = {};
+  public updateString$ = Observable.create((observer: any) => {
+    observer.next(this.enquiryProductData);
+  });
+
+  public enquiryProductData$ = new Subject<any>();
+
 
   constructor(private http: HttpClient, public router: Router) {
     this.apiHeaders = {
@@ -114,6 +122,7 @@ export class ApiService {
       if (file) {
         // Read the selected file as a data URL
         const reader = new FileReader();
+
         reader.onload = (e: any) => {
           image = e.target.result;
           resolve(image);
@@ -125,8 +134,28 @@ export class ApiService {
   }
 
 
-  async showAlert(message:string) {
+  async showAlert(message: string) {
     Swal.fire(message);
+  }
+
+
+  openEnquiryForm(product: any) {
+    console.log(product, 'product');
+    if (product) {
+      this.enquiryProductData = product;
+    }
+    else {
+      product = null;
+    }
+    this.enquiryProductData = product;
+    this.enquiryProductData$.next(this.enquiryProductData);
+    $('#enquiryModal').modal('show');
+  }
+
+
+  openEnquiryFormWithoutProduct() {
+    this.enquiryProductData$.next(null);
+    $('#enquiryForm').modal('show');
   }
 
 

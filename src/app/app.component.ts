@@ -5,6 +5,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { EnquiryFormComponent } from './components/enquiry-form/enquiry-form.component';
 
 declare var $: any;
 
@@ -17,6 +18,7 @@ declare var $: any;
     FooterComponent,
     MainHeaderComponent,
     HttpClientModule,
+    EnquiryFormComponent
   ],
   providers: [ApiService],
   templateUrl: './app.component.html',
@@ -25,7 +27,7 @@ declare var $: any;
 export class AppComponent {
   title = 'TradeHind';
 
-  constructor(private router:Router) {
+  constructor(private router: Router) {
 
     let env = this;
 
@@ -39,4 +41,16 @@ export class AppComponent {
     }, 100000);
 
   }
+
+
+  openEnquiryForm() {
+    $('#enquiryModal').modal('show');
+  }
 }
+
+
+
+//open modal by default function
+// $(window).on('load', function () {
+//   $('#enquiryModal').modal('show');
+// });

@@ -1,19 +1,13 @@
-<div style="margin-top: 80px">
-  <app-home-banner></app-home-banner>
+<app-home-banner></app-home-banner>
+<div>
   <!-- CATEGORY LIST -->
-  <div class="category-list custom-container container section-margin">
+  <div class="category-list custom-container container mt-1">
     <div class="category-container" (mouseleave)="hideMenu = true">
       <div class="row">
-        <div
-          class="col-6 col-xl-2 col-lg-3 col-md-4 category-col category-item"
-          *ngFor="let category of categories"
-          (mouseenter)="setCategoryMenu(category)"
-        >
+        <div class="col-6 col-xl-2 col-lg-3 col-md-4 category-col category-item" *ngFor="let category of categories"
+          (mouseenter)="setCategoryMenu(category)">
           <div class="d-flex align-items-center">
-            <img
-              src="{{ fileUrl }}{{ category.icon }}"
-              class="img-fluid category-icon"
-            />
+            <img src="{{ fileUrl }}{{ category.icon }}" class="img-fluid category-icon" />
             <span class="cat-name">
               {{ category.name }}
             </span>
@@ -21,21 +15,16 @@
         </div>
       </div>
       <div>
-        <a class="view-all-btn">View all categories</a>
+        <a class="view-all-btn" (click)="viewAllCategories()">View all categories</a>
       </div>
-      <div
-        class="subcategory-dropdown"
-        *ngIf="categoryMenu && hideMenu == false"
-      >
+      <div class="subcategory-dropdown" *ngIf="categoryMenu && hideMenu == false">
         <div class="row">
           <div class="col-lg-2" *ngFor="let menu of categoryMenu.subcategories">
-            <h1 class="menu-name">{{ menu.name }}</h1>
+            <h1 class="menu-name" (click)="categoryList()">{{ menu.name }}</h1>
             <div class="sub-subcategory-list">
               <ul>
-                <li
-                  *ngFor="let submenu of menu.Subsubcategories"
-                  class="submenu-name"
-                >
+                <li *ngFor="let submenu of menu.Subsubcategories" class="submenu-name"
+                  (click)="subSubCategory(submenu.id)">
                   {{ submenu.name }}
                 </li>
               </ul>
@@ -46,35 +35,31 @@
     </div>
   </div>
 
-  <div class="custom-container container">
-    <section class="top-banner shadow-sm">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12 top-banner">
-        <img src="../../assets/imgs/top-banner.jpg" alt="" srcset="" />
-      </div>
-    </section>
+
+  <div class="custom-container container mt-50">
     <!-- ************** REQUIREMENT SECTION *********** -->
-    <div
-      class="require-section section-margin"
-      style="margin: 0; margin-bottom: 15px"
-    >
+    <div class="require-section section-margin" style="margin: 0; margin-bottom: 15px">
       <div class="row">
+
         <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12 req-sec-left">
+          <div class="req-sec-img mt-50">
+            <img src="../../assets/home/partnership.png" alt="" />
+          </div>
           <div class="row req-sec-heading">
             <h1>Trade Smarter, Your Gateway to Business Success</h1>
           </div>
           <div>
-            <button class="register-btn">Join Free</button>
+            <button class="register-btn" (click)="openEnquiryFormWithoutProduct()">Join Free</button>
             <img src="" alt="" />
           </div>
 
-          <div class="req-sec-img">
-            <img src="../../assets/home/partnership.png" alt="" />
-          </div>
-          <div class="">
+
+          <!-- <div class="">
             <p class="req-sec-p">We connect Buyers & Sellers</p>
-          </div>
+          </div> -->
         </div>
-        <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-5 col-md-12 col-xs-12 col-sm-12">
           <div class="req-container d-flex flex-column">
             <div class="row req-heading">
               <h2>Post Your Requirement</h2>
@@ -82,58 +67,25 @@
             </div>
             <br />
             <br />
-            <form
-              class="d-flex flex-column form-row"
-              (ngSubmit)="sendEnquiry(sendEnquiryForm.value)"
-              #sendEnquiryForm="ngForm"
-              id="enquiry"
-            >
+            <form class="d-flex flex-column form-row" (ngSubmit)="sendEnquiry(sendEnquiryForm.value)"
+              #sendEnquiryForm="ngForm" id="enquiry">
               <div class="form-group col-md-12">
                 <label for="inputName" class="mb-5">Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputText"
-                  placeholder="Please enter your full name"
-                  name="name"
-                  ngModel
-                  required
-                />
+                <input type="text" class="form-control" id="inputText" placeholder="Please enter your full name"
+                  name="name" ngModel required />
               </div>
               <div class="form-group col-md-12">
                 <label for="inputMobile" class="mb-5">Mobile Number</label>
-                <input
-                  type="tel"
-                  class="form-control"
-                  id="inputMobile"
-                  placeholder="Mobile Number"
-                  name="phone"
-                  maxlength="10"
-                  ngModel
-                  (keypress)="onKeyPress($event)"
-                  required
-                />
+                <input type="tel" class="form-control" id="inputMobile" placeholder="Mobile Number" name="phone"
+                  maxlength="10" ngModel (keypress)="onKeyPress($event)" required />
               </div>
               <div class="form-group col-md-12">
-                <label for="inputMobile" class="mb-5"
-                  >Tell us about your requirement</label
-                >
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea2"
-                  style="height: 100px"
-                  name="requirement_text"
-                  ngModel
-                  required
-                ></textarea>
+                <label for="inputMobile" class="mb-5">Tell us about your requirement</label>
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                  style="height: 100px" name="requirement_text" ngModel required></textarea>
               </div>
               <div class="form-group text-center col-md-12">
-                <button
-                  class="register-btn"
-                  type="submit"
-                  [disabled]="!sendEnquiryForm.valid"
-                >
+                <button class="register-btn" type="submit" [disabled]="!sendEnquiryForm.valid">
                   Submit
                 </button>
               </div>
@@ -148,27 +100,17 @@
       <div class="container py-5 text-center">
         <h2 class="sec-heading">Recent Searches</h2>
         <div class="row">
-          <div
-            style="padding: 0"
-            class="card text-black text-center col-lg-2"
-            *ngFor="let product of homeProducts"
-          >
-            <img
-              src="{{ fileUrl }}{{ product.primary_image }}"
-              class="card-img-top"
-              alt="{{ product.name }}"
-              style="
+          <div style="padding: 0" class="card text-black text-center col-lg-2" *ngFor="let product of homeProducts">
+            <img src="{{ fileUrl }}{{ product.primary_image }}" class="card-img-top" alt="{{ product.name }}" style="
                 align-self: center;
                 padding: 0px;
                 height: 200px;
                 width: 100%;
-              "
-              onerror="this.src='assets/imgs/Banner.jpg';"
-            />
+              " onerror="this.src='assets/imgs/Banner.jpg';" />
             <div class="card-body">
               <div class="text-center">
                 <h5 class="card-title">{{ product.name }}</h5>
-                <a href="#" class="btn btn-danger enquiry-btn">Send Enquiry</a>
+                <a class="btn btn-danger enquiry-btn" (click)="openEnquiryModal(product)">Send Enquiry</a>
               </div>
             </div>
           </div>
@@ -177,567 +119,52 @@
     </section>
 
     <!-- *********** CATEGORY LIST SECTION CLOTHING ******************** -->
-    <section class="global-container categories mt-2 section-margin">
-      <div class="p-0 clothing-bg">
-        <div class="row">
-          <div class="col-lg-9 p-4">
-            <div class="row mb-10">
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/shirt.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Men's Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
+    <section class="section-margin dynamic-bg z-0" *ngFor="let category of footerCategories"
+      [style.background]="'url(' + fileUrl + category.image + ')'">
+      <div class="overlay"></div>
+      <div class="row container-section z-2">
+        <div class="col-lg-9 p-4">
+          <div class="row mb-3">
+            <div class="col-lg-4" *ngFor="let menu of category.subcategories">
+              <div class="row category-box">
+                <div class="col-lg-4 p-0">
+                  <img src="{{ fileUrl }}{{ menu.icon }}" class="category-img" alt="..." />
                 </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/sunglasses.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Sunglasses</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/purse.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Purse</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-10">
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/shoes.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Shoes</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/kurti.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Kurti</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/winter.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Winter Wear</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/sports.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Sports Wear</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/blazer.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Blazers</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/tshirt.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">T-shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
+                <div class="col-lg-8">
+                  <li class="subcategory">
+                    <ul class="mb-1">
+                      <a class="subcategory-heading" (click)="subCategory()">{{ menu.name }}
+                      </a>
+                    </ul>
+                    <ul *ngFor="let submenu of menu.Subsubcategories">
+                      <a (click)="searchByKey(submenu.id)">{{
+                        submenu.name
+                        }}</a>
+                    </ul>
+                  </li>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 position-relative p-0">
-            <div class="category-img text-center">
-              <!-- <img
-                src="../../assets/imgs/category-images/clothing & garment.png"
-                alt=""
-                srcset=""
-              /> -->
-            </div>
-            <div
-              class="position-absolute top-50 start-50 translate-middle text-center category-content"
-            >
-              <h1 class="fs-3">Apparel, Clothing & Garments</h1>
+        </div>
+        <div class="col-lg-3 p-0">
+          <div class="category-content">
+            <div class="category-item">
+              <h1 class="fs-3 mb-3">{{ category.name }}</h1>
               <button>View All</button>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- *********** CATEGORY LIST SECTION MACHINERY ******************** -->
-    <section class="global-container categories mt-2 section-margin">
-      <div class="p-0 machinery-bg">
-        <div class="row">
-          <div class="col-lg-9 p-4">
-            <div class="row mb-10">
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/purse.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Men's Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/sunglasses.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Sunglasses</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/purse.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Purse</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-10">
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/shoes.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Shoes</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/kurti.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Kurti</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/winter.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Winter Wear</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/sports.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Sports Wear</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/blazer.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">Blazers</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="row category-box">
-                  <div class="col-lg-4 p-0">
-                    <img
-                      src="../../assets/imgs/category-images/tshirt.png"
-                      class="img-thumbnail"
-                      alt="..."
-                    />
-                  </div>
-                  <div class="col-lg-8">
-                    <li style="font-size: small">
-                      <ul>
-                        <a href="" class="fs-5">T-shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Formal Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Chex Shirt</a>
-                      </ul>
-                      <ul>
-                        <a href="">Printed Shirt</a>
-                      </ul>
-                    </li>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 position-relative p-0">
-            <div class="category-img text-center">
-              <!-- <img
-                src="../../assets/imgs/category-images/clothing & garment.png"
-                alt=""
-                srcset=""
-              /> -->
-            </div>
-            <div
-              class="position-absolute top-50 start-50 translate-middle text-center category-content"
-            >
-              <h1 class="fs-3">Building Construction Material & Equipment</h1>
-              <button>View All</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- **************** BLOG SECTION ************** -->
     <div class="blog-section section-margin">
       <h1 class="sec-heading-blog">Our Blogs</h1>
       <div class="row d-flex justify-content-center">
-        <div
-          class="card text-center col-lg-3 col-md-3 col-sm-6 col-xs-12"
-          *ngFor="let blog of blogs"
-          style="width: 16rem; padding: 0px"
-        >
-          <img
-            src="{{ fileUrl }}{{ blog.image }}"
-            class="card-img-top p-0"
-            alt="..."
-            style="height: 200px; width: 100%"
-          />
+        <div class="card text-center col-lg-3 col-md-3 col-sm-6 col-xs-12" *ngFor="let blog of blogs"
+          style="width: 16rem; padding: 0px">
+          <img src="{{ fileUrl }}{{ blog.image }}" class="card-img-top p-0" alt="..."
+            style="height: 200px; width: 100%" />
 
           <div class="card-body blog-card">
             <h5 class="card-title fs-7 text-bold">
@@ -754,9 +181,9 @@
 
     <!-- ************* OUR SERVICES SECTION ******** -->
     <section class="top-banner shadow-sm">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12 top-banner">
-        <img src="../../assets/imgs/Banner-bottom.jpg" alt="" srcset="" />
-      </div>
+      <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12 top-banner">
+         <img src="../../assets/imgs/top-banner.jpg" alt="" srcset="" /> 
+      </div> -->
     </section>
   </div>
 </div>

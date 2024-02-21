@@ -20,11 +20,11 @@
 }
 
 :root {
-  --main-font-color: rgb(126, 27, 27);
+  --main-font-color: #d2042d;
   --heading-font: 18px;
   --product-title: 14px;
   --paragraph-font: 12px;
-  --button-color: #ca2c2c
+  --button-color: #ca2c2c;
 }
 
 .row {
@@ -52,4 +52,15 @@
 
 .global-container {
   margin: 40px 120px;
+}
+
+.header-margin-top{
+  height: 55px;
+}
+
+@media screen and (min-width: 1000px) {
+  .custom-container {
+    max-width: 85%;
+    padding: 0;
+  }
 }

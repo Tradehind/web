@@ -34,38 +34,12 @@ export class HomeComponent {
   // ];
   blogs: any = [];
   categories: any = [];
+  footerCategories: any = [];
   categoryMenu: any;
   hideMenu: boolean = false;
 
   homeProducts: any = [];
   fileUrl: string = environment.fileUploadUrl;
-
-  headerCategories = [
-    {
-      imgPath: 'assets/icons/home.png',
-      name: 'Home Supplies',
-    },
-    {
-      imgPath: 'assets/icons/industrial.png',
-      name: 'Industrial Machinery',
-    },
-    {
-      imgPath: 'assets/icons/electronics.png',
-      name: 'Electronics and Electronic',
-    },
-    {
-      imgPath: 'assets/icons/hospital.png',
-      name: 'Hospital & Medical Supplies',
-    },
-    {
-      imgPath: 'assets/icons/construction.png',
-      name: 'Construction & Real State',
-    },
-    {
-      imgPath: 'assets/icons/machinery.png',
-      name: 'Machinery',
-    },
-  ];
 
   constructor(public apiService: ApiService, private router: Router) {
     console.log('in con');
@@ -74,39 +48,9 @@ export class HomeComponent {
     this.getBlogsData();
     this.getCategories();
     this.getHomeProducts();
-
   }
 
-  ngOnInIt() {
-    
-  }
-
-  // openProductDesc() {
-  //   $('#openProductDesc').modal('show');
-  // }
-
-  // openAddProduct() {
-  //   console.log('add product section open');
-  //   $('#addProductModal').modal('show');
-  //   console.log($('#addProductModal'), 'modal');
-  // }
-  // openAddCategory() {
-  //   $('#addCategoryModal').modal('show');
-  // }
-
-  // changeGreeting() {
-  //   let env = this;
-  //   var greetCount = 0;
-
-  //   setInterval(function () {
-  //     if (greetCount == 6) {
-  //       greetCount = 0;
-  //     } else {
-  //       greetCount++;
-  //     }
-  //     env.greetingText = env.greetingsArr[greetCount];
-  //   }, 5000);
-  // }
+  ngOnInIt() { }
 
   getBlogsData() {
     // console.log('in con dsffd');
@@ -129,7 +73,8 @@ export class HomeComponent {
     console.log('in con get categories');
     this.apiService.getMethod('home-categories').subscribe({
       next: (resp) => {
-        this.categories = resp;
+        this.categories = resp
+        this.footerCategories = resp.slice(0, 3);
         console.log('in con dsffasdasd');
       },
       error: (e) => {
@@ -139,8 +84,16 @@ export class HomeComponent {
     });
   }
 
+  subCategory() {
+    this.router.navigate(['/subcategory']);
+  }
+
+  searchByKey(value: number) {
+    this.router.navigate(['/product-bycategory/' + value]);
+  }
+
   setCategoryMenu(categoryData: any) {
-    console.log(categoryData);
+    // console.log(categoryData);
     this.categoryMenu = categoryData;
     this.hideMenu = false;
   }
@@ -178,7 +131,7 @@ export class HomeComponent {
           this.homeProducts = v.data;
         }
       },
-      error: (e) => {},
+      error: (e) => { },
       complete: () => console.info('complete'),
     });
   }
@@ -193,5 +146,29 @@ export class HomeComponent {
     }
   }
 
-  viewAllCategories(){}
+  viewAllCategories() {
+    this.router.navigate(['/category-list']);
+  }
+
+  openEnquiryFormWithoutProduct() {
+    // $('#enquiryForm').modal('show')
+    this.apiService.openEnquiryFormWithoutProduct();
+  }
+
+  categoryList() {
+    this.router.navigate(["/category-list"])
+  }
+
+  subSubCategory(id: any) {
+    this.router.navigate(["/product-bycategory/" + id])
+  }
+
+  openEnquiryModal(product: any) {
+    this.apiService.openEnquiryForm(product);
+  }
+
+
 }
+
+
+
