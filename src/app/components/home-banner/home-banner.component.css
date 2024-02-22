@@ -26,9 +26,10 @@
   padding: 0px;
   width: 40%;
   border-radius: 50px !important;
-  border: 2px solid #ff0404 !important;
+  border: 2px solid #ffffff !important;
   position: relative;
   margin: 0 auto;
+  background-color: #fff;
 }
 
 .search-input {
@@ -37,11 +38,11 @@
   border-radius: 30px;
   border: none;
   padding-left: 25px;
-  color: #fff;
+  color: #000;
 }
 
 .search-input::placeholder {
-  color: #fff;
+  color: #000;
 }
 
 .search-btn {

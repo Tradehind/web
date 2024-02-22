@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div class="row reverse-order">
 
+  <div class="row reverse-order">
     <div class="col-12 col-sm-12 col-xs-12 col-md-12 col-lg-2 col-xl-2">
       <div class="mb-4 ">
         <ul class="list-group related-category-ul">
@@ -44,7 +44,16 @@
       </div>
     </div>
 
-    <div class="col-12 col-sm-12 col-xs-12  col-lg-8 col-xl-8 col-md-12">
+    <div class="col-12 col-sm-12 col-xs-12  col-lg-8 col-xl-8 col-md-12 dd">
+      <div class="card text-center" *ngIf="products.length == 0" style="width: auto;">
+        <div class="card-body">
+          <img src="../../../assets/imgs/no_record_found.png" alt="..." style="height: 200px; width: 300px" />
+          <br />
+          <h1>No Record Found</h1>
+          <br />
+          <p>Please Search Again..</p>
+        </div>
+      </div>
       <div>
         <div class="card mb-3 product-card" *ngFor="let product of products; let i=index">
 
@@ -160,6 +169,8 @@
         </div>
       </div>
     </div>
+
+
 
     <div class="col-2 col-sm-12 col-xs-12 col-md-12 col-lg-8 col-xl-8"></div>
 

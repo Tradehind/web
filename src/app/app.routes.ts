@@ -56,16 +56,6 @@ export const routes: Routes = [
       import('./components/subcategory/subcategory.module').then(
         (m) => m.SubcategoryModule
       ),
-<<<<<<< HEAD
-  },
-  {
-    path: 'allCategories',
-    loadChildren: () =>
-      import('././components/all-categories/all-categories.module').then(
-        (m) => m.AllCategoriesModule
-      ),
-=======
->>>>>>> 6dbbdba8b25e6f43a5c6817b9bf6db76e982bfbf
   },
 
 ];

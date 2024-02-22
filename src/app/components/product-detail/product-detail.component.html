@@ -3,30 +3,28 @@
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 head-content">
       <div class="row mt-1">
         <div class="mobile-view">
-          <img src="../../../assets/icons/company_logo.png" height="50rem" />
-          <span>Roljack Asia Ltd. </span>
+          <!-- <img src="{{fileUrl}}{{sellerDetails.primary_image}}" height="50rem" /> -->
+          <i class="fa fa-building-o" aria-hidden="true"></i>
+
+          <span>{{sellerDetails.company_name}}</span>
         </div>
       </div>
       <div class="row mt-1">
         <div class="mobile-view">
           <i class="fa fa-map-marker p-1" aria-hidden="true"></i>
-          <span>address Lorem, ipsum dolor.</span>
+          <span>{{sellerDetails.address1}}</span>
         </div>
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 head-content">
       <div class="row mt-1">
         <div class="text-center pb-2 mobile-view">
-          <span>GSTIN - 22AAAAA0000A1Z5</span>
+          <span>{{sellerDetails.gst}}</span>
         </div>
         <div class="row mobile-view mt-1">
           <div class="p-0 text-center">
-            <i
-              class="fa fa-user p-1"
-              style="font-size: 20px"
-              aria-hidden="true"
-            ></i>
-            <span>Lorem ipsum dolor sit amet,</span>
+            <i class="fa fa-user p-1" style="font-size: 20px" aria-hidden="true"></i>
+            <span>{{sellerDetails.first_name}} {{sellerDetails.last_name}}</span>
           </div>
         </div>
       </div>
@@ -34,16 +32,8 @@
 
     <div class="col-lg-3 col-sm-6 head-content">
       <div class="d-flex seller-lbl">
-        <img
-          src="../../../assets/icons/Premium Seller Icon.png"
-          style="height: max-content"
-          alt=""
-        />
-        <img
-          src="../../../assets/icons/Trusted Seller icon.png"
-          style="height: fit-content"
-          alt=""
-        />
+        <img src="../../../assets/icons/Premium Seller Icon.png" style="height: max-content" alt="" />
+        <img src="../../../assets/icons/Trusted Seller icon.png" style="height: fit-content" alt="" />
       </div>
     </div>
     <div class="col-lg-3 col-sm-6 text-center view-number">
@@ -59,57 +49,28 @@
       <div class="row gx-5">
         <aside class="col-lg-4 col-sm-12 py-5">
           <div class="border rounded-4 mb-3" style="width: 70%">
-            <img
-              class="rounded-4 fit product-img"
-              id="main-img"
-              src="assets/imgs/product-imgs/product_image1.png"
-            />
+            <img class="rounded-4 fit product-img" id="main-img" src="assets/imgs/product-imgs/product_image1.png" />
           </div>
           <div class="row g-0">
             <div class="col">
-              <img
-                width="70"
-                height="70"
-                class="rounded-2 similar-img"
-                src="assets/imgs/product-imgs/product_image1.png"
-                (click)="myFunction($event.target)"
-              />
+              <img width="70" height="70" class="rounded-2 similar-img"
+                src="assets/imgs/product-imgs/product_image1.png" (click)="myFunction($event.target)" />
             </div>
             <div class="col">
-              <img
-                width="70"
-                height="70"
-                class="rounded-2 similar-img"
-                src="assets/imgs/product-imgs/product_image2.png"
-                (click)="myFunction($event.target)"
-              />
+              <img width="70" height="70" class="rounded-2 similar-img"
+                src="assets/imgs/product-imgs/product_image2.png" (click)="myFunction($event.target)" />
             </div>
             <div class="col">
-              <img
-                width="70"
-                height="70"
-                class="rounded-2 similar-img"
-                src="assets/imgs/product-imgs/product_image1.png"
-                (click)="myFunction($event.target)"
-              />
+              <img width="70" height="70" class="rounded-2 similar-img"
+                src="assets/imgs/product-imgs/product_image1.png" (click)="myFunction($event.target)" />
             </div>
             <div class="col">
-              <img
-                width="70"
-                height="70"
-                class="rounded-2 similar-img"
-                src="assets/imgs/product-imgs/product_image2.png"
-                (click)="myFunction($event.target)"
-              />
+              <img width="70" height="70" class="rounded-2 similar-img"
+                src="assets/imgs/product-imgs/product_image2.png" (click)="myFunction($event.target)" />
             </div>
             <div class="col">
-              <img
-                width="70"
-                height="70"
-                class="rounded-2 similar-img"
-                src="assets/imgs/product-imgs/product_image1.png"
-                (click)="myFunction($event.target)"
-              />
+              <img width="70" height="70" class="rounded-2 similar-img"
+                src="assets/imgs/product-imgs/product_image1.png" (click)="myFunction($event.target)" />
             </div>
           </div>
           <!-- thumbs-wrap.// -->
@@ -129,12 +90,9 @@
                 <i class="fas fa-star-half-alt"></i>
                 <span class="ms-1"> 4.5 </span>
               </div>
-              <span
-                class="text-muted"
-                style="color: #b51718 !important; text-decoration: underline"
-                ><i class="fas fa-shopping-basket fa-sm mx-1"></i>get Latest
-                price</span
-              >
+              <span class="text-muted" style="color: #b51718 !important; text-decoration: underline"><i
+                  class="fas fa-shopping-basket fa-sm mx-1"></i>get Latest
+                price</span>
               <!-- <span class="text-success ms-2">In stock</span> -->
             </div>
 
@@ -171,8 +129,7 @@
                 <a style="cursor: pointer">
                   <span class="text-muted">
                     <i class="fa fa-caret-down mx-1"></i>view complete
-                    details</span
-                  >
+                    details</span>
                 </a>
               </div>
               <div class="col-lg-6 text-end enquiry-btn-placeholder">
@@ -189,27 +146,15 @@
           </div>
           <hr />
           <div class="row text-center" style="justify-content: center">
-            <img
-              src="../../../assets/imgs/product-imgs/product_image2.png"
-              alt="..."
-              class="img-thumbnail"
-            />
+            <img src="../../../assets/imgs/product-imgs/product_image2.png" alt="..." class="img-thumbnail" />
             <span class="align-items-center">product name</span>
           </div>
           <div class="row text-center" style="justify-content: center">
-            <img
-              src="../../../assets/imgs/product-imgs/product_image2.png"
-              alt="..."
-              class="img-thumbnail"
-            />
+            <img src="../../../assets/imgs/product-imgs/product_image2.png" alt="..." class="img-thumbnail" />
             <span>product name</span>
           </div>
           <div class="row text-center" style="justify-content: center">
-            <img
-              src="../../../assets/imgs/product-imgs/product_image2.png"
-              alt="..."
-              class="img-thumbnail"
-            />
+            <img src="../../../assets/imgs/product-imgs/product_image2.png" alt="..." class="img-thumbnail" />
             <span>product name</span>
           </div>
         </aside>
@@ -245,13 +190,8 @@
       </div>
       <div class="col-lg-2 mx-4">
         <div class="card" style="width: 15rem">
-          <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
-            class="card-img-top"
-            height="200"
-            width="100"
-            alt="..."
-          />
+          <img src="../../../assets/imgs/product-imgs/product_image2.png" class="card-img-top" height="200" width="100"
+            alt="..." />
           <div class="card-body">
             <p class="card-text">26X16 inch single toggle Jaw Crusher</p>
             <a href="#">Get a quote -></a>
@@ -260,13 +200,8 @@
       </div>
       <div class="col-lg-2 mx-4">
         <div class="card" style="width: 15rem">
-          <img
-            src="../../../assets/imgs/product-imgs/product_image1.png"
-            class="card-img-top"
-            height="200"
-            width="100"
-            alt="..."
-          />
+          <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" height="200" width="100"
+            alt="..." />
           <div class="card-body">
             <p class="card-text">26X16 inch single toggle Jaw Crusher</p>
             <a href="#">Get a quote -></a>
@@ -275,13 +210,8 @@
       </div>
       <div class="col-lg-2 mx-4">
         <div class="card" style="width: 15rem">
-          <img
-            src="../../../assets/imgs/product-imgs/product_image2.png"
-            class="card-img-top"
-            height="200"
-            width="100"
-            alt="..."
-          />
+          <img src="../../../assets/imgs/product-imgs/product_image2.png" class="card-img-top" height="200" width="100"
+            alt="..." />
           <div class="card-body">
             <p class="card-text">26X16 inch single toggle Jaw Crusher</p>
             <a href="#">Get a quote -></a>
@@ -290,13 +220,8 @@
       </div>
       <div class="col-lg-2 mx-4">
         <div class="card" style="width: 15rem">
-          <img
-            src="../../../assets/imgs/product-imgs/product_image1.png"
-            class="card-img-top"
-            height="200"
-            width="100"
-            alt="..."
-          />
+          <img src="../../../assets/imgs/product-imgs/product_image1.png" class="card-img-top" height="200" width="100"
+            alt="..." />
           <div class="card-body">
             <p class="card-text">26X16 inch single toggle Jaw Crusher</p>
             <a href="#">Get a quote -></a>

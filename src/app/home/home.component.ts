@@ -37,7 +37,6 @@ export class HomeComponent {
   footerCategories: any = [];
   categoryMenu: any;
   hideMenu: boolean = false;
-
   homeProducts: any = [];
   fileUrl: string = environment.fileUploadUrl;
 
@@ -84,12 +83,14 @@ export class HomeComponent {
     });
   }
 
-  subCategory() {
-    this.router.navigate(['/subcategory']);
-  }
+  // subCategory() {
+  //   this.router.navigate(['/subcategory']);
+  // }
 
   searchByKey(value: number) {
     this.router.navigate(['/product-bycategory/' + value]);
+    window.scrollTo(0, 0);
+
   }
 
   setCategoryMenu(categoryData: any) {
@@ -136,6 +137,20 @@ export class HomeComponent {
     });
   }
 
+  productDetails(id: any) {
+    // this.apiService.getMethod('product-by-id?id=' + id).subscribe({
+    //   next: (productDetail) => {
+    //     console.log(productDetail);
+    //     if (productDetail.data) {
+    //       this.productDetails = productDetail.data;
+    //     }
+    //   },
+    //   error: (e) => { },
+    //   complete: () => console.info('complete'),
+    // })
+    this.router.navigate(['product-list/detail/' + id])
+  }
+
   onKeyPress(event: any) {
     // Check if the pressed key is a number
     const isNumber = /[0-9]/.test(event.key);
@@ -161,10 +176,20 @@ export class HomeComponent {
 
   subSubCategory(id: any) {
     this.router.navigate(["/product-bycategory/" + id])
+    window.scrollTo(0, 0);
   }
 
   openEnquiryModal(product: any) {
     this.apiService.openEnquiryForm(product);
+  }
+
+  categoryById(id: any) {
+    this.router.navigate(["/subcategory/" + id])
+    window.scrollTo(0, 0);
+  }
+
+  productDetail(id: any) {
+    this.router.navigate(["/product-list/detail/" + id])
   }
 
 

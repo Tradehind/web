@@ -35,8 +35,8 @@
   </div>
   <div class="text-center">
     <div class="d-flex center-search-box" id="inpt-box">
-      <input type="" class="form-control search-input" placeholder="Search for any product or service"
-        [(ngModel)]="keyword" (keyup.enter)="onEnterClick()" />
+      <input type="" class="form-control search-input" placeholder="Search any product or service" [(ngModel)]="keyword"
+        (keyup.enter)="onEnterClick()" />
       <button type="button" class="btn btn-danger d-flex align-items-center search-btn" (click)="searchByKey()"
         [disabled]="keyword.length <= 2">
         <span>Search</span>
