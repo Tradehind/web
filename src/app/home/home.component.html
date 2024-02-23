@@ -110,7 +110,8 @@
               " onerror="this.src='assets/imgs/Banner.jpg';" />
             <div class="card-body">
               <div class="text-center">
-                <h5 class="card-title">{{ product.name }}</h5>
+                <h5 class="card-title" style="cursor: pointer;" (click)="productDetails(product.id)">{{ product.name }}
+                </h5>
                 <a class="btn btn-danger enquiry-btn" (click)="openEnquiryModal(product)">Send Enquiry</a>
               </div>
             </div>
@@ -134,7 +135,7 @@
                 <div class="col-lg-8">
                   <li class="subcategory">
                     <ul class="mb-1">
-                      <a class="subcategory-heading" (click)="subCategory()">{{ menu.name }}
+                      <a class="subcategory-heading" (click)="categoryById(menu.id)">{{ menu.name }}
                       </a>
                     </ul>
                     <ul *ngFor="let submenu of menu.Subsubcategories">
@@ -152,7 +153,7 @@
           <div class="category-content">
             <div class="category-item">
               <h1 class="fs-3 mb-3">{{ category.name }}</h1>
-              <button>View All</button>
+              <button (click)="categoryById(category.id)">View All</button>
             </div>
           </div>
         </div>
