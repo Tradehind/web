@@ -127,4 +127,5 @@ export class ProductListComponent {
   openEnquiryModal(product: any) {
     this.apiService.openEnquiryForm(product);
   }
+
 }
