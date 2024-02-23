@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { environment } from '../../../environment/environment';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,39 +12,40 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './category-list.component.html',
   styleUrl: './category-list.component.css',
 })
+
 export class CategoryListComponent {
+
   categories: any = [];
   keyword: string = '';
   categoryMenu: any;
-  // categoryId: any;
   fileUrl: string = environment.fileUploadUrl;
 
   constructor(public apiservice: ApiService, private router: Router) {
     this.getCategories();
-    // this.searchByKey();
-    console.log(router.url);
+    // console.log(router.url);
   }
 
   getCategories() {
-    console.log('in con get categories');
+    // console.log("getCategories Called");
     this.apiservice.getMethod('home-categories').subscribe({
-      next: (resp) => {
-        this.categories = resp;
-        console.log('in con dsffasdasd');
+      next: (response) => {
+        this.categories = response;
+        // console.log("home-categories respose : ", response);
       },
-      error: (e) => {
-        console.error(e, 'error');
+      error: (error) => {
+        console.error('error in getCategories', error);
       },
-      complete: () => console.info('complete'),
+      complete: () => console.info('getCategories complete'),
     });
   }
   
   redirectSubCategory(categoryId: number) {
-    console.log("Clicked Redirect Button")
+    // console.log("Redirecting to /subcategory/")
     this.router.navigate(['/subcategory/' + categoryId]);
   }
 
   searchByKey(value: number) {
     this.router.navigate(['/product-bycategory/' + value]);
   }
+  
 }

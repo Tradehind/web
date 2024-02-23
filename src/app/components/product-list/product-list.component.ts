@@ -11,41 +11,26 @@ import { environment } from '../../../environment/environment';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css',
 })
+
 export class ProductListComponent {
-  // listItems = [
-  //   { name: 'Jaw Crusher', link: '#' },
-  //   { name: 'Stone Crusher', link: '#' },
-  //   { name: 'Cone Crusher', link: '#' },
-  //   { name: 'Mobile crusher', link: '#' },
-  //   { name: 'Impact Crusher', link: '#' },
-  //   { name: 'Roll crusher', link: '#' },
-  //   { name: 'VSI Crusher', link: '#' },
-  //   { name: 'HSI Crusher', link: '#' },
-  //   { name: 'Crusher', link: '#' },
-  // ];
+  
   keyword: string = '';
   cities: any = [];
   products: any = [];
+  productId: any;
   relatedCategory: any = [];
   relatedProducts: any = [];
   subSubCategoryId: any;
   fileUrl: string = environment.fileUploadUrl;
 
-  constructor(
-    private route: ActivatedRoute,
-    public apiService: ApiService,
-    private router: Router
-  ) {
-    console.log('In constructor');
-    // this.getCityList();
-  }
+  constructor(private route: ActivatedRoute, public apiService: ApiService, private router: Router) {}
 
   ngOnInit() {
     let currentRoute = this.router.url;
-    console.log(currentRoute);
+    // console.log("currentRoute : ", currentRoute);
 
     let checkUrl = currentRoute.includes('product-bycategory');
-    console.log(checkUrl);
+    // console.log("checkUrl : ", checkUrl);
 
     if (!checkUrl) {
       // Fetch the URL parameter 'id' from the route
@@ -54,10 +39,11 @@ export class ProductListComponent {
         this.getData();
       });
     } else {
-      // search-by-subsubcategory?subSubCategoryId=86
+      console.log('inside category list');
       this.route.params.subscribe((params) => {
+        console.log(params, 'params');
         this.subSubCategoryId = params['id'];
-        this.getsubSubCategoryProducts();
+         this.getProductsCategoryList();
       });
     }
   }
@@ -66,62 +52,61 @@ export class ProductListComponent {
     this.apiService
       .getMethod('search-product-bykeyword?keyword=' + this.keyword)
       .subscribe({
-        next: (v) => {
-          this.products = v.data;
-          this.relatedCategory = v.relatedCategory;
-          this.relatedProducts = v.relatedProducts;
-          // console.log('in con dsffasdasd', v);
+        next: (response) => {
+          this.products = response.data;
+          this.relatedCategory = response.relatedCategory;
+          this.relatedProducts = response.relatedProducts;
+          // console.log('Product by keyword : ', response);
         },
-        error: (e) => {
-          console.error(e, 'error');
+        error: (error) => {
+          console.error('error in getData', error);
         },
-        complete: () => console.info('complete'),
+        complete: () => console.info('getData complete'),
       });
   }
 
-  getsubSubCategoryProducts() {
+  getProductsCategoryList() {
     this.apiService
       .getMethod(
         'search-by-subsubcategory?subSubCategoryId=' + this.subSubCategoryId
       )
       .subscribe({
-        next: (v) => {
-          this.products = v.data;
-          this.relatedCategory = v.relatedCategory;
-          this.relatedProducts = v.relatedProducts;
-          console.log('in con dsffasdasd', v);
+        next: (response) => {
+          this.products = response.data;
+          this.relatedCategory = response.relatedCategory;
+          this.relatedProducts = response.relatedProducts;
+          // console.log('Product by category : ', response);
         },
-        error: (e) => {
-          console.error(e, 'error');
+        error: (error) => {
+          console.error('error in getProductsCategoryList', error);
         },
-        complete: () => console.info('complete'),
+        complete: () => console.info('getProductsCategoryList complete'),
       });
   }
 
+
   getCityList() {
     this.apiService.getMethod('city-list').subscribe({
-      next: (v) => {
-        this.cities = v;
-        console.log('in city list api function', v);
+      next: (response) => {
+        this.cities = response;
+        console.log('in city list api function', response);
         let cityArray: any = [];
         for (const city in this.cities) {
           let cityData = this.cities[city];
-
           cityArray = cityArray.concat(cityData);
         }
         console.log(cityArray);
       },
-      error: (e) => {
-        console.error(e, 'error');
+      error: (error) => {
+        console.error('error in getCityList', error);
       },
-      complete: () => console.info('complete'),
+      complete: () => console.info('getCityList complete'),
     });
   }
 
   showContactDetail(product: any, index: number) {
-    console.log('test');
+    // console.log('test');
     this.products[index].showContact = true;
-
   }
 
   openEnquiryModal(product: any) {

@@ -1,0 +1,87 @@
+section {
+    padding: 30px;
+}
+
+section nav .breadcrumb .breadcrumb-item {
+    font-size: 18px;
+}
+
+section nav .breadcrumb .breadcrumb-item a {
+    text-decoration: none;
+    color: #000000;
+}
+
+section nav .breadcrumb .breadcrumb-item.active {
+    color: rgba(33, 37, 41, 0.75);
+}
+
+section .main-div .header-container {
+    position: relative;
+    padding: 0;
+}
+
+section .main-div .header-container .sub-category-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+section .main-div .header-container .sub-category-background {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    transform: translate(0%, -100%);
+    position: absolute;
+    border-radius: 10px;
+}
+
+section .main-div .header-container .sub-category-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 40px;
+}
+
+section .main-div .card-container {
+    padding: 0;
+    margin-top: 20px;
+}
+
+section .main-div .card-container .row .col-2 .sub-sub-category-card {
+    padding: 0;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.175);
+}
+
+section .main-div .card-container .row .col-2:nth-child(1),
+section .main-div .card-container .row .col-2:nth-child(7),
+section .main-div .card-container .row .col-2:nth-child(13),
+section .main-div .card-container .row .col-2:nth-child(19) {
+    padding-left: 0;
+}
+
+section .main-div .card-container .row .col-2:nth-child(6),
+section .main-div .card-container .row .col-2:nth-child(12),
+section .main-div .card-container .row .col-2:nth-child(18),
+section .main-div .card-container .row .col-2:nth-child(24) {
+    padding-right: 0;
+}
+
+section .main-div .card-container .row .col-2 .sub-sub-category-card .sub-sub-category-image {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+section .main-div .card-container .row .col-2 .sub-sub-category-card .sub-sub-category-name {
+    color: #000000;
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

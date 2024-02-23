@@ -100,7 +100,7 @@ export class MainHeaderComponent {
   }
 
   urlChange(path: any) {
-    console.log(path, 'path--------');
+    // console.log(path, 'path--------');
     this.currentPage = path;
   }
 
