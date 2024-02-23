@@ -39,10 +39,11 @@ export class ProductListComponent {
         this.getData();
       });
     } else {
+      console.log('inside category list');
       this.route.params.subscribe((params) => {
+        console.log(params, 'params');
         this.subSubCategoryId = params['id'];
-        this.getProductsCategoryList();
-        this.getsubSubCategoryProducts();
+         this.getProductsCategoryList();
       });
     }
   }
@@ -83,20 +84,6 @@ export class ProductListComponent {
       });
   }
 
-  getsubSubCategoryProducts() {
-    this.apiService
-      .getMethod('product-by-id?id=' + this.productId).subscribe({
-        next: (response) => {
-          console.log('subSubCategoryProducts Response : ', response);
-          this.products = response.data.product;
-          console.log('products var Response : ', this.products);
-        },
-        error: (error) => {
-          console.error('error in getsubSubCategoryProducts', error);
-        },
-        complete: () => console.info('getsubSubCategoryProducts complete'),
-      });
-  }
 
   getCityList() {
     this.apiService.getMethod('city-list').subscribe({
