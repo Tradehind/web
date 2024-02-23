@@ -112,7 +112,7 @@
                         View
                         Number
                       </a>
-                      <a *ngIf="product.showContact" class="btn">
+                      <a *ngIf="product.showContact && product.seller" class="btn">
                         {{product.seller.phone1}}
                       </a>
                     </div>
@@ -161,7 +161,7 @@
               </div>
               <!--  -->
 
-              <span class="product-brand-name">
+              <span class="product-brand-name" *ngIf="product.seller">
                 {{product.seller.company_name}}
               </span>
             </div>
