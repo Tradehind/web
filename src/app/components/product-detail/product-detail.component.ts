@@ -3,6 +3,7 @@ import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environment/environment';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -22,12 +23,16 @@ export class ProductDetailComponent {
   showContact: boolean = false;
   fileUrl: string = environment.fileUploadUrl;
 
-  constructor(public apiService: ApiService, private route: ActivatedRoute) {
-    console.log("In Product Detail constructor");
+  constructor(
+    public apiService: ApiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    console.log('In Product Detail constructor');
     this.route.params.subscribe((params) => {
       let productId = params['id'];
       this.getproductDetail(productId);
-      console.log("product details constructor")
+      console.log('product details constructor');
     });
   }
 
@@ -40,7 +45,6 @@ export class ProductDetailComponent {
     }
   }
 
-
   getproductDetail(id: any) {
     this.apiService.getMethod('product-by-id?id=' + id).subscribe({
       next: (productDetail) => {
@@ -50,12 +54,12 @@ export class ProductDetailComponent {
           this.productDetails = productDetail.data.product;
           this.sellerProducts = productDetail.data.sellerProducts.slice(0, 3);
           this.similarProducts = productDetail.data.similarProducts.slice(0, 4);
-          console.log("similarProducts ", this.similarProducts)
+          console.log('similarProducts ', this.similarProducts);
         }
       },
       error: (e) => { },
       complete: () => console.info('complete'),
-    })
+    });
   }
 
   showNumber() {
@@ -66,4 +70,7 @@ export class ProductDetailComponent {
     this.apiService.openEnquiryForm(product);
   }
 
+  productDetail(id: any) {
+    this.router.navigate(['product-list/detail/' + id]);
+  }
 }
