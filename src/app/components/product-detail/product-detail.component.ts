@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environment/environment';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+
+
+
+declare var $: any;
 
 @Component({
   selector: 'app-product-detail',
@@ -12,6 +16,10 @@ import { Router } from '@angular/router';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
 })
+
+
+
+
 export class ProductDetailComponent {
   products: any = [];
   relatedCategory: any = [];
@@ -21,6 +29,8 @@ export class ProductDetailComponent {
   sellerProducts: any = [];
   similarProducts: any = [];
   showContact: boolean = false;
+  @ViewChild('owlElement') owlElement: any;
+
   fileUrl: string = environment.fileUploadUrl;
 
   constructor(
@@ -34,6 +44,58 @@ export class ProductDetailComponent {
       this.getproductDetail(productId);
       console.log('product details constructor');
     });
+
+
+  }
+
+  ngOnInit(): void {
+    let env = this;
+    console.log("ngonit working")
+
+    setTimeout(() => {
+      $('.owl-carousel').owlCarousel({
+        autoplay: false,
+        loop: false,
+
+        rewind: true,
+        autoplayTimeout: 1000,
+        autoplayHoverPause: true,
+        navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+        responsiveClass: false,
+        nav: true,
+        items: 4,
+        responsive: {
+          0: {
+            items: 1
+          },
+          568: {
+            items: 2
+          },
+          600: {
+            items: 3
+          },
+          1000: {
+            items: 3
+          }
+        }
+      })
+
+      env.setClonedItemMaxWidth();
+    }, 500);
+
+  }
+
+
+  setClonedItemMaxWidth(): void {
+    setTimeout(() => {
+      var parentDiv = $('.owl-stage');
+      // Get all inner divs and set their width
+      var innerDivs = parentDiv.find('.owl-item');
+      // Set the width for each inner div (e.g., 100 pixels)
+      innerDivs.width(300);
+      innerDivs.height(300);
+    }, 500);
+
   }
 
   myFunction(smallImg: any): void {
@@ -53,7 +115,7 @@ export class ProductDetailComponent {
           this.sellerDetails = productDetail.data.seller;
           this.productDetails = productDetail.data.product;
           this.sellerProducts = productDetail.data.sellerProducts.slice(0, 3);
-          this.similarProducts = productDetail.data.similarProducts.slice(0, 4);
+          this.similarProducts = productDetail.data.similarProducts;
           console.log('similarProducts ', this.similarProducts);
         }
       },
@@ -74,3 +136,5 @@ export class ProductDetailComponent {
     this.router.navigate(['product-list/detail/' + id]);
   }
 }
+
+

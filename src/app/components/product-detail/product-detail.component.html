@@ -107,20 +107,6 @@
             </div>
 
             <div class="row detail-section mb-3" [innerHTML]="productDetails.specification">
-              <!-- <dt class="col-5">material:</dt>
-              <dd class="col-7">Mild Steel</dd>
-
-              <dt class="col-5">Capacity:</dt>
-              <dd class="col-7">100 TPH on close side setting of 150mm.</dd>
-
-              <dt class="col-5">Brand:</dt>
-              <dd class="col-7">Roljack Asia Limited</dd>
-
-              <dt class="col-5">Automation Grade:</dt>
-              <dd class="col-7">Automatic</dd>
-
-              <dt class="col-5">Warrenty:</dt>
-              <dd class="col-7">1 Year</dd> -->
             </div>
 
             <p>
@@ -177,37 +163,25 @@
     </div>
   </section>
 </div>
-<!-- **************** END SECTION ****************** -->
-<section class="">
-  <div class="container similar-products-sec container-box shadow-sm">
-    <div>
-      <h1 class="similar-product-heading">Similar Product</h1>
-    </div>
-    <div class="row align-items-center">
-      <div class="col-lg-1 icon text-end">
-        <a href="">
-          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="col-lg-2 mx-4" *ngFor="let similarProduct of similarProducts">
-        <div class="card text-center" style="width: 15rem">
-          <img src="{{ fileUrl }}{{ similarProduct.primary_image }}" class="card-img-top" height="200" width="100"
-            (click)="productDetail(similarProduct.id)" alt="..." />
-          <div class="card-body">
-            <p class="card-text" style="cursor: pointer" (click)="productDetail(similarProduct.id)">
-              {{ similarProduct.name }}
-            </p>
-            <button (click)="openEnquiryModal(similarProduct)" type="button" class="btn btn-danger related-product-btn">
-              Get a Quote
-            </button>
-          </div>
+
+
+<!-- carousel.component.html -->
+<div class="container similar-products-sec" style="">
+  <p style="padding: 15px 20px;font-size: 30px;">Similar Products</p>
+  <div class="owl-carousel row">
+    <div class="item col-lg-2" *ngFor="let similarProduct of similarProducts">
+      <div class="card text-center" style="width: 15rem; height: auto;">
+        <img src="{{ fileUrl }}{{ similarProduct.primary_image }}" class="card-img-top" height="200" width="100"
+          (click)="productDetail(similarProduct.id)" alt="..." />
+        <div class="card-body">
+          <p class="card-text" style="cursor: pointer" (click)="productDetail(similarProduct.id)">
+            {{ similarProduct.name }}
+          </p>
+          <button (click)="openEnquiryModal(similarProduct)" type="button" class="btn btn-danger related-product-btn">
+            Get a Quote
+          </button>
         </div>
-      </div>
-      <div class="col-lg-1 icon text-end">
-        <a href="">
-          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-        </a>
       </div>
     </div>
   </div>
-</section>
+</div>
