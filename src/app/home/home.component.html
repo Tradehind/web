@@ -1,7 +1,63 @@
 <app-home-banner></app-home-banner>
+
+<div class="new-container">
+
+  <section class="new-cat">
+    <div class="text-center main-div" (mouseleave)="hideMenu = true">
+      
+      <div class="row row-cols-2 row-cols-xl-6 row-cols-lg-4 row-cols-md-3 g-2 g-lg-3 main-div-row">
+        <div class="col my-2" *ngFor="let category of categories" (mouseenter)="setCategoryMenu(category)">
+          <div class="cat-card-div">
+            <img src="{{ fileUrl }}{{ category.icon }}" class="img-fluid" alt="...">
+            <div class="new-cat-name">{{ category.name }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row second-main-div-row">
+        <div class="col my-2">
+          <div class="view-all-cat" (click)="viewAllCategories()">View all categories</div>
+        </div>
+      </div>
+
+      <div class="subcategory-dropdown" *ngIf="categoryMenu && hideMenu == false">
+        <div class="row subcategory-dropdown-row">
+          <div class="col-lg-2 subcategory-dropdown-col" *ngFor="let menu of categoryMenu.subcategories">
+            <h3 class="menu-name" (click)="categoryList()">{{ menu.name }}</h3>
+            <div class="sub-subcategory-list">
+              <ul>
+                <li *ngFor="let submenu of menu.Subsubcategories" class="submenu-name"
+                  (click)="subSubCategory(submenu.id)">
+                  {{ submenu.name }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+
+    <div class="container">
+      <img src="img_snow_wide.jpg" alt="Snow" style="width:100%;">
+      <div class="bottom-left">Bottom Left</div>
+      <div class="top-left">Top Left</div>
+      <div class="top-right">Top Right</div>
+      <div class="bottom-right">Bottom Right</div>
+      <div class="centered">Centered</div>
+    </div>
+
+  </section>
+
+</div>
+
+
 <div>
   <!-- CATEGORY LIST -->
-  <div class="category-list custom-container container mt-1">
+  <!-- <div class="category-list custom-container container mt-1">
     <div class="category-container" (mouseleave)="hideMenu = true">
       <div class="row">
         <div class="col-6 col-xl-2 col-lg-3 col-md-4 category-col category-item" *ngFor="let category of categories"
@@ -33,7 +89,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
   <div class="custom-container container mt-50">
@@ -186,6 +242,7 @@
       <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12 top-banner">
          <img src="../../assets/imgs/top-banner.jpg" alt="" srcset="" /> 
       </div> -->
+      <img src="../../assets/imgs/top-banner.jpg" alt="" srcset="" />
     </section>
   </div>
 </div>

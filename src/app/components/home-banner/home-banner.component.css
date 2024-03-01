@@ -1,103 +1,46 @@
 .banner-container {
   position: relative;
-  margin-top: 55px;
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent), url("../../../assets/imgs/header-bg.jpg");
+  width: 100%;
   height: 450px;
-  width: 100%;
-  -webkit-animation: slide 30s linear infinite;
-  animation: slide 30s linear infinite;
-  margin: 0;
+  color: white;
   text-align: center;
-  box-sizing: border-box;
-  -webkit-animation: slide 30s linear infinite;
-  /* background-size: contain !important;
-  background-position: center !important;
-  background-repeat: repeat !important; */
-  /* height: 550px;
-  padding-top: 120px; */
-  /* background: gray url(https://image.ibb.co/ky3Y0S/teee.png) repeat 0 0; */
+  animation: slide 30s linear infinite;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent), url("../../../assets/imgs/header-bg.jpg");
 }
 
-.banner-img {
+.container-centered {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -80%);
   width: 100%;
 }
 
-.center-search-box {
-  padding: 0px;
-  width: 40%;
-  border-radius: 50px !important;
-  border: 2px solid #ffffff !important;
-  position: relative;
-  margin: 0 auto;
-  background-color: #fff;
+.banner-header h1 {
+  font-size: 50px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.banner-header p {
+  font-size: x-large;
+  color: #ffffff;
+}
+
+.banner-search-bar {
+  width: 30%;
 }
 
 .search-input {
-  background-color: inherit;
-  font-size: 17px;
-  border-radius: 30px;
-  border: none;
-  padding-left: 25px;
-  color: #000;
+  border-radius: 25px 0 0 25px; padding-left: 20px;
 }
 
-.search-input::placeholder {
-  color: #000;
+.search-button-div {
+  border-radius: 0 25px 25px 0; background-color: #ffffff;
 }
 
-.search-btn {
-  font-size: 15px;
-  border-radius: 30px;
-  padding: 15px;
-}
-
-.form-control:focus {
-  box-shadow: none;
-}
-
-@media screen and (max-width: 480px) {
-  .banner-img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-  }
-
-  .center-search-box {
-    width: 90%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .search-input {
-    font-size: 16px;
-    padding: 0 10px 0px 0px;
-  }
-
-  .search-btn {
-    font-size: 16px;
-  }
-
-  .app-promo {
-    align-items: center;
-  }
-}
-
-
-.head-content {
-  padding: 240px 0px 0px 70px;
-  text-align: center;
-
-  h1 {
-    font-size: 50px;
-    font-weight: 600;
-    color: #fff;
-  }
-
-  p {
-    font-size: x-large;
-    color: #fff;
-  }
+.search-button {
+  border-radius: 25px; padding: 8px 15px;
 }
 
 @-webkit-keyframes slide {
@@ -117,5 +60,37 @@
 
   to {
     background-position-x: -512px;
+  }
+}
+
+/* bootstrap css */
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control {
+  border: 1px;
+}
+
+
+
+@media screen and (max-width: 990px) {
+  .container-centered {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+  }
+
+  .banner-header h1 {
+    font-size: 35px;
+  }
+
+  .banner-header p {
+    font-size: large
+  }
+
+  .banner-search-bar {
+    width: 100%;
   }
 }

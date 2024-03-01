@@ -1,10 +1,11 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 
 declare var $: any;
+
 @Component({
   selector: 'app-main-header',
   standalone: true,
@@ -16,6 +17,7 @@ declare var $: any;
 
 export class MainHeaderComponent {
 
+  navbarfixed: boolean = false;
   keyword: string = '';
   public isOtpSent: boolean = false;
   public mobileNumber: any = '';
@@ -23,6 +25,14 @@ export class MainHeaderComponent {
   public enteredOtp: any;
   public currentPage: any = '';
   public userData: any;
+
+  @HostListener('window:scroll', ['$event']) onScroll() {
+    if(window.scrollY > 100) {
+      this.navbarfixed = true
+    } else {
+      this.navbarfixed = false
+    }
+  }
 
   constructor(
     public apiService: ApiService,
