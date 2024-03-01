@@ -1070,13 +1070,15 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
+
   gap: 20px;
 }
 
 .req-sec-heading h1 {
-  font-size: 38px;
+  font-size: 50px;
   margin-top: 50px;
-  color: #ca2c2c;
+  color: #fff;
   font-weight: 600;
   text-align: center;
   line-height: 1.2;
@@ -1325,7 +1327,7 @@ a:hover {
   margin-bottom: 50px;
   /* height: 500px;
   background-image: url("../../assets/imgs/top-banner.jpg");
-  background-size: cover !important;
+  background-size: contain !important;
   background-position: center !important;
   background-repeat: no-repeat !important; */
 }
@@ -1360,7 +1362,7 @@ a:hover {
   font-size: 28px;
   color: #000;
   padding-top: 20px;
-  margin: 0px 233px;
+  margin: 0px 160px;
 }
 
 /* .subcategory-dropdown {
@@ -1414,6 +1416,13 @@ a:hover {
 
 .cat-name {
   font-size: 14px;
+}
+
+.requirement-bg {
+  background-image: url("../../assets/imgs/handshake.jpg");
+  object-fit: fill;
+  background-position: center;
+  background-size: cover;
 }
 
 
@@ -1678,8 +1687,8 @@ a:hover {
 
 .subcategory-dropdown .subcategory-dropdown-row .subcategory-dropdown-col {
   padding: 0;
-    text-align: start;
-    border-right: 1px solid #dddddd;
+  text-align: start;
+  border-right: 1px solid #dddddd;
 }
 
 .subcategory-dropdown .subcategory-dropdown-row .subcategory-dropdown-col .menu-name {
@@ -1718,7 +1727,7 @@ a:hover {
     width: 100%;
   }
 
-  .new-container .new-cat  .main-div {
+  .new-container .new-cat .main-div {
     display: block;
     padding: 10px 10px;
   }
