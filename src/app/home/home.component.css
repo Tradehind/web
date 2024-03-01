@@ -1070,13 +1070,15 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: auto;
+
   gap: 20px;
 }
 
 .req-sec-heading h1 {
-  font-size: 38px;
+  font-size: 50px;
   margin-top: 50px;
-  color: #ca2c2c;
+  color: #fff;
   font-weight: 600;
   text-align: center;
   line-height: 1.2;
@@ -1323,9 +1325,9 @@ a:hover {
 
 .top-banner {
   margin-bottom: 50px;
-  height: 500px;
+  height: 456px;
   background-image: url("../../assets/imgs/top-banner.jpg");
-  background-size: cover !important;
+  background-size: contain !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
@@ -1360,7 +1362,7 @@ a:hover {
   font-size: 28px;
   color: #000;
   padding-top: 20px;
-  margin: 0px 233px;
+  margin: 0px 160px;
 }
 
 .subcategory-dropdown {
@@ -1414,6 +1416,13 @@ a:hover {
 
 .cat-name {
   font-size: 14px;
+}
+
+.requirement-bg {
+  background-image: url("../../assets/imgs/handshake.jpg");
+  object-fit: fill;
+  background-position: center;
+  background-size: cover;
 }
 
 
