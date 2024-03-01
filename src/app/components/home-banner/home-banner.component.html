@@ -1,47 +1,18 @@
-<!-- <div class="header-wrapper">
-  <div class="header_section">
-    <div class="container">
-      <div class="row inpt-div">
-        <div class="col-xs-12 col-sm-12">
-          <input
-            type="text"
-            class="form-control search-input"
-            placeholder="Search any product/service"
-          />
-          <div class="input-group-append">
-            <button
-              class="btn btn-secondary search-btn-input"
-              type="button"
-              style="background: #b51718"
-            >
-              <i class="fa fa-search"></i>
-              <span>&nbsp; Search</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div class="banner-container">
-  <div class="head-content">
-    <h1>
-      Largest
-      <span>B2B Business Platform</span>
-      In The World
-    </h1>
-    <p>You can buy, sell anything you want</p>
-  </div>
-  <div class="text-center">
-    <div class="d-flex center-search-box" id="inpt-box">
-      <input type="" class="form-control search-input" placeholder="Search any product or service" [(ngModel)]="keyword"
-        (keyup.enter)="onEnterClick()" />
-      <button type="button" class="btn btn-danger d-flex align-items-center search-btn" (click)="searchByKey()"
-        [disabled]="keyword.length <= 2">
-        <span>Search</span>
-        <i class="fa fa-search ms-2" aria-hidden="true"></i>
-      </button>
+  <div class="container-centered">
+    <div class="banner-header">
+      <h1>Largest <span>B2B</span> Business Platform In The World</h1>
+      <p>You can buy, sell anything you want</p>
+    </div>
+    <div class="input-group m-auto banner-search-bar">
+      <input type="text" class="form-control search-input" placeholder="Search product or service" aria-label="Recipient's username"
+        aria-describedby="button-addon2">
+      <div class="search-button-div">
+        <button class="btn btn-danger btn-outline-light search-button" type="button" id="button-addon2">
+          <span class="me-2">Search</span>
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>
