@@ -21,7 +21,7 @@ export class SubcategoryComponent {
   subSubCategoryData: any = [];
   fileUrl: string = environment.fileUploadUrl;
 
-  constructor(private route: ActivatedRoute, public router: Router, public apiService: ApiService) {}
+  constructor(private route: ActivatedRoute, public router: Router, public apiService: ApiService) { }
 
   ngOnInit() {
     let currentRoute = this.router.url;
@@ -45,7 +45,7 @@ export class SubcategoryComponent {
 
           this.subCategoryData = response.data;
           console.log('SubCategory Response : ', this.subCategoryData);
-          
+
           this.subSubCategoryData = response.data.Subsubcategories;
           console.log('SubSubCategory Response : ', this.subSubCategoryData);
         },

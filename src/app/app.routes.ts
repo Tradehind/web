@@ -57,5 +57,12 @@ export const routes: Routes = [
         (m) => m.SubcategoryModule
       ),
   },
+  {
+    path: 'viewAllCategory/:id',
+    loadChildren: () =>
+      import('./components/view-all-categories/view-all-categories.module').then(
+        (m) => m.ViewAllCategoriesModule
+      ),
+  },
 
 ];

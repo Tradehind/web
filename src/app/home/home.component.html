@@ -39,7 +39,7 @@
     </div>
   </section>
 
-  <section>
+  <!-- <section>
 
     <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
       <div class="col">
@@ -54,7 +54,7 @@
       </div>
     </div>
 
-  </section>
+  </section> -->
 
 </div>
 
@@ -122,10 +122,9 @@
           <div class="req-container d-flex flex-column">
             <div class="row req-heading">
               <h2>Post Your Requirement</h2>
-              <p>Get the best Deals and Exclusive Offers with TradeHind</p>
+              <p class="mb-3">Get the best Deals and Exclusive Offers with TradeHind</p>
             </div>
-            <br />
-            <br />
+
             <form class="d-flex flex-column form-row" (ngSubmit)="sendEnquiry(sendEnquiryForm.value)"
               #sendEnquiryForm="ngForm" id="enquiry">
               <div class="form-group col-md-12">
@@ -141,7 +140,7 @@
               <div class="form-group col-md-12">
                 <label for="inputMobile" class="mb-5">Tell us about your requirement</label>
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                  style="height: 100px" name="requirement_text" ngModel required></textarea>
+                  style="height: 10px" name="requirement_text" ngModel required></textarea>
               </div>
               <div class="form-group text-center col-md-12">
                 <button class="register-btn" type="submit" [disabled]="!sendEnquiryForm.valid">
@@ -212,7 +211,7 @@
           <div class="category-content">
             <div class="category-item">
               <h1 class="fs-3 mb-3">{{ category.name }}</h1>
-              <button (click)="categoryById(category.id)">View All</button>
+              <button (click)="viewAllCategory(category.id)">View All</button>
             </div>
           </div>
         </div>
