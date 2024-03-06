@@ -188,6 +188,10 @@ export class HomeComponent {
     window.scrollTo(0, 0);
   }
 
+  viewAllCategory(id: any) {
+    this.router.navigate(["/viewAllCategory/" + id])
+  }
+
   productDetail(id: any) {
     this.router.navigate(["/product-list/detail/" + id])
   }

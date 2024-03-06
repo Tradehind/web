@@ -38,7 +38,7 @@ export class CategoryListComponent {
       complete: () => console.info('getCategories complete'),
     });
   }
-  
+
   redirectSubCategory(categoryId: number) {
     // console.log("Redirecting to /subcategory/")
     this.router.navigate(['/subcategory/' + categoryId]);
@@ -47,5 +47,5 @@ export class CategoryListComponent {
   searchByKey(value: number) {
     this.router.navigate(['/product-bycategory/' + value]);
   }
-  
+
 }
