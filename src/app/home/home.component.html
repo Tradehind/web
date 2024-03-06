@@ -4,7 +4,7 @@
 
   <section class="new-cat">
     <div class="text-center main-div" (mouseleave)="hideMenu = true">
-      
+
       <div class="row row-cols-2 row-cols-xl-6 row-cols-lg-4 row-cols-md-3 g-2 g-lg-3 main-div-row">
         <div class="col my-2" *ngFor="let category of categories" (mouseenter)="setCategoryMenu(category)">
           <div class="cat-card-div">
@@ -16,7 +16,7 @@
 
       <div class="row second-main-div-row">
         <div class="col my-2">
-          <div class="view-all-cat" (click)="viewAllCategories()">View all categories</div>
+          <div class="view-all-cat" (click)="viewAllCategories()">View all Categories</div>
         </div>
       </div>
 
@@ -37,6 +37,23 @@
       </div>
 
     </div>
+  </section>
+
+  <section>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+      <div class="col">
+
+        <div class="container">
+          <img src="img_snow_wide.jpg" alt="Snow" style="width:100%;">
+          <div class="centered">Centered</div>
+        </div>
+
+      </div>
+      <div class="col">
+      </div>
+    </div>
+
   </section>
 
 </div>
