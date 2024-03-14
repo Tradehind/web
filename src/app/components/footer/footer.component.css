@@ -54,7 +54,7 @@
   }
 
   .app-promo {
-    display: flex;
+    display: block;
     justify-content: center;
   }
 
@@ -180,4 +180,5 @@ h3 {
   .middle h1 {
     font-size: larger;
   }
+
 }

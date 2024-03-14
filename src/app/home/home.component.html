@@ -2,9 +2,8 @@
 
 <div class="new-container">
 
-  <section class="new-cat">
+  <section style="margin-bottom: 40px;" class="new-cat">
     <div class="text-center main-div" (mouseleave)="hideMenu = true">
-
       <div class="row row-cols-2 row-cols-xl-6 row-cols-lg-4 row-cols-md-3 g-2 g-lg-3 main-div-row">
         <div class="col my-2" *ngFor="let category of categories" (mouseenter)="setCategoryMenu(category)">
           <div class="cat-card-div">
@@ -13,13 +12,11 @@
           </div>
         </div>
       </div>
-
       <div class="row second-main-div-row">
         <div class="col my-2">
           <div class="view-all-cat" (click)="viewAllCategories()">View all Categories</div>
         </div>
       </div>
-
       <div class="subcategory-dropdown" *ngIf="categoryMenu && hideMenu == false">
         <div class="row subcategory-dropdown-row">
           <div class="col-lg-2 subcategory-dropdown-col" *ngFor="let menu of categoryMenu.subcategories">
@@ -35,151 +32,78 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- <section>
-
-    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-      <div class="col">
-
-        <div class="container">
-          <img src="img_snow_wide.jpg" alt="Snow" style="width:100%;">
-          <div class="centered">Centered</div>
-        </div>
-
-      </div>
-      <div class="col">
-      </div>
-    </div>
-
-  </section> -->
-
-</div>
-
-
-<div>
-  <!-- CATEGORY LIST -->
-  <!-- <div class="category-list custom-container container mt-1">
-    <div class="category-container" (mouseleave)="hideMenu = true">
-      <div class="row">
-        <div class="col-6 col-xl-2 col-lg-3 col-md-4 category-col category-item" *ngFor="let category of categories"
-          (mouseenter)="setCategoryMenu(category)">
-          <div class="d-flex align-items-center">
-            <img src="{{ fileUrl }}{{ category.icon }}" class="img-fluid category-icon" />
-            <span class="cat-name">
-              {{ category.name }}
-            </span>
-          </div>
-        </div>
-      </div>
-      <div>
-        <a class="view-all-btn" (click)="viewAllCategories()">View all categories</a>
-      </div>
-      <div class="subcategory-dropdown" *ngIf="categoryMenu && hideMenu == false">
-        <div class="row">
-          <div class="col-lg-2" *ngFor="let menu of categoryMenu.subcategories">
-            <h1 class="menu-name" (click)="categoryList()">{{ menu.name }}</h1>
-            <div class="sub-subcategory-list">
-              <ul>
-                <li *ngFor="let submenu of menu.Subsubcategories" class="submenu-name"
-                  (click)="subSubCategory(submenu.id)">
-                  {{ submenu.name }}
-                </li>
-              </ul>
+  <section style="margin-bottom: 40px;">
+    <div class="requirement-container">
+      <div class="row row-cols-1 row-cols-lg-2 g-2 g-lg-3 align-items-center">
+        <div class="col p-0 m-0 text-center">
+          <div class="requirement-header-div">
+            <div class="requirement-header">
+              <h1>Trade Smarter, Your Gateway to Business Success</h1>
+            </div>
+            <div class="join-now-btn">
+              <button class="btn" (click)="openEnquiryFormWithoutProduct()">Join Free</button>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div> -->
-
-
-  <div class="custom-container container mt-5">
-    <!-- ************** REQUIREMENT SECTION *********** -->
-    <div class="require-section section-margin requirement-bg" style="margin: 0; margin-bottom: 15px">
-      <div class="row ">
-        <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12 req-sec-left" style="align-items: center;">
-          <!-- <div class="req-sec-img mt-50">
-            <img src="../../assets/home/partnership.png" alt="" />
-          </div> -->
-          <div class="row req-sec-heading">
-            <h1>Trade Smarter, Your Gateway to Business Success</h1>
-          </div>
-          <div>
-            <button class="register-btn" (click)="openEnquiryFormWithoutProduct()">Join Free</button>
-            <img src="" alt="" />
-          </div>
-
-
-          <!-- <div class="">
-            <p class="req-sec-p">We connect Buyers & Sellers</p>
-          </div> -->
-        </div>
-        <div class="col-lg-1"></div>
-        <div class="col-lg-5 col-md-12 col-xs-12 col-sm-12">
-          <div class="req-container d-flex flex-column">
-            <div class="row req-heading">
-              <h2>Post Your Requirement</h2>
-              <p class="mb-3">Get the best Deals and Exclusive Offers with TradeHind</p>
-            </div>
-
-            <form class="d-flex flex-column form-row" (ngSubmit)="sendEnquiry(sendEnquiryForm.value)"
-              #sendEnquiryForm="ngForm" id="enquiry">
-              <div class="form-group col-md-12">
-                <label for="inputName" class="mb-5">Name</label>
-                <input type="text" class="form-control" id="inputText" placeholder="Please enter your full name"
-                  name="name" ngModel required />
+        <div class="col requirement-form-col">
+          <div class="requirement-form-div">
+            <form class="requirement-form" (ngSubmit)="sendEnquiry(sendEnquiryForm.value)" #sendEnquiryForm="ngForm"
+              id="enquiry">
+              <div class="mb-3 text-center">
+                <h1>Post Your Requirement</h1>
+                <p>Get the best Deals and Exclusive Offers with TradeHind</p>
               </div>
-              <div class="form-group col-md-12">
-                <label for="inputMobile" class="mb-5">Mobile Number</label>
-                <input type="tel" class="form-control" id="inputMobile" placeholder="Mobile Number" name="phone"
-                  maxlength="10" ngModel (keypress)="onKeyPress($event)" required />
+              <div class="mb-3">
+                <label for="inputName" class="form-label">Name</label>
+                <input type="text" class="form-control" id="inputName" aria-describedby="emailHelp"
+                  placeholder="Please enter your full name" name="name" ngModel required>
               </div>
-              <div class="form-group col-md-12">
-                <label for="inputMobile" class="mb-5">Tell us about your requirement</label>
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                  style="height: 10px" name="requirement_text" ngModel required></textarea>
+              <div class="mb-3">
+                <label for="inputNumber" class="form-label">Mobile Number</label>
+                <input type="number" class="form-control" id="inputNumber"
+                  placeholder="Please enter your contact number" name="phone" maxlength="10" ngModel
+                  (keypress)="onKeyPress($event)" required>
               </div>
-              <div class="form-group text-center col-md-12">
-                <button class="register-btn" type="submit" [disabled]="!sendEnquiryForm.valid">
-                  Submit
-                </button>
+              <div class="mb-3">
+                <label for="formControlTextarea" class="form-label">Tell us about your requirement</label>
+                <textarea class="form-control" id="formControlTextarea" placeholder="Leave a comment here" rows="3"
+                  name="requirement_text" ngModel required></textarea>
+              </div>
+              <div class="text-center requirement-submit-btn">
+                <button type="submit" class="btn" [disabled]="!sendEnquiryForm.valid">Submit</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- *****************  PRODUCT SECTION ************** -->
-    <section style="background-color: #eee" class="section-margin">
-      <div class="container py-5 text-center">
-        <h2 class="sec-heading">Recent Searches</h2>
-        <div class="row">
-          <div style="padding: 0" class="card text-black text-center col-lg-2" *ngFor="let product of homeProducts">
-            <img src="{{ fileUrl }}{{ product.primary_image }}" class="card-img-top" alt="{{ product.name }}" style="
-                align-self: center;
-                padding: 0px;
-                height: 200px;
-                width: 100%;
-                object-fit: cover;
-              " onerror="this.src='assets/imgs/Banner.jpg';" />
-            <div class="card-body">
-              <div class="text-center">
-                <h5 class="card-title" style="cursor: pointer;" (click)="productDetails(product.id)">{{ product.name }}
-                </h5>
-                <a class="btn btn-danger enquiry-btn" (click)="openEnquiryModal(product)">Send Enquiry</a>
-              </div>
+  <section style="margin-bottom: 40px;">
+    <div class="recent-search-container">
+      <h1 class="recent-search-heading">Recent Searches</h1>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 g-2 g-lg-3 recent-search-row">
+        <div class="col recent-search-col" *ngFor="let product of homeProducts">
+          <div class="recent-search-card">
+            <img src="{{ fileUrl }}{{ product.primary_image }}" class="img-fluid recent-card-img"
+              alt="{{ product.name }}" onerror="this.src='assets/imgs/Banner.jpg';">
+            <div class="recent-card-div">
+              <h1 class="recent-card-title" (click)="productDetails(product.id)">{{ product.name }}</h1>
+              <button type="button" class="btn recent-card-btn" (click)="openEnquiryModal(product)">
+                Send Enquiry
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- *********** CATEGORY LIST SECTION CLOTHING ******************** -->
-    <section class="section-margin dynamic-bg z-0" *ngFor="let category of footerCategories"
+ <section style="margin-bottom: 40px;">
+  <section class="section-margin dynamic-bg z-0" *ngFor="let category of footerCategories"
       [style.background]="'url(' + fileUrl + category.image + ')'">
       <div class="overlay"></div>
       <div class="row container-section z-2">
@@ -217,34 +141,31 @@
         </div>
       </div>
     </section>
-    <!-- **************** BLOG SECTION ************** -->
-    <div class="blog-section section-margin">
-      <h1 class="sec-heading-blog">Our Blogs</h1>
-      <div class="row d-flex justify-content-center">
-        <div class="card text-center col-lg-3 col-md-3 col-sm-6 col-xs-12" *ngFor="let blog of blogs"
-          style="width: 16rem; padding: 0px">
-          <img src="{{ fileUrl }}{{ blog.image }}" class="card-img-top p-0" alt="..."
-            style="height: 200px; width: 100%" />
+ </section>
 
-          <div class="card-body blog-card">
-            <h5 class="card-title fs-7 text-bold">
-              {{ blog.title | slice : 0 : 50 }}
-            </h5>
-            <p class="card-text crd-txt">
-              {{ blog.description | slice : 0 : 50 }}
-            </p>
-            <button type="button" class="btn btn-danger">Read More</button>
+  <section style="margin-bottom: 40px;">
+    <div class="recent-search-container">
+      <h1 class="recent-search-heading">Our Blogs</h1>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4 g-2 g-lg-3 recent-search-row">
+        <div class="col recent-search-col" *ngFor="let blog of blogs">
+          <div class="recent-search-card">
+            <img src="{{ fileUrl }}{{ blog.image }}" class="img-fluid recent-card-img"
+              alt="{{ blog.title | slice : 0 : 50 }}" onerror="this.src='assets/imgs/Banner.jpg';">
+            <div class="recent-card-div">
+              <h1 class="recent-card-title"> {{ blog.title | slice : 0 : 50 }}</h1>
+              <p>{{ blog.description | slice : 0 : 50 }}</p>
+              <button type="button" class="btn recent-card-btn">
+                Read More
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- ************* OUR SERVICES SECTION ******** -->
-    <section class="top-banner shadow-sm">
-      <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-sx-12 top-banner">
-         <img src="../../assets/imgs/top-banner.jpg" alt="" srcset="" /> 
-      </div> -->
-      <img src="../../assets/imgs/top-banner.jpg" alt="" srcset="" />
-    </section>
-  </div>
+  <section style="margin-bottom: 40px;">
+      <img src="../../assets/imgs/top-banner.jpg" class="img-fluid" alt="...">
+  </section>
+
 </div>

@@ -180,7 +180,7 @@ img {
 }
 
 .form-control:focus {
-  border-color: #ffffff !important;
+  border-color: #ffffff;
   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
 }
 
@@ -1557,7 +1557,7 @@ a:hover {
 }
 
 .section-margin {
-  margin-bottom: 50px !important;
+  margin-bottom: 40px !important;
 }
 
 .mb-10 {
@@ -1628,7 +1628,9 @@ a:hover {
   filter: brightness(50%);
 }
 
-/* -------------------------- */
+/* -------------- NEW CSS ------------ */
+
+/* CATEGORY SECTION CSS */
 
 .new-container {
   width: 85%;
@@ -1722,6 +1724,136 @@ a:hover {
   transition: 0.2s ease-in-out;
 }
 
+.form-control:focus {
+  border-color: #ca2c2c;
+}
+
+
+/* REQUIREMENT SECTION CSS */
+
+.requirement-container {
+  background-image: url("../../assets/imgs/handshake.jpg");
+  object-fit: fill;
+  background-position: center;
+  background-size: cover;
+  padding: 30px 0;
+}
+
+.requirement-header-div {
+  padding: 0 50px;
+}
+
+.requirement-header h1 {
+  font-size: 50px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.join-now-btn button {
+  background-color: #ca2c2c;
+  color: #ffffff;
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+
+.requirement-form-col {
+  padding: 0 100px;
+  margin: 0;
+}
+
+.requirement-form-div {
+  background-color: #ffffff;
+  padding: 30px 30px;
+  border-radius: 10px;
+}
+
+.requirement-form h1 {
+  font-size: 30px;
+  color: #000000;
+}
+
+.requirement-form p {
+  font-size: medium;
+  color: #d2042d;
+  margin: 0;
+}
+
+.requirement-submit-btn button {
+  background-color: #ca2c2c;
+  color: #ffffff;
+}
+
+/* RECENT SEARCH SECTION CSS */
+
+.recent-search-container {
+  background-color: #eeeeee;
+}
+
+.recent-search-heading {
+  color: black;
+  padding: 20px 40px 20px 40px;
+}
+
+.recent-search-row {
+  padding: 0px 20px 40px 20px;
+}
+
+.recent-search-col {
+  padding: 0 20px;
+  margin-top: 0;
+}
+
+.recent-search-card {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.recent-card-img {
+  width: 100%;
+  max-height: 180px;
+  min-height: 180px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0
+}
+
+.recent-card-div {
+  padding: 20px;
+}
+
+.recent-card-title {
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.recent-card-btn {
+  width: 100%;
+  background-color: #ca2c2c;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* CATEGORY LIST SECTION CSS */
+
+.maya-img {
+  height: 500px;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.khhg {
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 80%;
+}
+
 @media screen and (max-width: 990px) {
   .new-container {
     width: 100%;
@@ -1772,5 +1904,65 @@ a:hover {
 
   .new-container .new-cat .main-div .second-main-div-row .col .view-all-cat {
     font-size: 14px;
+  }
+
+  /* Requirment Section Responive CSS */
+
+  .requirement-header-div {
+    padding: 0 10px;
+  }
+
+  .requirement-header h1 {
+    font-size: 35px;
+    padding-bottom: 15px;
+  }
+
+  .join-now-btn button {
+    margin-bottom: 20px;
+  }
+
+  .requirement-form-col {
+    padding: 0 20px;
+  }
+
+  .requirement-form-div {
+    padding: 20px 20px;
+  }
+
+  .requirement-form h1 {
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 5px;
+  }
+
+  .requirement-form p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .requirement-form label {
+    font-size: 14px;
+  }
+
+  .requirement-form input {
+    font-size: 14px;
+  }
+
+  .requirement-form textarea {
+    font-size: 14px;
+  }
+
+  .requirement-submit-btn button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .recent-search-row {
+    padding: 0px 20px 0px 20px;
+  }
+
+  .recent-search-col {
+    margin-bottom: 40px;
   }
 }
